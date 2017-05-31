@@ -58,7 +58,6 @@ D:\project\ldap\bin\System.Web.WebPages.dll
 D:\project\ldap\bin\System.Web.WebPages.Razor.dll
 D:\project\ldap\bin\Microsoft.Web.Infrastructure.xml
 D:\project\ldap\bin\System.Web.Helpers.xml
-D:\project\ldap\bin\System.Web.Mvc.xml
 D:\project\ldap\bin\System.Web.Razor.xml
 D:\project\ldap\bin\System.Web.WebPages.xml
 D:\project\ldap\bin\System.Web.WebPages.Deployment.xml

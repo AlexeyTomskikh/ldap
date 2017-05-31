@@ -1,0 +1,93 @@
+﻿@model IEnumerable<ldap.Models.Event>
+
+<center><h2>Все мероприятия на текущий момент </h2></center>
+
+<div>
+    <table class="table-striped table-bordered table-bordered table-hover table-condensed" align="center">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Мероприятие</th>
+                <th>Дата начала</th>
+                <th>Дата конца</th>
+                <th>Автор</th>
+                <th>Удаление</th>
+            </tr>
+        </thead>
+        @foreach (ldap.Models.Event b in Model)
+        {
+            <tr>
+                <td align="center">@b.DescriptionEvent</td>
+                <td align="center">@b.StartTime</td>
+                <td align="center">@b.EndTime</td>
+                <td align="center">@b.UserID</td>
+                <td align="center"><a class="btn btn-default" href="/Logic/RemoveEvent?event_id=@b.id&param2=333" role="button">Удалить</a></td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model ldap.Models.Event
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DescriptionEvent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (ldap.Models.Event b in ViewBag.Events)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => b.DescriptionEvent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => b.StartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => b.EndTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => b.UserID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=b.id }) |
+            @Html.ActionLink("Details", "Details", new { id=b.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=b.id })
+        </td>
+    </tr>
+}
+
+</table>*@

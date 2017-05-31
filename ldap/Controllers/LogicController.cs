@@ -21,6 +21,13 @@ namespace ldap.Controllers
             return PartialView(calendarModel);
         }
 
+        // Метод возвращает все события в выбранный день
+        public ActionResult _getEventsOfDay(DateTime currentDate)
+        {
+            List<Event> list= new EventManagement().GetAllEvents(currentDate);
+            return PartialView(list);
+        }
+
         //метод формирует модель для обновления данных календаря по кнопке вперёд назад
         public CalendarModel getModel(int year, int month, int day)
         {
@@ -88,12 +95,14 @@ namespace ldap.Controllers
                  orderby ((DateTime)item.StartTime).ToString()
                  select item).ToList();  // Получить все события из таблицы Events сортированные по дате
 
+            EventManagement ev = new EventManagement();
+            List<Event> listEvents = ev.GetAllEvents(DateTime.Today);
 
-            ViewBag.Events = events; // Передача этого списка в частичное представление, откуда попадает в Logic
+            //ViewBag.Events = events; // Передача этого списка в частичное представление, откуда попадает в Logic
 
             CalendarModel currentCalendarModel = getModel(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
 
-            return View(currentCalendarModel);
+            return View(new LogicModel {eventList = listEvents, calendarModel = currentCalendarModel });
         }
 
 

@@ -21,4 +21,14 @@ namespace ldap.Models
         public DateTime prevDate { get; set; }
         public DateTime curentDate { get; set; }
     }
+
+
+    public class LogicModel
+    {
+
+        public List<Event> eventList { get; set; }
+
+        public CalendarModel calendarModel { get; set; }
+
+    }
 }

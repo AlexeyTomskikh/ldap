@@ -13,7 +13,7 @@ namespace ldap.Infrastructure
        
 
         // Метод возвращает список всех событий в указанный день
-        public IEnumerable<Event> GetAllEvents(DateTime day)
+        public List<Event> GetAllEvents(DateTime day)
         {
             LdapDbContext context = new LdapDbContext();
             DateTime data = day.Date.AddDays(1);

@@ -1,4 +1,4 @@
-﻿@model ldap.Models.CalendarModel
+﻿@model ldap.Models.LogicModel
 
 @{
     Layout = "~/Views/Shared/Layout.cshtml";
@@ -8,64 +8,33 @@
 }
 
 <script>
-    //function setCurrentDate() {
-    //    var _data = {
-    //        year: new Date().getYear,
-    //        month: new Date().getMonth
-    //    };
-
-    //    $.ajax({
-    //        url: "/Calendar/_getCalendar",
-    //        dataType: "json",
-    //        type: "POST",
-    //        async: true,
-    //        data: _data,
-    //        success: "",
-    //        error: function (xhr) {
-    //            alert("Error");
-    //            alert(xhr.responseText);
-    //        }
-    //    });
-    //}
-
     function reloadCalendar(year, month, day)
     {
         //alert('year=' + year + ' month=' + month);
         $('#calendar').load('_getCalendar', { 'year': year, 'month': month, 'day': day });
     }
 
-
-    //$(function() {
-    //    var year = new Date().getFullYear();
-    //    var month = new Date().getMonth() + 1;
-    //    //alert('year=' + year + ' month=' + month);
-    //    $('#btn1').click(function () {
-    //        $(this).css('background-color', 'red');
-    //        $('#calendar').load('_getCalendar', { 'year': year, 'month': month });
-    //    });
-    //});
+    function loadEventsOfDay(currentDate) {
+   //DateTime ff = new DataTime(year, month, mem);
+        //alert(year, month, mem);
+        $('#eventsofday').load('_getEventsOfDay', { 'currentDate': currentDate });
+    }
 
 </script>
 
-@*<script type="text/javascript">
-    $(document).ready(function () {
-        $('#next').click(function (e) {
-            e.preventDefault();
-            var nextMonth = new Date().getMonth + 1;
-            var currentYear = new Date().getYear;
-
-            $('#calendar').load('@Url.Action("_getCalendar", "Logic")?year=' + nextMonth + '&month=' + currentYear, #)
-        });
-    });
-</script>*@
-
 
 <div id="calendar">
-    @Html.Partial("_getCalendar", Model)
+    @Html.Partial("_getCalendar", Model.calendarModel)
 </div>
 
 
-@Html.Partial("_eventList", new ldap.Models.Event())
+<div id="eventsofday">
+    @Html.Partial("_getEventsOfDay", Model.eventList )
+</div>
+
+
+@*Выводит список всех событий
+Html.Partial("_eventList", new ldap.Models.Event())*@
 
 
 

@@ -25,6 +25,7 @@
     @{
 
         int mem = 1;
+        DateTime curDat;
         for (int i = 0;
             i <= Model.numberOfLines; i++)
         {
@@ -33,7 +34,17 @@
                 {
                     if ((i == 0 && Model.dayOfWeek <= j) || (i > 0 && mem <= Model.daysInMonth))
                     {
-                        <td align="center" class="js-myday" id="calendar-day-@mem">@mem </td>
+                        curDat = new DateTime(Model.currentYear, Model.currentMonth, mem);
+                        if (Model.currentDay == mem)
+                        {
+                            <td bgcolor="#7FFF00" align="center" class="js-myday" id="calendar-day-@mem">
+                                <a href="#" onclick="loadEventsOfDay('@curDat'); false;"><b>@mem </b> </a>
+                            </td>
+                        }
+                        else
+                        {
+                            <td align="center" class="js-myday" id="calendar-day-@mem"><a href="#" onclick="loadEventsOfDay('@curDat'); false;">@mem </a></td>
+                        }
                         mem++;
                     }
                     else
