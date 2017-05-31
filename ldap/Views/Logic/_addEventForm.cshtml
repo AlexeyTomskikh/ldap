@@ -2,14 +2,14 @@
     //Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<div>
+
+<center>
+<div >
     @using (Html.BeginForm("Reservation", "Logic", FormMethod.Post))
     {
         <h2>Добавить мероприятие:</h2>
         //<h2>@ViewBag.Message</h2>
-        <div>
-            <p>Сегодня: @DateTime.Now.ToShortDateString() Время:@DateTime.Now.ToShortTimeString()</p>
-        </div>
+        
         <table border="0" cellspacing="0" cellpadding="2" style="background-color:#E6E6FA; color:#000000">
             <tr>
                 <th>Название</th>
@@ -26,13 +26,9 @@
         </table>
     }
 
-
-
-
-
-
 </div>
 
+    </center>
 
 
 
@@ -52,22 +48,21 @@
 
 
 
+        @*<div>
 
-@*<div>
-
-        @using (Html.BeginForm("Reservation", "Logic", FormMethod.Post))
-        {
-            <p>Название мероприятия: </p>
+                @using (Html.BeginForm("Reservation", "Logic", FormMethod.Post))
+                {
+                    <p>Название мероприятия: </p>
 
 
-            @Html.TextBox("NameEvent")
-            <p>Начало:</p>
-            @Html.TextBox("StartEvent")
+                    @Html.TextBox("NameEvent")
+                    <p>Начало:</p>
+                    @Html.TextBox("StartEvent")
 
-            <p>Конец:</p>
-            @Html.TextBox("EndEvent")
+                    <p>Конец:</p>
+                    @Html.TextBox("EndEvent")
 
-            @Html.ValidationSummary("StartEvent")
-            <p><input type="submit" value="Забронировать" /></p>
-        }
-    </div>*@
+                    @Html.ValidationSummary("StartEvent")
+                    <p><input type="submit" value="Забронировать" /></p>
+                }
+            </div>*@

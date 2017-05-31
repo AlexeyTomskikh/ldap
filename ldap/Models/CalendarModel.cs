@@ -15,7 +15,10 @@ namespace ldap.Models
         public int currentMonth { get; set; }
         public int currentYear { get; set; }
 
+        public string nameMonth { get; set; }
+
         public DateTime nextDate { get; set; }
         public DateTime prevDate { get; set; }
+        public DateTime curentDate { get; set; }
     }
 }

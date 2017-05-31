@@ -46,3 +46,22 @@ C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 
 C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\obj\Debug\ldap.csprojResolveAssemblyReference.cache
 C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\obj\Debug\ldap.dll
 C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\obj\Debug\ldap.pdb
+D:\project\ldap\bin\ldap.dll.config
+D:\project\ldap\bin\ldap.dll
+D:\project\ldap\bin\ldap.pdb
+D:\project\ldap\bin\Microsoft.Web.Infrastructure.dll
+D:\project\ldap\bin\Newtonsoft.Json.dll
+D:\project\ldap\bin\System.Web.Helpers.dll
+D:\project\ldap\bin\System.Web.Razor.dll
+D:\project\ldap\bin\System.Web.WebPages.Deployment.dll
+D:\project\ldap\bin\System.Web.WebPages.dll
+D:\project\ldap\bin\System.Web.WebPages.Razor.dll
+D:\project\ldap\bin\Microsoft.Web.Infrastructure.xml
+D:\project\ldap\bin\System.Web.Helpers.xml
+D:\project\ldap\bin\System.Web.Mvc.xml
+D:\project\ldap\bin\System.Web.Razor.xml
+D:\project\ldap\bin\System.Web.WebPages.xml
+D:\project\ldap\bin\System.Web.WebPages.Deployment.xml
+D:\project\ldap\bin\System.Web.WebPages.Razor.xml
+D:\project\ldap\obj\Debug\ldap.dll
+D:\project\ldap\obj\Debug\ldap.pdb

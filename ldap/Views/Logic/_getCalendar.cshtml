@@ -1,25 +1,26 @@
 ﻿@model ldap.Models.CalendarModel
 
 
+<center>
+    <h2>Календарь</h2>
+    <p>Сегодня: @DateTime.Now.ToShortDateString() Время:@DateTime.Now.ToShortTimeString()</p>
+</center>
 
-@* Кнопки "Вперёд" ,"Назад" *@
-<a href="#" onclick="reloadCalendar(@Model.prevDate.Year, @Model.prevDate.Month, @Model.prevDate.Day); false;">Предыдущий</a>
-<a href="#" onclick="reloadCalendar(@Model.nextDate.Year, @Model.nextDate.Month, @Model.nextDate.Day); false;">Следующий</a>
-
-
-
-<table width="1000" border="1">
-    <thead>
-        <tr>
-            <th>Понедельник</th>
-            <th>Вторник</th>
-            <th>Среда</th>
-            <th>Четверг</th>
-            <th>Пятница</th>
-            <th>Суббота</th>
-            <th>Воскресенье</th>
-        </tr>
-    </thead>
+<table width="1000" border="1" align="center">
+    <tr align="center">
+        <td><a href="#" onclick="reloadCalendar(@Model.prevDate.Year, @Model.prevDate.Month, @Model.prevDate.Day); false;">Назад</a></td>
+        <td colspan="5">@Model.nameMonth.ToString()</td>
+        <td><a href="#" onclick="reloadCalendar(@Model.nextDate.Year, @Model.nextDate.Month, @Model.nextDate.Day); false;">Вперёд</a></td>
+    </tr>
+    <tr align="center">
+        <td><b>Понедельник</b></td>
+        <td><b>Вторник</b></td>
+        <td><b>Среда</b></td>
+        <td><b>Четверг</b></td>
+        <td><b>Пятница</b></td>
+        <td><b>Суббота</b></td>
+        <td><b>Воскресенье</b></td>
+    </tr>
 
     @{
 

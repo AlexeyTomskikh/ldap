@@ -41,7 +41,10 @@ namespace ldap.Controllers
             // Получаем номер дня  внеделе
             int _dayOfWeek = ((int)date1.DayOfWeek == 0) ? 7 : (int)date1.DayOfWeek;
 
-           
+            string _nameMonth = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month) + " " + year;
+
+            DateTime _curentDate = new DateTime(year, month, day);
+
             CalendarModel calendarModel = new CalendarModel //new CalendarModel();
             {
                 daysInMonth = _daysInMonth,
@@ -50,8 +53,10 @@ namespace ldap.Controllers
                 currentDay = day,
                 currentMonth = month,
                 currentYear = year,
+                nameMonth = _nameMonth,
                 nextDate = CalcNextDate(year,month, day),
-                prevDate = CalcPrevDate(year, month, day)
+                prevDate = CalcPrevDate(year, month, day),
+                curentDate = _curentDate
             };
 
             return calendarModel;
