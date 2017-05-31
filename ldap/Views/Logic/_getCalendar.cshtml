@@ -1,31 +1,10 @@
 ﻿@model ldap.Models.CalendarModel
 
-@* @using (Ajax.BeginForm("_getCalendar", new AjaxOptions { UpdateTargetId = "calendar" }))
-    {
-        <input id="prev" type="submit" value="Предыдущий" />
-        <input id="next" type="submit" value="Следующий" />
-    }*@
-
-<a href="#" onclick="reloadCalendar(2017, 2); false;">Предыдущий</a>&nbsp;
-<a href="#" onclick="reloadCalendar(2017, 5); false">Следующий</a>
 
 
-
-@*<button>след</button>
-<script>
-    $(function () {
-        var year = new Date().getYear();
-        var month = new Date().getMonth();
-        //alert('year=' + year + ' month=' + month);
-        $('button').click(function () {
-            $('#calendar').load('_getCalendar', { 'year': year, 'month': month });
-
-        });
-    });
-
-</script>*@
-
-@*<div id="news"><h3>Нет новостей</h3></div>*@
+@* Кнопки "Вперёд" ,"Назад" *@
+<a href="#" onclick="reloadCalendar(@Model.prevDate.Year, @Model.prevDate.Month, @Model.prevDate.Day); false;">Предыдущий</a>
+<a href="#" onclick="reloadCalendar(@Model.nextDate.Year, @Model.nextDate.Month, @Model.nextDate.Day); false;">Следующий</a>
 
 
 

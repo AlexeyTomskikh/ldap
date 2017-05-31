@@ -28,21 +28,22 @@
     //    });
     //}
 
-    function reloadCalendar(year, month)
+    function reloadCalendar(year, month, day)
     {
         //alert('year=' + year + ' month=' + month);
-        $('#calendar').load('_getCalendar', { 'year': year, 'month': month });
+        $('#calendar').load('_getCalendar', { 'year': year, 'month': month, 'day': day });
     }
 
 
-    $(function() {
-        var year = new Date().getFullYear();
-        var month = new Date().getMonth() + 1;
-        //alert('year=' + year + ' month=' + month);
-        $('button').click(function() {
-            $('#calendar').load('_getCalendar', { 'year': year, 'month': month });
-        });
-    });
+    //$(function() {
+    //    var year = new Date().getFullYear();
+    //    var month = new Date().getMonth() + 1;
+    //    //alert('year=' + year + ' month=' + month);
+    //    $('#btn1').click(function () {
+    //        $(this).css('background-color', 'red');
+    //        $('#calendar').load('_getCalendar', { 'year': year, 'month': month });
+    //    });
+    //});
 
 </script>
 

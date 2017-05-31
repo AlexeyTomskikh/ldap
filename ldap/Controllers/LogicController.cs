@@ -14,20 +14,21 @@ namespace ldap.Controllers
 
         // Метод возвращает модель calendarModel в частичное представление _getCalendar
         [HttpPost]
-        public ActionResult _getCalendar(int year, int month)
+        public ActionResult _getCalendar(int year, int month,int day)
         {
-            CalendarModel calendarModel = getModel(year, month);
+            CalendarModel calendarModel = getModel(year, month, day);
 
             return PartialView(calendarModel);
         }
 
-        public CalendarModel getModel(int year, int month)
+        //метод формирует модель для обновления данных календаря по кнопке вперёд назад
+        public CalendarModel getModel(int year, int month, int day)
         {
             // Вычисляем количество строк в таблице в зависимости от года
             DateTimeFormatInfo dfi = DateTimeFormatInfo.CurrentInfo;
 
-            DateTime date1 = new DateTime(year, month, 1, new GregorianCalendar());
-            DateTime date2 = date1.AddMonths(1).AddDays(-1);
+            DateTime date1 = new DateTime(year, month, 1, new GregorianCalendar()); //получаем первый день месяца
+            DateTime date2 = date1.AddMonths(1).AddDays(-1);                        // получаем последний день месяца
 
             Calendar cal = dfi.Calendar;
             int firstWeek = cal.GetWeekOfYear(date1, dfi.CalendarWeekRule, dfi.FirstDayOfWeek); // первая неделя месяца
@@ -40,14 +41,35 @@ namespace ldap.Controllers
             // Получаем номер дня  внеделе
             int _dayOfWeek = ((int)date1.DayOfWeek == 0) ? 7 : (int)date1.DayOfWeek;
 
+           
             CalendarModel calendarModel = new CalendarModel //new CalendarModel();
             {
                 daysInMonth = _daysInMonth,
                 dayOfWeek = _dayOfWeek,
-                numberOfLines = _numberOfLines
+                numberOfLines = _numberOfLines,
+                currentDay = day,
+                currentMonth = month,
+                currentYear = year,
+                nextDate = CalcNextDate(year,month, day),
+                prevDate = CalcPrevDate(year, month, day)
             };
 
             return calendarModel;
+        }
+
+        // Вспомогат. метод вычисляет следующую дату
+        private DateTime CalcNextDate(int year, int month, int day)
+        {
+            DateTime currentDate = new DateTime(year, month, day);
+            DateTime nextDate = currentDate.AddMonths(1);
+            return nextDate;
+        }
+        // Вспомогат. метод вычисляет предыдущую дату
+        private DateTime CalcPrevDate(int year, int month, int day )
+        {
+            DateTime currentDate = new DateTime(year, month, day);
+            DateTime prevDate = currentDate.AddMonths(-1);
+            return prevDate;
         }
 
         // Метод выводит основную страницу расписания (список текущих событий) + форма добвления нового мероприятия
@@ -64,7 +86,7 @@ namespace ldap.Controllers
 
             ViewBag.Events = events; // Передача этого списка в частичное представление, откуда попадает в Logic
 
-            CalendarModel currentCalendarModel = getModel(DateTime.Now.Year, DateTime.Now.Month);
+            CalendarModel currentCalendarModel = getModel(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
 
             return View(currentCalendarModel);
         }
