@@ -39,8 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EasyGitHub">
-      <HintPath>..\packages\EasyGitHub.1.0.27.0\lib\net45\EasyGitHub.dll</HintPath>
+    <Reference Include="EasyGitHub, Version=1.0.27.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EasyGitHub.1.0.27.0\lib\net45\EasyGitHub.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -242,7 +243,9 @@
     <Content Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\Login.cshtml" />
