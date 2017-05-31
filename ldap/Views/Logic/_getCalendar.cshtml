@@ -1,0 +1,67 @@
+﻿@model ldap.Models.CalendarModel
+
+@* @using (Ajax.BeginForm("_getCalendar", new AjaxOptions { UpdateTargetId = "calendar" }))
+    {
+        <input id="prev" type="submit" value="Предыдущий" />
+        <input id="next" type="submit" value="Следующий" />
+    }*@
+
+<a href="#" onclick="reloadCalendar(2017, 2); false;">Предыдущий</a>&nbsp;
+<a href="#" onclick="reloadCalendar(2017, 5); false">Следующий</a>
+
+
+
+@*<button>след</button>
+<script>
+    $(function () {
+        var year = new Date().getYear();
+        var month = new Date().getMonth();
+        //alert('year=' + year + ' month=' + month);
+        $('button').click(function () {
+            $('#calendar').load('_getCalendar', { 'year': year, 'month': month });
+
+        });
+    });
+
+</script>*@
+
+@*<div id="news"><h3>Нет новостей</h3></div>*@
+
+
+
+<table width="1000" border="1">
+    <thead>
+        <tr>
+            <th>Понедельник</th>
+            <th>Вторник</th>
+            <th>Среда</th>
+            <th>Четверг</th>
+            <th>Пятница</th>
+            <th>Суббота</th>
+            <th>Воскресенье</th>
+        </tr>
+    </thead>
+
+    @{
+
+        int mem = 1;
+        for (int i = 0;
+            i <= Model.numberOfLines; i++)
+        {
+            <tr>
+                @for (int j = 1; j <= 7; j++)
+                {
+                    if ((i == 0 && Model.dayOfWeek <= j) || (i > 0 && mem <= Model.daysInMonth))
+                    {
+                        <td align="center" class="js-myday" id="calendar-day-@mem">@mem </td>
+                        mem++;
+                    }
+                    else
+                    {
+                        <td align="center"></td>
+                    }
+                }
+            </tr>
+        }
+    }
+</table>

@@ -1,0 +1,143 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Календарь</title>
+    <link href="~/Content/css/eventCalendar.css" rel="stylesheet" />
+    <link href="~/Content/css/eventCalendar_theme_responsive.css" rel="stylesheet" />
+</head>
+<body>
+    @*<div id="eventCalendar" style="width: auto; height: 500px; margin: 50px auto;">
+    </div>*@
+
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/calendar/moment.js"></script>
+    <script src="~/Scripts/calendar/jquery.eventCalendar.js"></script>
+    
+
+
+
+    <h2>Календарь</h2>
+
+    @* HTML *@
+
+    <div ng-app="myApp" ng-controller="myNgController">
+        <div class="row">
+            <div class="col-md-8">
+                <div id="calendar" ui-calendar="uiConfig.calendar" ng-model="eventSources" calendar="myCalendar"></div>
+            </div>
+            <div class="col-md-4">
+                <div ng-show="SelectedEvent" class="alert alert-success" style="margin-top:50px">
+                    <h2 style="margin-top:0px"> Выбранное событие:</h2>
+                    <h3 style="color:#A9A50E">{{SelectedEvent.title}}</h3>
+                    <p>{{SelectedEvent.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* CSS *@
+    <link href="~/Scripts/calendar2/fullcalendar.css" rel="stylesheet" />
+    @*<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />*@
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    @* JS *@
+    <script src="~/Scripts/calendar2/moment.js"></script>
+    <script src="~/Scripts/calendar2/jquery-1.11.3.js"></script>
+    <script src="~/Scripts/calendar2/angular.js"></script>
+    <script src="~/Scripts/calendar2/calendar.js"></script>
+    <script src="~/Scripts/calendar2/fullcalendar.js"></script>
+    @*<script src="~/Scripts/calendar2/gcal.js"></script>*@
+    @* ANGULAR компонент *@
+    <script src="~/Scripts/calendar2/MyApp.js"></script>
+    @*<script>
+        // title - название события
+
+        $(function () {
+            var data = [
+                   { "date": "2017-05-26 10:15:20", "title": "Совещание", "description": "Lorem Ipsum dolor set", "url": "http://www.event3.com/" },
+   { "date": "2017-05-26 10:15:20", "title": "Совещание45", "description": "Lorem Ipsum dolor set", "url": "http://www.event3.com/" },
+   { "date": "2017-05-27 10:15:20", "title": "Собеседование", "description": "Lorem Ipsum dolor set", "url": "http://www.event3.com/" },
+   { "date": "2017-05-28 10:15:20", "title": "Вечеринка", "description": "Lorem Ipsum dolor set", "url": "http://www.event3.com/" }
+            ];
+
+            $('#eventCalendar').eventCalendar({
+
+                jsonData: data,
+                eventsjson: 'Scripts/js/data.json',
+                jsonDateFormat: 'human',
+                dateFormat: "dddd DD-MM-YYYY",
+                showDescription: true,
+                locales: {
+                    locale: "ru",
+                    txt_noEvents: "Нет запланированных событий",
+                    txt_SpecificEvents_prev: "",
+                    txt_SpecificEvents_after: "события:",
+                    txt_NextEvents: "Следующие события:",
+                    txt_GoToEventUrl: "Смотреть",
+                    moment: {
+                        "months": ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+                                "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+                        "monthsShort": ["Янв", "Фев", "Мар", "Апр", "Май", "Июн",
+                                "Июль", "Авг", "Сент", "Окт", "Ноя", "Дек"],
+                        "weekdays": ["Воскресенье", "Понедельник", "Вторник", "Среда",
+                                "Четверг", "Пятница", "Суббота"],
+                        "weekdaysShort": ["Вс", "Пн", "Вт", "Ср",
+                                "Чт", "Пят", "Суб"],
+                        "weekdaysMin": ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+                        "longDateFormat": {
+                            "LT": "H:mm",
+                            "LTS": "LT:ss",
+                            "L": "DD/MM/YYYY",
+                            "LL": "D [de] MMMM [de] YYYY",
+                            "LLL": "D [de] MMMM [de] YYYY LT",
+                            "LLLL": "dddd, D [de] MMMM [de] YYYY LT"
+                        },
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        }
+                    }
+
+                }
+
+            });
+        });
+
+    </script>*@
+
+    
+
+    <h2>Все события</h2>
+    <div style="width:90%; margin:0 auto;">
+        <table id="myTable" class="demotable">
+            <thead>
+                <tr align="left">
+                    <th>id события</th>
+                    <th hidden>#</th>
+                    <th>Название события</th>
+                    <th>Начало</th>
+                    <th>Конец</th>
+                    <th>id автора</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <style>
+        tr.even {
+            background-color: #F5F5F5 !important;
+        }
+    </style>
+
+    @* css для таблицы *@
+    <link href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" rel="stylesheet" />
+    @* скрипт таблицы  *@
+    <script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+   
+
+
+</body>
+</html>

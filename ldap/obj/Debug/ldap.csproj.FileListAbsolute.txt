@@ -1,0 +1,48 @@
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\ldap.dll.config
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\ldap.dll
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\ldap.pdb
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\Microsoft.Web.Infrastructure.dll
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\Newtonsoft.Json.dll
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\System.Web.Helpers.dll
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\System.Web.Mvc.dll
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\System.Web.Razor.dll
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\System.Web.WebPages.Deployment.dll
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\System.Web.WebPages.dll
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\System.Web.WebPages.Razor.dll
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\Newtonsoft.Json.xml
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\System.Web.Helpers.xml
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\System.Web.Mvc.xml
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\System.Web.Razor.xml
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\System.Web.WebPages.xml
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\System.Web.WebPages.Deployment.xml
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\bin\System.Web.WebPages.Razor.xml
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\obj\Debug\ldap.dll
+c:\users\tomskikh.aa\documents\visual studio 2013\Projects\ldap\ldap\obj\Debug\ldap.pdb
+C:\Users\Tomskikh.AA\documents\visual studio 2013\Projects\ldap\ldap\bin\EntityFramework.dll
+C:\Users\Tomskikh.AA\documents\visual studio 2013\Projects\ldap\ldap\bin\EntityFramework.SqlServer.dll
+C:\Users\Tomskikh.AA\documents\visual studio 2013\Projects\ldap\ldap\bin\EntityFramework.xml
+C:\Users\Tomskikh.AA\documents\visual studio 2013\Projects\ldap\ldap\bin\EntityFramework.SqlServer.xml
+C:\Users\Tomskikh.AA\Documents\Visual Studio 2013\Projects\ldap\ldap\obj\Debug\ldap.csprojResolveAssemblyReference.cache
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\ldap.dll.config
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\ldap.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\ldap.pdb
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\Newtonsoft.Json.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\System.Web.Helpers.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\System.Web.Razor.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\System.Web.WebPages.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\System.Web.WebPages.Razor.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\EntityFramework.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\EntityFramework.SqlServer.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\System.Web.Helpers.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\System.Web.Mvc.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\System.Web.Razor.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\System.Web.WebPages.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\bin\System.Web.WebPages.Razor.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\obj\Debug\ldap.csprojResolveAssemblyReference.cache
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\obj\Debug\ldap.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 30.05.2017 17-40\ldap\obj\Debug\ldap.pdb

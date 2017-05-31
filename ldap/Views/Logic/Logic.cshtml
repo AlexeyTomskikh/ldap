@@ -1,0 +1,84 @@
+﻿@model ldap.Models.CalendarModel
+
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Logic";
+}
+
+<script>
+    //function setCurrentDate() {
+    //    var _data = {
+    //        year: new Date().getYear,
+    //        month: new Date().getMonth
+    //    };
+
+    //    $.ajax({
+    //        url: "/Calendar/_getCalendar",
+    //        dataType: "json",
+    //        type: "POST",
+    //        async: true,
+    //        data: _data,
+    //        success: "",
+    //        error: function (xhr) {
+    //            alert("Error");
+    //            alert(xhr.responseText);
+    //        }
+    //    });
+    //}
+
+    function reloadCalendar(year, month)
+    {
+        //alert('year=' + year + ' month=' + month);
+        $('#calendar').load('_getCalendar', { 'year': year, 'month': month });
+    }
+
+
+    $(function() {
+        var year = new Date().getFullYear();
+        var month = new Date().getMonth() + 1;
+        //alert('year=' + year + ' month=' + month);
+        $('button').click(function() {
+            $('#calendar').load('_getCalendar', { 'year': year, 'month': month });
+        });
+    });
+
+</script>
+
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        $('#next').click(function (e) {
+            e.preventDefault();
+            var nextMonth = new Date().getMonth + 1;
+            var currentYear = new Date().getYear;
+
+            $('#calendar').load('@Url.Action("_getCalendar", "Logic")?year=' + nextMonth + '&month=' + currentYear, #)
+        });
+    });
+</script>*@
+
+
+<div id="calendar">
+    @Html.Partial("_getCalendar", Model)
+</div>
+
+
+@Html.Partial("_eventList", new ldap.Models.Event())
+
+
+
+@if (ViewContext.HttpContext.User.IsInRole("Admin") || ViewContext.HttpContext.User.IsInRole("UserReadAndWrite"))
+{
+    @Html.Partial("_addEventForm")
+}
+
+
+
+@Html.ActionLink("Выйти", "LogOff", "Account")
+
+
+
+
+
+

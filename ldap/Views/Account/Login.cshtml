@@ -1,0 +1,81 @@
+﻿@model ldap.Models.Login
+@{
+    ViewBag.Title = "Login";
+}
+@*@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}*@
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>rtgr</title>
+    <link rel="stylesheet" type="text/css" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/ui-lightness/jquery-ui.css"></style>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.2/jquery-ui.min.js"></script>
+
+</head>
+<body>
+
+    <section id="loginForm">
+
+        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-xs-10">
+                        @Html.LabelFor(m => m.UserName)
+                        @Html.TextBoxFor(m => m.UserName)
+                        @Html.ValidationMessageFor(m => m.UserName)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-10">
+                        @Html.LabelFor(m => m.Password)
+                        @Html.PasswordFor(m => m.Password)
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+                </div>
+
+                @*<label><input type="checkbox"> Запомнить</label>
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @Html.LabelFor(m => m.RememberMe)*@
+
+                <div class="col-xs-10">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-7">
+                        <button type="submit" class="btn btn-primary btn-sm">Войти</button>
+                    </div>
+                </div>
+            </form>
+        }
+    </section>
+
+
+    <div id="menu">
+        <p><a href="1.html" class="open">Ссылка 1</a></p>
+        <p><a href="2.html" class="open">Ссылка 2</a></p>
+    </div>
+    <p><a href="3.html" class="open">Ссылка 3</a></p>
+
+    <script src="jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+
+            $(".open", "div#menu").css('background-color', 'silver');
+        });
+    </script>
+</body>
+</html>
