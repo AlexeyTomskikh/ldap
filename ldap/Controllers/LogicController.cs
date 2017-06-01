@@ -14,7 +14,7 @@ namespace ldap.Controllers
 
         // Метод возвращает модель calendarModel в частичное представление _getCalendar
         [HttpPost]
-        public ActionResult _getCalendar(int year, int month,int day)
+        public ActionResult _getCalendar(int year, int month, int day)
         {
             CalendarModel calendarModel = getModel(year, month, day);
 
@@ -24,15 +24,15 @@ namespace ldap.Controllers
         // Метод возвращает все события в выбранный день
         public ActionResult _getEventsOfDay(DateTime currentDate)
         {
-            List<Event> list= new EventManagement().GetAllEvents(currentDate);
+            List<Event> list = new EventManagement().GetAllEvents(currentDate);
             return PartialView(list);
         }
 
         //метод формирует модель для обновления данных календаря по кнопке вперёд назад
         public CalendarModel getModel(int year, int month, int day)
         {
-            // Вычисляем количество строк в таблице в зависимости от года
-            DateTimeFormatInfo dfi = DateTimeFormatInfo.CurrentInfo;
+
+            DateTimeFormatInfo dfi = DateTimeFormatInfo.CurrentInfo; // Вычисляем количество строк в таблице в зависимости от года
 
             DateTime date1 = new DateTime(year, month, 1, new GregorianCalendar()); //получаем первый день месяца
             DateTime date2 = date1.AddMonths(1).AddDays(-1);                        // получаем последний день месяца
@@ -61,7 +61,7 @@ namespace ldap.Controllers
                 currentMonth = month,
                 currentYear = year,
                 nameMonth = _nameMonth,
-                nextDate = CalcNextDate(year,month, day),
+                nextDate = CalcNextDate(year, month, day),
                 prevDate = CalcPrevDate(year, month, day),
                 curentDate = _curentDate
             };
@@ -77,7 +77,7 @@ namespace ldap.Controllers
             return nextDate;
         }
         // Вспомогат. метод вычисляет предыдущую дату
-        private DateTime CalcPrevDate(int year, int month, int day )
+        private DateTime CalcPrevDate(int year, int month, int day)
         {
             DateTime currentDate = new DateTime(year, month, day);
             DateTime prevDate = currentDate.AddMonths(-1);
@@ -102,7 +102,7 @@ namespace ldap.Controllers
 
             CalendarModel currentCalendarModel = getModel(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
 
-            return View(new LogicModel {eventList = listEvents, calendarModel = currentCalendarModel });
+            return View(new LogicModel { eventList = listEvents, calendarModel = currentCalendarModel });
         }
 
 
@@ -111,7 +111,7 @@ namespace ldap.Controllers
         {
             EventManagement ev = new EventManagement();
             ViewBag.Events = ev.GetAllEventsOfPeriod(FilterStartEvent, FilterEndEvent);
-             return View("Logic");
+            return View("Logic");
         }
 
         // Метод контролирует процесс создания нового мероприятия 
@@ -156,6 +156,43 @@ namespace ldap.Controllers
         }
 
 
+        // Метод записывает в бд и выдаёт true или выдаёт false
+        private bool CheckFreetime(EventModels model)
+        {
+            EventManagement eventManagment = new EventManagement();
+            IEnumerable<Event> listAllEventsDay = eventManagment.GetAllEvents(model.StartEvent.Date);// получаем все события на этот день
+
+            if (eventManagment.busyStartTime(listAllEventsDay, model.StartEvent)&&(eventManagment.busyEndTime(listAllEventsDay, model.EndEvent)))
+            {
+                    UserInfo userInfo = new UserInfo();
+                    int userId = userInfo.getCurrentUserId();
+                    eventManagment.WriteToDatabase(model.NameEvent, model.StartEvent, model.EndEvent, userId);
+                    return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public JsonResult AddNewEvent(EventModels model)
+        {
+            var jsondata = CheckFreetime(model);
+
+            return Json(jsondata, JsonRequestBehavior.AllowGet);
+
+        }
+
+
+
+
+
+
+
+
+
+
+
         //метод для удаления события
         public ActionResult RemoveEvent(int event_id)
         {
@@ -167,6 +204,6 @@ namespace ldap.Controllers
             return View("Logic");
         }
 
-        
+
     }
 }

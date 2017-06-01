@@ -41,10 +41,18 @@
         $(document).ready(function () {
             $("input[name='StartEvent']").datetimepicker();
             $("input[name='EndEvent']").datetimepicker();
+            $("input[name='StartEvent1']").datetimepicker();
+            $("input[name='EndEvent1']").datetimepicker();
             $("input[name='FilterStartEvent']").datepicker();
             $("input[name='FilterEndEvent']").datepicker();
         });
     </script>
+
+    @* Скрипт принимает данные от контроллера , в ответ на отправку ajax формы  *@
+
+ 
+
+    
     @RenderBody()
 </body>
 </html>
