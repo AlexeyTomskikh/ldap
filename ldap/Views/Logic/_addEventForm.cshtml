@@ -39,11 +39,12 @@
         }
 
         function AddEvent() {
-            alert('usгы');
+          
 
             var formData = {
                 NameEvent: $('#NameEvent').val(),
                 StartEvent: $('#StartEvent').val(),
+
                 EndEvent: $('#EndEvent').val()
                
             }
@@ -54,9 +55,14 @@
                 contentType: 'application/json; charset=utf-8',
                 data: JSON.stringify(formData),
                 dataType: 'json',
+                //contentType: false,
                 processData: false,
-                success: function (responce) {
-                    alert('Мероприятие успешно добавлено!');
+                success: function (data) {
+                    
+                    loadEventsOfDay(data)
+                    
+                    alert(data);
+                    jQuery('.form').trigger('reset');
                 },
                 error: function () {
                     alert('Время уже занято!');
@@ -76,7 +82,7 @@
 
         }))
         {
-            <input type="text" name="NameEvent" id="NameEvent" value="" />
+            <input class="form" type="text" name="NameEvent" id="NameEvent" value="" />
             <input name="StartEvent" id="StartEvent" type="text">
             <input name="EndEvent" id="EndEvent" type="text">
             <input type="button" onclick="AddEvent()" value="Добавить" />

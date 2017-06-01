@@ -177,20 +177,13 @@ namespace ldap.Controllers
 
         public JsonResult AddNewEvent(EventModels model)
         {
-            var jsondata = CheckFreetime(model);
+            CheckFreetime(model);
+            var jsondata = model.StartEvent.ToString();
+          
+            return Json(jsondata);
 
-            return Json(jsondata, JsonRequestBehavior.AllowGet);
 
         }
-
-
-
-
-
-
-
-
-
 
 
         //метод для удаления события

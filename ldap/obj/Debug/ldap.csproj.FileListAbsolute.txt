@@ -64,5 +64,4 @@ D:\project\ldap\bin\System.Web.WebPages.Deployment.xml
 D:\project\ldap\bin\System.Web.WebPages.Razor.xml
 D:\project\ldap\obj\Debug\ldap.dll
 D:\project\ldap\obj\Debug\ldap.pdb
-D:\project\ldap\obj\Debug\ldap.csprojResolveAssemblyReference.cache
 D:\project\ldap\bin\EasyGitHub.dll

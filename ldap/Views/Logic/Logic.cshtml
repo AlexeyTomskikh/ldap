@@ -40,7 +40,7 @@ Html.Partial("_eventList", new ldap.Models.Event())*@
 
 @if (ViewContext.HttpContext.User.IsInRole("Admin") || ViewContext.HttpContext.User.IsInRole("UserReadAndWrite"))
 {
-    @Html.Partial("_addEventForm")
+    @Html.Partial("_addEventForm", Model.calendarModel)
 }
 
 
