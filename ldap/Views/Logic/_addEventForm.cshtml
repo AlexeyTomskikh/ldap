@@ -39,16 +39,16 @@
         }
 
         function AddEvent() {
-          
+
 
             var formData = {
                 NameEvent: $('#NameEvent').val(),
                 StartEvent: $('#StartEvent').val(),
 
                 EndEvent: $('#EndEvent').val()
-               
+
             }
-                     
+
             $.ajax({
                 type: 'POST',
                 url: "@Url.Action("AddNewEvent" , "Logic")",
@@ -58,9 +58,9 @@
                 //contentType: false,
                 processData: false,
                 success: function (data) {
-                    
+
                     loadEventsOfDay(data)
-                    
+
                     alert(data);
                     jQuery('.form').trigger('reset');
                 },
@@ -81,15 +81,24 @@
 
 
         }))
-        {
-            <input class="form" type="text" name="NameEvent" id="NameEvent" value="" />
-            <input name="StartEvent" id="StartEvent" type="text">
-            <input name="EndEvent" id="EndEvent" type="text">
-            <input type="button" onclick="AddEvent()" value="Добавить" />
+        {     
+            <h2>Добавить мероприятие</h2>
+            <table>
+                
+                <tr>
+                    <td>@Html.Label("Событие:")</td>
+                    <td>@Html.Label("Начало:")</td>
+                    <td>@Html.Label("Конец:")</td>
+                </tr>
+
+                <tr>
+                <td><input class="form" type="text" name="NameEvent" id="NameEvent" /></td>
+                <td><input name="StartEvent" id="StartEvent" type="text"></td >
+                <td><input name="EndEvent" id="EndEvent" type="text"></td>
+                    <td><input type="button" onclick="AddEvent()" value="Добавить" /></td>
+                </tr> 
+            </table>
         }
-
-
-        <div id="results"></div>
     </div>
 </center>
 
