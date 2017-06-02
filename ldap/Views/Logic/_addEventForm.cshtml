@@ -40,13 +40,10 @@
 
         function AddEvent() {
 
-
             var formData = {
                 NameEvent: $('#NameEvent').val(),
                 StartEvent: $('#StartEvent').val(),
-
                 EndEvent: $('#EndEvent').val()
-
             }
 
             $.ajax({
@@ -61,7 +58,7 @@
 
                     loadEventsOfDay(data)
 
-                    alert(data);
+                    //alert(data);
                     jQuery('.form').trigger('reset');
                 },
                 error: function () {
@@ -83,21 +80,21 @@
         }))
         {     
             <h2>Добавить мероприятие</h2>
-            <table>
-                
-                <tr>
-                    <td>@Html.Label("Событие:")</td>
-                    <td>@Html.Label("Начало:")</td>
-                    <td>@Html.Label("Конец:")</td>
-                </tr>
+    <table class="table-striped table-bordered table-bordered table-hover table-condensed" align="center">
 
-                <tr>
-                <td><input class="form" type="text" name="NameEvent" id="NameEvent" /></td>
-                <td><input name="StartEvent" id="StartEvent" type="text"></td >
-                <td><input name="EndEvent" id="EndEvent" type="text"></td>
-                    <td><input type="button" onclick="AddEvent()" value="Добавить" /></td>
-                </tr> 
-            </table>
+        <tr>
+            <td>@Html.Label("Событие:")</td>
+            <td>@Html.Label("Начало:")</td>
+            <td>@Html.Label("Конец:")</td>
+        </tr>
+
+        <tr>
+            <td><input class="form" type="text" name="NameEvent" id="NameEvent" /></td>
+            <td><input name="StartEvent" id="StartEvent" type="text"></td>
+            <td><input name="EndEvent" id="EndEvent" type="text"></td>
+            <td><input a class="btn btn-default" role="button" type="button" onclick="AddEvent()" value="Добавить" /></td>
+        </tr>
+    </table>
         }
     </div>
 </center>

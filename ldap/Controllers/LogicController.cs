@@ -187,14 +187,20 @@ namespace ldap.Controllers
 
 
         //метод для удаления события
-        public ActionResult RemoveEvent(int event_id)
+        public JsonResult RemoveEvent(int event_id)
         {
+       
             EventManagement ev = new EventManagement();
             ev.DeleteEvent(event_id);
-            LdapDbContext db = new LdapDbContext();
-            IEnumerable<Event> ev1 = db.Events;
-            ViewBag.Events = ev1;
-            return View("Logic");
+            //LdapDbContext db = new LdapDbContext();
+           // IEnumerable<Event> ev1 = db.Events;
+            //ViewBag.Events = ev1;
+            //return View("Logic");
+           // _getEventsOfDay(current_date);
+            //List<Event> list = new EventManagement().GetAllEvents(current_date);
+           // return PartialView(list);
+            //return PartialView(list);
+            return Json(new {success = true});
         }
 
 
