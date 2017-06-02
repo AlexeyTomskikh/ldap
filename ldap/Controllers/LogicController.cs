@@ -52,6 +52,10 @@ namespace ldap.Controllers
 
             DateTime _curentDate = new DateTime(year, month, day);
 
+            EventManagement ev = new EventManagement();
+            List<Event> list = ev.GetAllEvents(new DateTime(year, month, day ));
+
+
             CalendarModel calendarModel = new CalendarModel //new CalendarModel();
             {
                 daysInMonth = _daysInMonth,
@@ -63,11 +67,14 @@ namespace ldap.Controllers
                 nameMonth = _nameMonth,
                 nextDate = CalcNextDate(year, month, day),
                 prevDate = CalcPrevDate(year, month, day),
-                curentDate = _curentDate
+                curentDate = _curentDate,
+                eventNameList = list
             };
 
             return calendarModel;
         }
+
+
 
         // Вспомогат. метод вычисляет следующую дату
         private DateTime CalcNextDate(int year, int month, int day)

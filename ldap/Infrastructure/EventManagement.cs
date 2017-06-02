@@ -24,6 +24,8 @@ namespace ldap.Infrastructure
             return custs.ToList();
         }
 
+       
+
         // Метод возвращает список всех событий за определённый период
         public IEnumerable<Event> GetAllEventsOfPeriod(DateTime start, DateTime end)
         {

@@ -6,7 +6,8 @@
     <p>Сегодня: @DateTime.Now.ToShortDateString() Время:@DateTime.Now.ToShortTimeString()</p>
 </center>
 
-<table width="1000" border="1" align="center">
+
+<table class="table table-bordered" border="1" align="center" cellpadding="0">
     <tr align="center">
         <td><a href="#" onclick="reloadCalendar(@Model.prevDate.Year, @Model.prevDate.Month, @Model.prevDate.Day); false;">Назад</a></td>
         <td colspan="5">@Model.nameMonth.ToString()</td>
@@ -15,11 +16,11 @@
     <tr align="center">
         <td><b>Понедельник</b></td>
         <td><b>Вторник</b></td>
-        <td><b>Среда</b></td>
+        <td style="width: 150px;"><b>Среда</b></td>
         <td><b>Четверг</b></td>
         <td><b>Пятница</b></td>
         <td><b>Суббота</b></td>
-        <td><b>Воскресенье</b></td>
+        <td style="width: 150px;"><b>Воскресенье</b></td>
     </tr>
 
     @{
@@ -37,13 +38,26 @@
                         curDat = new DateTime(Model.currentYear, Model.currentMonth, mem);
                         if (Model.currentDay == mem)
                         {
-                            <td bgcolor="#7FFF00" align="center" class="js-myday" id="calendar-day-@mem">
-                                <a href="#" onclick="loadEventsOfDay('@curDat'); false;"><b>@mem </b> </a>
+                            <td style=" padding:10px; width: 150px; height:140px" bgcolor="#7FFF00" align="center" class="js-myday" id="calendar-day-@mem">
+                                <table border="1" width="145">
+                                    <tr>
+                                        <td align="center" rowspan="6" width="25"><a href="#" onclick="loadEventsOfDay('@curDat'); false;"><b>@mem </b></a></td>
+                                    </tr>
+
+                                    @for (int k = 1; k <= @Model.eventNameList.Count - 1; k++ )
+                                    {
+                                        <tr>
+                                            <td>@Model.eventNameList.ElementAt(k).DescriptionEvent</td>
+                                        </tr>
+                                    }
+
+
+                                </table>
                             </td>
                         }
                         else
                         {
-                            <td align="center" class="js-myday" id="calendar-day-@mem"><a href="#" onclick="loadEventsOfDay('@curDat'); false;">@mem </a></td>
+                            <td style="width: 150px; height:150px" align="center" class="js-myday" id="calendar-day-@mem"><a href="#" onclick="loadEventsOfDay('@curDat'); false;">@mem</a></td>
                         }
                         mem++;
                     }
@@ -56,3 +70,6 @@
         }
     }
 </table>
+
+
+

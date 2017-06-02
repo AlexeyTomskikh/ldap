@@ -8,41 +8,43 @@
 }
 
 <script>
-    function reloadCalendar(year, month, day)
-    {
-        //alert('year=' + year + ' month=' + month);
+    //Перезагружает календарь
+    function reloadCalendar(year, month, day) {
         $('#calendar').load('_getCalendar', { 'year': year, 'month': month, 'day': day });
     }
 
+    //Загружает список событий в этот день
     function loadEventsOfDay(currentDate) {
-   //DateTime ff = new DataTime(year, month, mem);
-        //alert(year, month, mem);
         $('#eventsofday').load('_getEventsOfDay', { 'currentDate': currentDate });
+    }
+    // отображает список названий мероприятий в табличке
+    function ShowEventsInTable(nameEvent) {
+        $('#eventsofday').load('_getCalendar', { 'currentDate': nameEvent });
     }
 
 </script>
 
-
-<div id="calendar">
-    @Html.Partial("_getCalendar", Model.calendarModel)
+<div class="row">
+    <div class="col-md-6">
+        <div id="calendar">
+            @Html.Partial("_getCalendar", Model.calendarModel)
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div id="eventsofday">
+            @Html.Partial("_getEventsOfDay", Model.eventList)
+        </div>
+    </div>
 </div>
 
-
-<div id="eventsofday">
-    @Html.Partial("_getEventsOfDay", Model.eventList )
+<div class="row">
+    <div class="col-md-6">
+        @if (ViewContext.HttpContext.User.IsInRole("Admin") || ViewContext.HttpContext.User.IsInRole("UserReadAndWrite"))
+        {
+            @Html.Partial("_addEventForm", Model.calendarModel)
+        }
+    </div>
 </div>
-
-
-@*Выводит список всех событий
-Html.Partial("_eventList", new ldap.Models.Event())*@
-
-
-
-@if (ViewContext.HttpContext.User.IsInRole("Admin") || ViewContext.HttpContext.User.IsInRole("UserReadAndWrite"))
-{
-    @Html.Partial("_addEventForm", Model.calendarModel)
-}
-
 
 
 @Html.ActionLink("Выйти", "LogOff", "Account")
@@ -50,3 +52,5 @@ Html.Partial("_eventList", new ldap.Models.Event())*@
 
 
 
+@*Выводит список всех событий
+    Html.Partial("_eventList", new ldap.Models.Event())*@

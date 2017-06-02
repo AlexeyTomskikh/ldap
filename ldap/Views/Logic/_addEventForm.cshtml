@@ -39,7 +39,7 @@
         }
 
         function AddEvent() {
-
+           // var name_event = NameEvent: $('#NameEvent').val();
             var formData = {
                 NameEvent: $('#NameEvent').val(),
                 StartEvent: $('#StartEvent').val(),
@@ -56,13 +56,13 @@
                 processData: false,
                 success: function (data) {
 
-                    loadEventsOfDay(data)
-
+                    loadEventsOfDay(data) // при успешном запросе список событий в этот день обновляется
+                    // ShowEventsInTable(name_event),
                     //alert(data);
                     jQuery('.form').trigger('reset');
                 },
                 error: function () {
-                    alert('Время уже занято!');
+                    alert('Ошибка! Добавление невозможно. Проверьте соединение с интернетом!');
                 }
 
             });

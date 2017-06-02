@@ -17,7 +17,8 @@ namespace ldap.Models
 
         public override string ToString()
         {
-            return String.Format("{0} : c {1} по: {2}", DescriptionEvent, StartTime.ToString("dd.MM.yyyy hh:mm"), EndTime.ToString("dd.MM.yyyy hh:mm"));
+            //return String.Format("{0} : c {1} по: {2}", DescriptionEvent, StartTime.ToString("dd.MM.yyyy hh:mm"), EndTime.ToString("dd.MM.yyyy hh:mm"));
+            return String.Format("{0}", DescriptionEvent);
         }
     }
 }
