@@ -53,7 +53,29 @@ namespace ldap.Controllers
             DateTime _curentDate = new DateTime(year, month, day);
 
             EventManagement ev = new EventManagement();
-            List<Event> list = ev.GetAllEvents(new DateTime(year, month, day ));
+
+            List<List<Event>> list = new List<List<Event>>();
+            List<Event> vnutr = new List<Event>();
+            for (int i = 1; i <= _daysInMonth; i++)
+            {
+                vnutr = ev.GetAllEvents(new DateTime(year, month, i));  // получаем список всех событий за день
+                if (vnutr.Count != 0)  // если список не пустой 
+                {
+                    if (vnutr.Count <= 5) // событий меньше пяти?
+                    {
+                        list.Add(vnutr.GetRange(0, vnutr.Count)); // кладём в итоговый двумерный список все события дня
+                    }
+                    else
+                    {
+                        list.Add(vnutr.GetRange(0, 5)); // если больше 5 кладём только первые 5
+                    }
+                }
+                else
+                {
+                    list.Add(null); // если пустой кладём null
+                }
+            }
+            
 
 
             CalendarModel calendarModel = new CalendarModel //new CalendarModel();
@@ -185,7 +207,10 @@ namespace ldap.Controllers
         public JsonResult AddNewEvent(EventModels model)
         {
             CheckFreetime(model);
-            var jsondata = model.StartEvent.ToString();
+           var jsondata = model.StartEvent.ToString();
+            //var jsondata = model.StartEvent;
+
+            
           
             return Json(jsondata);
 

@@ -7,7 +7,7 @@
 </center>
 
 
-<table class="table table-bordered" border="1" align="center" cellpadding="0">
+<table border="1" cellpadding="0">
     <tr align="center">
         <td><a href="#" onclick="reloadCalendar(@Model.prevDate.Year, @Model.prevDate.Month, @Model.prevDate.Day); false;">Назад</a></td>
         <td colspan="5">@Model.nameMonth.ToString()</td>
@@ -16,60 +16,101 @@
     <tr align="center">
         <td><b>Понедельник</b></td>
         <td><b>Вторник</b></td>
-        <td style="width: 150px;"><b>Среда</b></td>
+        <td><b>Среда</b></td>
         <td><b>Четверг</b></td>
         <td><b>Пятница</b></td>
         <td><b>Суббота</b></td>
-        <td style="width: 150px;"><b>Воскресенье</b></td>
+        <td><b>Воскресенье</b></td>
     </tr>
 
     @{
 
         int mem = 1;
         DateTime curDat;
-        for (int i = 0;
-            i <= Model.numberOfLines; i++)
+        for (int i = 0; i <= Model.numberOfLines; i++) // цикл задаёт количество строк в календаре
         {
             <tr>
-                @for (int j = 1; j <= 7; j++)
+                @for (int j = 1; j <= 7; j++)  // цикл задаёт количество столбцов. всегда = 7
                 {
                     if ((i == 0 && Model.dayOfWeek <= j) || (i > 0 && mem <= Model.daysInMonth))
                     {
                         curDat = new DateTime(Model.currentYear, Model.currentMonth, mem);
-                        if (Model.currentDay == mem)
+                        if (Model.currentDay == mem && Model.currentMonth == DateTime.Now.Month) //  если это сегодня задаём зелёеый цвет ячейки и печатаем внутренний список
                         {
-                            <td style=" padding:10px; width: 150px; height:140px" bgcolor="#7FFF00" align="center" class="js-myday" id="calendar-day-@mem">
+
+
+                            <td style=" padding:10px; width: 150px;" bgcolor="#7FFF00" align="center" class="js-myday" id="calendar-day-@mem">
+
+
                                 <table border="1" width="145">
                                     <tr>
-                                        <td align="center" rowspan="6" width="25"><a href="#" onclick="loadEventsOfDay('@curDat'); false;"><b>@mem </b></a></td>
+                                        <td align="center" rowspan="6" width="20"><a href="#" onclick="loadEventsOfDay('@curDat'); false;"><b>@mem </b></a></td>
                                     </tr>
 
-                                    @for (int k = 1; k <= @Model.eventNameList.Count - 1; k++ )
+                                    @if (Model.eventNameList.ElementAt(mem - 1) != null)
                                     {
-                                        <tr>
-                                            <td>@Model.eventNameList.ElementAt(k).DescriptionEvent</td>
-                                        </tr>
+
+                                        for (int k = 0; k <= @Model.eventNameList.ElementAt(mem - 1).Count - 1; k++)
+                                        {
+                                            <tr>
+                                                <td>@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).DescriptionEvent</td>
+                                            </tr>
+                                        }
                                     }
-
-
                                 </table>
                             </td>
+
+
                         }
                         else
                         {
-                            <td style="width: 150px; height:150px" align="center" class="js-myday" id="calendar-day-@mem"><a href="#" onclick="loadEventsOfDay('@curDat'); false;">@mem</a></td>
+                            <td style="width: 150px;" align="center" class="js-myday" id="calendar-day-@mem">
+
+                                <table border="1" width="145">
+                                    <tr>
+                                        <td align="center" rowspan="6" width="20"><a href="#" onclick="loadEventsOfDay('@curDat'); false;"><b>@mem </b></a></td>
+                                    </tr>
+
+                                    @if (Model.eventNameList.ElementAt(mem - 1) != null)  // если список не пустой
+                                    {
+
+                                        for (int k = 0; k <= @Model.eventNameList.ElementAt(mem - 1).Count - 1; k++)
+                                        {
+                                            <tr>
+                                                <td>@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).DescriptionEvent</td>
+                                            </tr>
+                                        }
+                                    }
+                                    else  // пустая ячейка без событий с 5-ю пустыми строками
+                                    {
+                                        <tr>
+                                            <td> &nbsp;  </td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    }
+
+                                </table>
+                            </td>
                         }
                         mem++;
                     }
                     else
                     {
-                        <td align="center"></td>
+                        <td align="center"></td> // отображение пустых ячеей предыдущего и следующего месяца
                     }
                 }
             </tr>
         }
     }
 </table>
-
-
-

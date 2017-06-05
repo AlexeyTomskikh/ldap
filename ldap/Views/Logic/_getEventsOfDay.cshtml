@@ -23,24 +23,26 @@
             contentType: 'application/json; charset=utf-8',
             //data: JSON.stringify(formData),
             //dataType: 'json',
-        //contentType: false,
+            //contentType: false,
             processData: false,
             success: function (data) {
                 if (data.success) {
                     loadEventsOfDay(current_date)
+                   
                 } else {
                     alert("ошибка удаления!!!")
                 }
 
            
-            jQuery('.form').trigger('reset');
-        },
+                jQuery('.form').trigger('reset');
+            },
             error: function () {
                 alert('Ошибка! Проверьте соединение!');
-        }
+            }
 
         });
-        }
+    }
+    
 </script>
 
 <center><h2>Мероприятия в этот день </h2></center>

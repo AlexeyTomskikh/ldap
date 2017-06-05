@@ -25,12 +25,12 @@
 </script>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-3">
         <div id="calendar">
             @Html.Partial("_getCalendar", Model.calendarModel)
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-offset-7">
         <div id="eventsofday">
             @Html.Partial("_getEventsOfDay", Model.eventList)
         </div>

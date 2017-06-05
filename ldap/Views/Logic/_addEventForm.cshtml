@@ -4,32 +4,6 @@
 
 
 <center>
-    @*<div>
-            @using (Html.BeginForm("Reservation", "Logic", FormMethod.Post))
-            {
-                <h2>Добавить мероприятие:</h2>
-                //<h2>@ViewBag.Message</h2>
-
-                <table border="0" cellspacing="0" cellpadding="2" style="background-color:#E6E6FA; color:#000000">
-                    <tr>
-                        <th>Название</th>
-                        <th><p>Дата начала:</p></th>
-                        <th>Дата конца</th>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td align="center">@Html.TextBox("NameEvent")</td>
-                        <td align="center">@Html.TextBox("StartEvent")</td>
-                        <td align="center">@Html.TextBox("EndEvent")</td>
-                        <td align="center">@Html.ValidationSummary()<p><input type="submit" value="Забронировать" /></p></td>
-                    </tr>
-                </table>
-            }
-
-        </div>*@
-
-    @* ========================================= *@
-
     <script type="text/javascript">
         function OnSuccess(data) {
             var results = $('#results'); // получаем нужный элемент
@@ -39,26 +13,27 @@
         }
 
         function AddEvent() {
-           // var name_event = NameEvent: $('#NameEvent').val();
             var formData = {
                 NameEvent: $('#NameEvent').val(),
                 StartEvent: $('#StartEvent').val(),
                 EndEvent: $('#EndEvent').val()
             }
-
+            
+            
             $.ajax({
                 type: 'POST',
                 url: "@Url.Action("AddNewEvent" , "Logic")",
                 contentType: 'application/json; charset=utf-8',
                 data: JSON.stringify(formData),
                 dataType: 'json',
-                //contentType: false,
                 processData: false,
                 success: function (data) {
 
-                    loadEventsOfDay(data) // при успешном запросе список событий в этот день обновляется
-                    // ShowEventsInTable(name_event),
-                    //alert(data);
+                    loadEventsOfDay(data)  // при успешном запросе список событий в этот день обновляется
+
+                    var res = JSON.parse(data);
+       
+               
                     jQuery('.form').trigger('reset');
                 },
                 error: function () {

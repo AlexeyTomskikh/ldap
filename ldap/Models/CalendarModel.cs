@@ -20,7 +20,7 @@ namespace ldap.Models
         public DateTime nextDate { get; set; }
         public DateTime prevDate { get; set; }
         public DateTime curentDate { get; set; }
-        public List<Event> eventNameList { get; set; }
+        public List<List<Event>> eventNameList { get; set; }
     }
 
 
