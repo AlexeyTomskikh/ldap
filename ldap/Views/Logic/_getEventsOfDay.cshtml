@@ -1,51 +1,5 @@
 ﻿@model IEnumerable<ldap.Models.Event>
 
-
-@*<script type="text/javascript">
-    function OnSuccess(data) {
-        var results = $('#results'); // получаем нужный элемент
-        results.empty(); //очищаем элемент
-        results.append('<li>' + data + '</li>'); // добавляем данные в список
-
-    }
-
-    function RemoveEvent(id) {
-        //var a = id;
-        var event_id1 = id;
-        //var event_id1 = document.getElementById("ev_id").innerHTML;
-        var current_date = document.getElementById("StartEvent1").innerHTML;
-        
-
-        $.ajax({
-            type: 'POST',
-            //url: 'Url.Action("RemoveEvent", "Logic")',
-            url: '/Logic/RemoveEvent?event_id=' + event_id1,
-            contentType: 'application/json; charset=utf-8',
-            //data: JSON.stringify(formData),
-            //dataType: 'json',
-            //contentType: false,
-            processData: false,
-            success: function (data) {
-                if (data.success) {
-                    loadEventsOfDay(current_date)
-                    reloadCalendar(result.year, result.month, result.month) // перегружает календарь
-                   
-                } else {
-                    alert("ошибка удаления!!!")
-                }
-
-           
-                jQuery('.form').trigger('reset');
-            },
-            error: function () {
-                alert('Ошибка! Проверьте соединение!');
-            }
-
-        });
-    }
-    
-</script>*@
-
 <script type="text/javascript">
         function OnSuccess(data) {
             var results = $('#results'); // получаем нужный элемент
@@ -107,12 +61,10 @@
            
             <tr>
                 
-                @*<td style="display: none" align="center" type="text" name="ev_id" id="ev_id">@b.id</td>*@
                 <td align="center">@b.DescriptionEvent</td>
                 <td id="StartEvent1" type="text" align="center">@b.StartTime</td>
                 <td align="center">@b.EndTime</td>
                 <td align="center">@b.UserID</td>
-                @*<td align="center"><a class="btn btn-default" href="/Logic/RemoveEvent?event_id=@b.id&current_date=@b.EndTime.ToShortDateString()" role="button">Удалить</a></td>*@
                 <td align="center"><input a class="btn btn-default" role="button" type="button" onclick="RemoveEvent(@b.id)" value="удалить"></td>
             </tr>
         }

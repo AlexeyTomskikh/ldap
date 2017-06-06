@@ -21,61 +21,36 @@
 </head>
 <body>
 
-    <section id="loginForm">
 
-        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
-        {
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(true)
-            <form class="form-horizontal" role="form">
-                <div class="form-group">
-                    <div class="col-xs-10">
-                        @Html.LabelFor(m => m.UserName)
-                        @Html.TextBoxFor(m => m.UserName)
-                        @Html.ValidationMessageFor(m => m.UserName)
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-xs-10">
-                        @Html.LabelFor(m => m.Password)
-                        @Html.PasswordFor(m => m.Password)
-                        @Html.ValidationMessageFor(m => m.Password)
-                    </div>
+
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+            {
+
+                <div>
+                    @Html.LabelFor(m => m.UserName)
+                    @Html.TextBoxFor(m => m.UserName)
+                    @Html.ValidationMessageFor(m => m.UserName)
                 </div>
 
-                @*<label><input type="checkbox"> Запомнить</label>
+                <div>
+                    @Html.LabelFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password)
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+
+                <div>
                     @Html.CheckBoxFor(m => m.RememberMe)
-                    @Html.LabelFor(m => m.RememberMe)*@
-
-                <div class="col-xs-10">
-                    <div class="checkbox">
-                        @Html.CheckBoxFor(m => m.RememberMe)
-                        @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
-                    </div>
+                    @Html.LabelFor(m => m.RememberMe)
                 </div>
 
-                <div class="form-group">
-                    <div class="col-sm-7">
-                        <button type="submit" class="btn btn-primary btn-sm">Войти</button>
-                    </div>
+                <div>
+                    <button class="btn btn-large btn-primary" type="submit">Войти</button>
                 </div>
-            </form>
-        }
-    </section>
+            }
+      
+     
 
-
-    <div id="menu">
-        <p><a href="1.html" class="open">Ссылка 1</a></p>
-        <p><a href="2.html" class="open">Ссылка 2</a></p>
-    </div>
-    <p><a href="3.html" class="open">Ссылка 3</a></p>
-
-    <script src="jquery-1.10.1.min.js"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function () {
-
-            $(".open", "div#menu").css('background-color', 'silver');
-        });
-    </script>
+ 
+   
 </body>
 </html>

@@ -113,7 +113,7 @@ namespace ldap.Controllers
             return prevDate;
         }
 
-        // Метод выводит основную страницу расписания (список текущих событий) + форма добвления нового мероприятия
+        // Метод выводит основную страницу 
         [HttpGet]
         [Authorize(Roles = "UserRead, Admin, UserReadAndWrite")]
         public ActionResult Logic()
@@ -204,12 +204,13 @@ namespace ldap.Controllers
 
         public JsonResult AddNewEvent(EventModels model)
         {
-            CheckFreetime(model);
+            
+            bool result = CheckFreetime(model);
             var jsondata = model.StartEvent.ToString();
             int _year = model.StartEvent.Year;
             int _month = model.StartEvent.Month;
             int _day = model.StartEvent.Day;
-            return Json(new { success = true, data = jsondata, year = _year, month = _month, day = _day }, JsonRequestBehavior.AllowGet);
+            return Json(new { success = result, data = jsondata, year = _year, month = _month, day = _day }, JsonRequestBehavior.AllowGet);
         }
 
 
@@ -223,10 +224,6 @@ namespace ldap.Controllers
             Event item = context.Events
                 .Where(o => o.id == event_id)
                 .FirstOrDefault();
-
-           // int _year = item.StartTime.Year;
-           // int _month = item.StartTime.Month;
-             //int _day = item.StartTime.Day;
 
             int _year = DateTime.Today.Year;
             int _month = DateTime.Today.Month;
