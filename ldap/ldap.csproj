@@ -263,9 +263,6 @@
     <Content Include="Views\Shared\Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Logic\_eventList.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\_reservationOld.cshtml" />
   </ItemGroup>
   <ItemGroup>

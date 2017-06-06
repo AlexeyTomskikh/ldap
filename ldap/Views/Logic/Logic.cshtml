@@ -25,8 +25,8 @@
 </script>
 
 <div class="row">
-    <div class="col-md-3">
-        <div id="calendar">
+    <div class="col-md-offset-1">
+        <div id="calendar" class="col-md-3">
             @Html.Partial("_getCalendar", Model.calendarModel)
         </div>
     </div>
@@ -47,10 +47,11 @@
 </div>
 
 
-@Html.ActionLink("Выйти", "LogOff", "Account")
+<div class="row">
+    <div class="col-md-offset-2">
+       @Html.ActionLink("Выйти", "LogOff", "Account")
+    </div>
+</div>
 
 
 
-
-@*Выводит список всех событий
-    Html.Partial("_eventList", new ldap.Models.Event())*@

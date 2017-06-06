@@ -127,8 +127,6 @@ namespace ldap.Controllers
             EventManagement ev = new EventManagement();
             List<Event> listEvents = ev.GetAllEvents(DateTime.Today);
 
-            //ViewBag.Events = events; // Передача этого списка в частичное представление, откуда попадает в Logic
-
             CalendarModel currentCalendarModel = getModel(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
 
             return View(new LogicModel { eventList = listEvents, calendarModel = currentCalendarModel });
@@ -218,18 +216,24 @@ namespace ldap.Controllers
         //метод для удаления события
         public JsonResult RemoveEvent(int event_id)
         {
-       
+
+            LdapDbContext context = new LdapDbContext();
+
+            //Получаем день удаляемого события , для обновления календаря. Потом надо переписать чтобы год месяц день получать на стороне клиента , а не делать лишнее обращение к базе
+            Event item = context.Events
+                .Where(o => o.id == event_id)
+                .FirstOrDefault();
+
+           // int _year = item.StartTime.Year;
+           // int _month = item.StartTime.Month;
+             //int _day = item.StartTime.Day;
+
+            int _year = DateTime.Today.Year;
+            int _month = DateTime.Today.Month;
+            int _day = DateTime.Today.Day;
             EventManagement ev = new EventManagement();
             ev.DeleteEvent(event_id);
-            //LdapDbContext db = new LdapDbContext();
-           // IEnumerable<Event> ev1 = db.Events;
-            //ViewBag.Events = ev1;
-            //return View("Logic");
-           // _getEventsOfDay(current_date);
-            //List<Event> list = new EventManagement().GetAllEvents(current_date);
-           // return PartialView(list);
-            //return PartialView(list);
-            return Json(new {success = true});
+            return Json(new { success = true, year = _year, month = _month, day = _day });
         }
 
 

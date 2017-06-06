@@ -13,6 +13,7 @@
         }
 
         function AddEvent() {
+            //Читаеем данные с формы
             var formData = {
                 NameEvent: $('#NameEvent').val(),
                 StartEvent: $('#StartEvent').val(),
@@ -26,9 +27,13 @@
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
                 processData: false,
-                    success: function (result) {
-                        loadEventsOfDay(result.data)  //перегружает список событий в этот день
-                        reloadCalendar(result.year, result.month, result.month) // перегружает календарь
+                success: function (result) {
+                    alert("Мероприятие успешно добавлено")
+                    loadEventsOfDay(result.data)  //перегружает список событий в этот день
+                    reloadCalendar(result.year, result.month, result.month) // перегружает календарь
+                    $(".form").val(" ")
+
+
                 },
                 error: function () {
                     alert('Ошибка! Добавление невозможно. Проверьте соединение с интернетом!');
@@ -37,6 +42,7 @@
             });
         }
     </script>
+   
 
     <div>
         @using (Ajax.BeginForm("AddNewEvent", "Logic", new AjaxOptions
@@ -47,41 +53,26 @@
 
 
         }))
-        {     
+        {
             <h2>Добавить мероприятие</h2>
-    <table class="table-striped table-bordered table-bordered table-hover table-condensed" align="center">
+            <table class="table-striped table-bordered table-bordered table-hover table-condensed" align="center">
 
-        <tr>
-            <td>@Html.Label("Событие:")</td>
-            <td>@Html.Label("Начало:")</td>
-            <td>@Html.Label("Конец:")</td>
-        </tr>
+                <tr>
+                    <td>@Html.Label("Событие:")</td>
+                    <td>@Html.Label("Начало:")</td>
+                    <td>@Html.Label("Конец:")</td>
+                </tr>
 
-        <tr>
-            <td><input class="form" type="text" name="NameEvent" id="NameEvent" /></td>
-            <td><input name="StartEvent" id="StartEvent" type="text"></td>
-            <td><input name="EndEvent" id="EndEvent" type="text"></td>
-            <td><input a class="btn btn-default" role="button" type="button" onclick="AddEvent()" value="Добавить" /></td>
-        </tr>
-    </table>
+                <tr>
+                    <td><input class="form" type="text" name="NameEvent" id="NameEvent" /></td>
+                    <td><input class="form" name="StartEvent" id="StartEvent" type="text"></td>
+                    <td><input class="form" name="EndEvent" id="EndEvent" type="text"></td>
+                    <td><input a class="btn btn-default" role="button" type="button" onclick="AddEvent()" value="Добавить" /></td>
+                </tr>
+            </table>
         }
     </div>
 </center>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
