@@ -207,14 +207,11 @@ namespace ldap.Controllers
         public JsonResult AddNewEvent(EventModels model)
         {
             CheckFreetime(model);
-           var jsondata = model.StartEvent.ToString();
-            //var jsondata = model.StartEvent;
-
-            
-          
-            return Json(jsondata);
-
-
+            var jsondata = model.StartEvent.ToString();
+            int _year = model.StartEvent.Year;
+            int _month = model.StartEvent.Month;
+            int _day = model.StartEvent.Day;
+            return Json(new { success = true, data = jsondata, year = _year, month = _month, day = _day }, JsonRequestBehavior.AllowGet);
         }
 
 

@@ -18,23 +18,17 @@
                 StartEvent: $('#StartEvent').val(),
                 EndEvent: $('#EndEvent').val()
             }
-            
-            
+
             $.ajax({
-                type: 'POST',
                 url: "@Url.Action("AddNewEvent" , "Logic")",
-                contentType: 'application/json; charset=utf-8',
+                type: 'POST',
                 data: JSON.stringify(formData),
+                contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
                 processData: false,
-                success: function (data) {
-
-                    loadEventsOfDay(data)  // при успешном запросе список событий в этот день обновляется
-
-                    var res = JSON.parse(data);
-       
-               
-                    jQuery('.form').trigger('reset');
+                    success: function (result) {
+                        loadEventsOfDay(result.data)  //перегружает список событий в этот день
+                        reloadCalendar(result.year, result.month, result.month) // перегружает календарь
                 },
                 error: function () {
                     alert('Ошибка! Добавление невозможно. Проверьте соединение с интернетом!');
