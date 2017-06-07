@@ -1,6 +1,7 @@
 ﻿using ldap.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Web;
@@ -10,30 +11,31 @@ namespace ldap.Infrastructure
     public class EventManagement
     {
 
-       
+
 
         // Метод возвращает список всех событий в указанный день
         public List<Event> GetAllEvents(DateTime day)
         {
             LdapDbContext context = new LdapDbContext();
             DateTime data = day.Date.AddDays(1);
-            IEnumerable<Event> custs = context.Events
-                .Where(c => c.StartTime >= day.Date && c.StartTime < data);
+            List<Event> custs = context.Events
+                .Where(c => c.StartTime >= day.Date && c.StartTime < data).ToList();
 
+           
 
             return custs.ToList();
+
         }
 
-       
+
 
         // Метод возвращает список всех событий за определённый период
         public IEnumerable<Event> GetAllEventsOfPeriod(DateTime start, DateTime end)
         {
             LdapDbContext context = new LdapDbContext();
-            DateTime _start = start.Date;
-            DateTime _end = end.Date.AddDays(1);
+
             IEnumerable<Event> custs = context.Events
-                .Where(c => c.EndTime >= _start && c.StartTime <= _end).OrderBy(c => c.StartTime);
+                .Where(c => c.StartTime >= start && c.EndTime <= end).OrderBy(c => c.StartTime);
 
             return custs;
         }
@@ -45,14 +47,15 @@ namespace ldap.Infrastructure
 
             foreach (Event item in result)
             {
-                if (startTimeUser.TimeOfDay.CompareTo(item.StartTime.TimeOfDay) >= 0 && startTimeUser.TimeOfDay.CompareTo(item.EndTime.TimeOfDay) <= 0)
+                //if (startTimeUser.TimeOfDay.CompareTo(item.StartTime.TimeOfDay) >= 0 && startTimeUser.TimeOfDay.CompareTo(item.EndTime.TimeOfDay) <= 0)
+                //{
+                //    freetime = false; //To Do ошибка время начала уже занято.выберете другое
+                //}
+                if (startTimeUser >= item.StartTime && startTimeUser <= item.EndTime)
                 {
                     freetime = false; //To Do ошибка время начала уже занято.выберете другое
                 }
-                else
-                {
-                    freetime = true; // начало мероприятия в это время возможно
-                }
+
             }
             return freetime;
         }
@@ -68,13 +71,32 @@ namespace ldap.Infrastructure
                 {
                     freetime = false; //To Do ошибка время окончания мероприятия уже занято.выберете другое
                 }
-                else
-                {
-                    freetime = true; // конец мероприятия в это время возможен
-                }
+
             }
             return freetime;
         }
+
+
+        //Общий метод для проверки свободного времени в графике. Выдаёт true или false
+        public bool IsFreeTime(IEnumerable<Event> result, DateTime startTimeUser, DateTime endTimeUser)
+        {
+            bool freetime;
+            EventManagement ev = new EventManagement();
+            bool freeStartTime = ev.busyStartTime(result, startTimeUser);
+            bool freeEndTime = ev.busyEndTime(result, endTimeUser);
+            List<Event> freeTimeBetweenEvent = ev.GetAllEventsOfPeriod(startTimeUser, endTimeUser).ToList();
+            if (freeTimeBetweenEvent.Count == 0 && freeStartTime && freeEndTime)
+            {
+                freetime = true;
+            }
+            else
+            {
+                freetime = false;
+            }
+            return freetime;
+        }
+
+
 
         // Метод записывает новое мероприятие в БД
         public void WriteToDatabase(string descriptionEvent, DateTime startTime, DateTime endTime, int userId)
@@ -95,7 +117,7 @@ namespace ldap.Infrastructure
         }
 
         // Метод для удаления события из БД
-        public void DeleteEvent( int event_id)
+        public void DeleteEvent(int event_id)
         {
             LdapDbContext context = new LdapDbContext();
 
@@ -107,8 +129,8 @@ namespace ldap.Infrastructure
             context.SaveChanges();
         }
 
-        
 
-      
+
+
     }
 }

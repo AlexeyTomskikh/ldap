@@ -12,94 +12,157 @@
 
         }
 
-        function AddEvent() {
+        function showError(container, errorMessage) {
+            container.className = 'error';
+            var msgElem = document.createElement('span');
+            msgElem.className = "error-message";
+            msgElem.innerHTML = errorMessage;
+            container.appendChild(msgElem);
+        }
 
-      
-            //Читаеем данные с формы
-            var formData = {
-                NameEvent: $('#NameEvent').val(),
-                StartEvent: $('#StartEvent').val(),
-                EndEvent: $('#EndEvent').val()
+        function resetError(container) {
+            container.className = '';
+            if (container.lastChild.className == "error-message") {
+                container.removeChild(container.lastChild);
             }
+        }
 
-            $.ajax({
-                url: "@Url.Action("AddNewEvent" , "Logic")",
-                type: 'POST',
-                data: JSON.stringify(formData),
-                contentType: 'application/json; charset=utf-8',
-                dataType: 'json',
-                processData: false,
-                success: function (result) {
-                    if (!result.success) {
-                        alert("К сожалению указанное время уже занято. Попробуйте выбрать другое")
-                    } else {
-                        alert("Мероприятие успешно добавлено")
-                        loadEventsOfDay(result.data)  //перегружает список событий в этот день
-                        reloadCalendar(result.year, result.month, result.day) // перегружает календарь
-                        $(".form").val("")
-                    }
-                },
-                error: function () {
-                    alert('Ошибка! Добавление невозможно. Проверьте соединение с интернетом!');
+        function AddEvent(form) {
+
+            var elems = form.elements;
+            var date1 = new Date(elems.StartEvent.value).getTime();
+            var date2 = new Date(elems.EndEvent.value).getTime();
+           
+
+            if (!elems.NameEvent.value || !elems.StartEvent.value || (!elems.EndEvent.value) || (date1 > date2)) {
+
+                resetError(elems.NameEvent.parentNode);
+                if (!elems.NameEvent.value) {
+                    showError(elems.NameEvent.parentNode, ' Укажите название мероприятия');
                 }
 
-            });
+                resetError(elems.StartEvent.parentNode);
+                if (!elems.StartEvent.value) {
+                    showError(elems.StartEvent.parentNode, ' Укажите время начала');
+                }
+
+                resetError(elems.EndEvent.parentNode);
+                if (!elems.EndEvent.value) {
+                    showError(elems.EndEvent.parentNode, ' Укажите время окончания');
+                }
+
+             
+                if (date1 > date2) {
+                    showError(elems.EndEvent.parentNode, ' Время начала не может быть раньше чем время конца');
+                }
+
+
+            } else if ((elems.StartEvent.value == elems.EndEvent.value)) {
+                resetError(elems.StartEvent.parentNode);
+                resetError(elems.EndEvent.parentNode);
+                showError(elems.StartEvent.parentNode, ' Время начала не может совпадать с временем окончания');
+                showError(elems.EndEvent.parentNode, ' Время начала не может совпадать с временем окончания');
+            } else {
+                resetError(elems.NameEvent.parentNode);
+                resetError(elems.StartEvent.parentNode);
+                resetError(elems.EndEvent.parentNode);
+
+                //Читаеем данные с формы
+                var formData = {
+                    NameEvent: $('#NameEvent').val(),
+                    StartEvent: $('#StartEvent').val(),
+                    EndEvent: $('#EndEvent').val()
+                }
+
+                $.ajax({
+                    url: "@Url.Action("AddNewEvent" , "Logic")",
+                    type: 'POST',
+                    data: JSON.stringify(formData),
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    processData: false,
+                    success: function (result) {
+                        if (!result.success) {
+                            alert("К сожалению указанное время уже занято. Попробуйте выбрать другое")
+                        } else {
+                            alert("Мероприятие успешно добавлено")
+                            loadEventsOfDay(result.data)  //перегружает список событий в этот день
+                            reloadCalendar(result.year, result.month, result.day) // перегружает календарь
+                            $(".form").val("")
+                        }
+                    },
+                    error: function () {
+                        alert('Ошибка! Добавление невозможно. Проверьте соединение с интернетом!');
+                    }
+
+                });
+            }
         }
     </script>
 
 
+    @*<div>
+            @using (Ajax.BeginForm("AddNewEvent", "Logic", new AjaxOptions
+            {
+
+                InsertionMode = InsertionMode.InsertAfter,
+                OnSuccess = "OnSuccess",
+
+
+            }))
+            {
+                <h2>Добавить мероприятие</h2>
+                <table class="table-striped table-bordered table-bordered table-hover table-condensed" align="center">
+
+                    <tr>
+                        <td>@Html.Label("Название:")</td>
+                        <td>@Html.Label("Начало")</td>
+                        <td>@Html.Label("Конец")</td>
+                    </tr>
+
+                    <tr>
+                        <td><input class="form" type="text" name="NameEvent" id="NameEvent" /></td>
+                        <td><input class="form" name="StartEvent" id="StartEvent" type="text"></td>
+                        <td><input class="form" name="EndEvent" id="EndEvent" type="text"></td>
+                        <td><input a class="btn btn-default" role="button" type="button" onclick="AddEvent()"  value="Добавить" /></td>
+                    </tr>
+                </table>
+            }
+
+        </div>*@
+
     <div>
-        @using (Ajax.BeginForm("AddNewEvent", "Logic", new AjaxOptions
-        {
+        <form action="/Logic/AddNewEvent" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#results" id="form0" method="post">
 
-            InsertionMode = InsertionMode.InsertAfter,
-            OnSuccess = "OnSuccess",
-
-
-        }))
-        {
             <h2>Добавить мероприятие</h2>
             <table class="table-striped table-bordered table-bordered table-hover table-condensed" align="center">
 
                 <tr>
                     <td>@Html.Label("Название:")</td>
-                    <td>@Html.Label("Начало")</td>
-                    <td>@Html.Label("Конец")</td>
+                    <td><input class="form" type="text" name="NameEvent" id="NameEvent" /></td>
                 </tr>
 
                 <tr>
-                    <td><input class="form" type="text" name="NameEvent" id="NameEvent" /></td>
+                    <td>@Html.Label("Начало")</td>
                     <td><input class="form" name="StartEvent" id="StartEvent" type="text"></td>
+                </tr>
+
+                <tr>
+                    <td>@Html.Label("Конец")</td>
                     <td><input class="form" name="EndEvent" id="EndEvent" type="text"></td>
-                    <td><input a class="btn btn-default" role="button" type="button" onclick="AddEvent()"  value="Добавить" /></td>
+                </tr>
+
+                <tr>
+                    <td><input a class="btn btn-default" role="button" type="button" name="Sendform" onclick="AddEvent(this.form)" value="Добавить" /></td>
                 </tr>
             </table>
-        }
 
 
 
-        <form name="my">
-            <input name="one" value="1">
-            <input name="two" value="2">
         </form>
+        <div id="results"></div>
 
 
-        <script>
-    var form = document.forms.my; // можно document.forms[0]
-
-    var elem = form.elements[0]; // можно form.elements[0]
-
-    alert(elem.value); // 1
-        </script>
-
-
-
-    </div>
-
-    <div>
-  
-
-        
     </div>
 
 </center>

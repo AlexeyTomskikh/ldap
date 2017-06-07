@@ -183,33 +183,67 @@ namespace ldap.Controllers
         }
 
 
-        // Метод записывает в бд и выдаёт true или выдаёт false
-        private bool CheckFreetime(EventModels model)
-        {
-            EventManagement eventManagment = new EventManagement();
-            IEnumerable<Event> listAllEventsDay = eventManagment.GetAllEvents(model.StartEvent.Date);// получаем все события на этот день
+        //// Метод записывает в бд и выдаёт true или выдаёт false
+        //private bool CheckFreetime(EventModels model)
+        //{
+        //    EventManagement eventManagment = new EventManagement();
+        //    IEnumerable<Event> listAllEventsDay = eventManagment.GetAllEvents(model.StartEvent.Date);// получаем все события на этот день
 
-            if (eventManagment.busyStartTime(listAllEventsDay, model.StartEvent)&&(eventManagment.busyEndTime(listAllEventsDay, model.EndEvent)))
-            {
-                    UserInfo userInfo = new UserInfo();
-                    int userId = userInfo.getCurrentUserId();
-                    eventManagment.WriteToDatabase(model.NameEvent, model.StartEvent, model.EndEvent, userId);
-                    return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        //    //if (eventManagment.busyStartTime(listAllEventsDay, model.StartEvent)&&(eventManagment.busyEndTime(listAllEventsDay, model.EndEvent)))
+        //    //{
+        //    //        UserInfo userInfo = new UserInfo();
+        //    //        int userId = userInfo.getCurrentUserId();
+        //    //        eventManagment.WriteToDatabase(model.NameEvent, model.StartEvent, model.EndEvent, userId);
+        //    //        return true;
+        //    //}
+        //    //else
+        //    //{
+        //    //    return false;
+        //    //}
+
+        //    if(eventManagment.IsFreeTime(listAllEventsDay, model.StartEvent, model.EndEvent)){
+        //        UserInfo userInfo = new UserInfo();
+        //            int userId = userInfo.getCurrentUserId();
+        //            eventManagment.WriteToDatabase(model.NameEvent, model.StartEvent, model.EndEvent, userId);
+        //            return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
 
         public JsonResult AddNewEvent(EventModels model)
         {
+            LdapDbContext context = new LdapDbContext();
+            DateTime data = model.StartEvent.Date;
+            EventManagement eventManagment = new EventManagement();
+            List<Event> listAllEventsDay = eventManagment.GetAllEvents(model.StartEvent.Date); // получаем все события на этот день
+
+            //если в этот день нет событий надо проверить нет ли в этот день событий не закончившихся со вчерашнего дня. если есть они учавствуют в проверке
+            List<Event> extensionEvents = context.Events
+           .Where(c => c.StartTime <= data && c.EndTime >= data).ToList();
+
+            listAllEventsDay.AddRange(extensionEvents);
             
-            bool result = CheckFreetime(model);
+            
+            bool result;
+            if (eventManagment.IsFreeTime(listAllEventsDay, model.StartEvent, model.EndEvent))
+            {
+                UserInfo userInfo = new UserInfo();
+                int userId = userInfo.getCurrentUserId();
+                eventManagment.WriteToDatabase(model.NameEvent, model.StartEvent, model.EndEvent, userId);
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+
             var jsondata = model.StartEvent.ToString();
             int _year = model.StartEvent.Year;
             int _month = model.StartEvent.Month;
-            int _day = model.StartEvent.Day;
+            int _day = DateTime.Today.Day;
             return Json(new { success = result, data = jsondata, year = _year, month = _month, day = _day }, JsonRequestBehavior.AllowGet);
         }
 
@@ -232,7 +266,5 @@ namespace ldap.Controllers
             ev.DeleteEvent(event_id);
             return Json(new { success = true, year = _year, month = _month, day = _day });
         }
-
-
     }
 }
