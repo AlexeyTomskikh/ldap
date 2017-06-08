@@ -20,9 +20,6 @@ namespace ldap.Infrastructure
             DateTime data = day.Date.AddDays(1);
             List<Event> custs = context.Events
                 .Where(c => c.StartTime >= day.Date && c.StartTime < data).ToList();
-
-           
-
             return custs.ToList();
 
         }

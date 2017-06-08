@@ -1,0 +1,92 @@
+﻿@model List<ldap.Models.Event>
+
+
+
+@*<div id="schedule">
+        <center><h2>Расписание</h2></center>
+        <table border="1" width="98%">
+            <tr>
+                <td width="80">&nbsp;</td>
+                <td>Четверг 8 июня</td>
+            </tr>
+
+            @{
+
+                for (int hour = 0; hour <= 24; hour++)
+                {
+
+                    <tr>
+                        <td rowspan="2">@hour:00</td>
+
+                        @foreach (ldap.Models.Event b in Model)
+                        {
+
+                            if (b.StartTime.Hour == hour)
+                            {
+                                <td>@b.DescriptionEvent первая строка</td>
+
+                            }
+
+                        }
+
+                    </tr>
+
+                    <tr>
+                       @foreach (ldap.Models.Event b in Model)
+                       {
+                           if (b.EndTime.Hour == hour +  1)
+                           {
+                           <td>@b.DescriptionEvent вторая строка </td>
+                           }
+
+                       }
+
+                    </tr>
+
+                }
+            }
+
+        </table>
+
+
+    </div>*@
+
+
+
+
+
+
+
+<div id="schedule">
+    <center><h2>Расписание</h2></center>
+    <table border="1" width="98%">
+        <tr>
+            <td width="80">&nbsp;</td>
+            <td>Четверг 8 июня</td>
+        </tr>
+
+        @{
+            for (int i = 0; i <= 24; i++)
+            {
+                <tr>
+                    <td>@i :00</td>
+                    <td>
+                        @foreach (ldap.Models.Event b in Model)
+                        {
+                            if (i >= b.StartTime.Hour && i <= b.EndTime.Hour)
+                            {
+                                @b.DescriptionEvent
+                            }
+                        }
+                    </td>
+
+                   
+                </tr>
+            }
+        }
+
+
+    </table>
+
+
+</div>

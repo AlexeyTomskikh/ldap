@@ -37,7 +37,7 @@
             });
         }
 
-    </script>
+   </script>
 
 
 
@@ -75,64 +75,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@*@model ldap.Models.Event
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DescriptionEvent)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserID)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (ldap.Models.Event b in ViewBag.Events)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => b.DescriptionEvent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => b.StartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => b.EndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => b.UserID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=b.id }) |
-            @Html.ActionLink("Details", "Details", new { id=b.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=b.id })
-        </td>
-    </tr>
-}
-
-</table>*@

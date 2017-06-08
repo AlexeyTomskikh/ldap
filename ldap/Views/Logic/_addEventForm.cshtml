@@ -1,9 +1,5 @@
-﻿@{
-    //Layout = "~/Views/Shared/Layout.cshtml";
-}
+﻿
 
-
-<center>
     <script type="text/javascript">
         function OnSuccess(data) {
             var results = $('#results'); // получаем нужный элемент
@@ -67,7 +63,7 @@
                 resetError(elems.StartEvent.parentNode);
                 resetError(elems.EndEvent.parentNode);
 
-                //Читаеем данные с формы
+                //Читаем данные с формы
                 var formData = {
                     NameEvent: $('#NameEvent').val(),
                     StartEvent: $('#StartEvent').val(),
@@ -101,40 +97,11 @@
     </script>
 
 
-    @*<div>
-            @using (Ajax.BeginForm("AddNewEvent", "Logic", new AjaxOptions
-            {
-
-                InsertionMode = InsertionMode.InsertAfter,
-                OnSuccess = "OnSuccess",
-
-
-            }))
-            {
-                <h2>Добавить мероприятие</h2>
-                <table class="table-striped table-bordered table-bordered table-hover table-condensed" align="center">
-
-                    <tr>
-                        <td>@Html.Label("Название:")</td>
-                        <td>@Html.Label("Начало")</td>
-                        <td>@Html.Label("Конец")</td>
-                    </tr>
-
-                    <tr>
-                        <td><input class="form" type="text" name="NameEvent" id="NameEvent" /></td>
-                        <td><input class="form" name="StartEvent" id="StartEvent" type="text"></td>
-                        <td><input class="form" name="EndEvent" id="EndEvent" type="text"></td>
-                        <td><input a class="btn btn-default" role="button" type="button" onclick="AddEvent()"  value="Добавить" /></td>
-                    </tr>
-                </table>
-            }
-
-        </div>*@
 
     <div>
         <form action="/Logic/AddNewEvent" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#results" id="form0" method="post">
 
-            <h2>Добавить мероприятие</h2>
+            <center><h2>Добавить мероприятие</h2></center>
             <table class="table-striped table-bordered table-bordered table-hover table-condensed" align="center">
 
                 <tr>
@@ -165,5 +132,5 @@
 
     </div>
 
-</center>
+
 

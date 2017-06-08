@@ -15,43 +15,59 @@
 
     //Загружает список событий в этот день
     function loadEventsOfDay(currentDate) {
+        reloadSchedule(currentDate)
         $('#eventsofday').load('_getEventsOfDay', { 'currentDate': currentDate });
+        
     }
     // отображает список названий мероприятий в табличке
     function ShowEventsInTable(nameEvent) {
         $('#eventsofday').load('_getCalendar', { 'currentDate': nameEvent });
     }
 
+    //Перегружает расписание на день
+    function reloadSchedule(currentDate) {
+        alert("Привет из функции reloadSchedule")
+        $('#schedule').load('_daySchedule', { 'currentDate': currentDate });
+    }
+
+    
+
 </script>
 
-<div class="row">
-    <div class="col-md-offset-1">
-        <div id="calendar" class="col-md-3">
-            @Html.Partial("_getCalendar", Model.calendarModel)
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-lg-6">
+            <div id="calendar">
+                @Html.Partial("_getCalendar", Model.calendarModel)
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div id="eventsofday">
+                @Html.Partial("_getEventsOfDay", Model.eventList)
+            </div>
+
+            <div>
+                @if (ViewContext.HttpContext.User.IsInRole("Admin") || ViewContext.HttpContext.User.IsInRole("UserReadAndWrite"))
+                {
+                    @Html.Partial("_addEventForm", Model.calendarModel)
+                }
+            </div>
+
         </div>
     </div>
-    <div class="col-md-offset-7">
-        <div id="eventsofday">
-            @Html.Partial("_getEventsOfDay", Model.eventList)
-        </div>
+
+    <div class="row">
+            
+            <div class="col-sm-6">@Html.Partial("_daySchedule", Model.eventList)</div>
+     
     </div>
+
+   
+            @Html.ActionLink("Выйти", "LogOff", "Account")
+  
+
+
+
 </div>
-
-<div class="row">
-    <div class="col-md-offset-1">
-        @if (ViewContext.HttpContext.User.IsInRole("Admin") || ViewContext.HttpContext.User.IsInRole("UserReadAndWrite"))
-        {
-            @Html.Partial("_addEventForm", Model.calendarModel)
-        }
-    </div>
-</div>
-
-
-<div class="row">
-    <div class="col-md-offset-2">
-       @Html.ActionLink("Выйти", "LogOff", "Account")
-    </div>
-</div>
-
-
-

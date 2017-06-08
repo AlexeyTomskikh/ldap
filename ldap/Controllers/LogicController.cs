@@ -21,8 +21,16 @@ namespace ldap.Controllers
             return PartialView(calendarModel);
         }
 
-        // Метод возвращает все события в выбранный день
+        // Метод возвращает в част. представление _getEventsOfDay все события в выбранный день календаря
         public ActionResult _getEventsOfDay(DateTime currentDate)
+        {
+            List<Event> list = new EventManagement().GetAllEvents(currentDate);
+            return PartialView(list);
+        }
+
+        // Метод возвращает список событий для отображения в расписании на день
+        [HttpPost]
+        public ActionResult _daySchedule(DateTime currentDate)
         {
             List<Event> list = new EventManagement().GetAllEvents(currentDate);
             return PartialView(list);
