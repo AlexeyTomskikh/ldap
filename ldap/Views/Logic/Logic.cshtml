@@ -1,4 +1,7 @@
-﻿@model ldap.Models.LogicModel
+﻿@using ldap.Models
+
+@model LogicModel
+
 
 @{
     Layout = "~/Views/Shared/Layout.cshtml";
@@ -17,7 +20,7 @@
     function loadEventsOfDay(currentDate) {
         reloadSchedule(currentDate)
         $('#eventsofday').load('_getEventsOfDay', { 'currentDate': currentDate });
-        
+
     }
     // отображает список названий мероприятий в табличке
     function ShowEventsInTable(nameEvent) {
@@ -30,7 +33,7 @@
         $('#schedule').load('_daySchedule', { 'currentDate': currentDate });
     }
 
-    
+
 
 </script>
 
@@ -59,15 +62,14 @@
     </div>
 
     <div class="row">
-            
-            <div class="col-sm-6">@Html.Partial("_daySchedule", Model.eventList)</div>
-     
+
+        <div class="col-sm-6">@Html.Partial("_daySchedule", new ScheduleModel { eventList = Model.eventList, curentDate = Model.calendarModel.curentDate })</div>
+        @*<div class="col-sm-6">@Html.Partial("_daySchedule", Model.scheduleModel)</div>*@
+       
+
+
     </div>
 
-   
-            @Html.ActionLink("Выйти", "LogOff", "Account")
-  
-
-
+    @Html.ActionLink("Выйти", "LogOff", "Account")
 
 </div>

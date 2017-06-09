@@ -1,4 +1,4 @@
-﻿@model List<ldap.Models.Event>
+﻿@model ldap.Models.ScheduleModel
 
 
 
@@ -66,21 +66,49 @@
         </tr>
 
         @{
-            for (int i = 0; i <= 24; i++)
+            for (int i = 0; i < 24; i++)
             {
+                @*<tr>
+                        <td>@i :00</td>
+                        <td>
+                            @foreach (ldap.Models.Event b in Model)
+                            {
+                                if (i >= b.StartTime.Hour && i <= b.EndTime.Hour)
+                                {
+                                    @b.DescriptionEvent
+                                }
+                            }
+                        </td>
+
+
+                    </tr>*@
+
                 <tr>
                     <td>@i :00</td>
                     <td>
-                        @foreach (ldap.Models.Event b in Model)
+                        @foreach (ldap.Models.Event b in Model.eventList)
                         {
-                            if (i >= b.StartTime.Hour && i <= b.EndTime.Hour)
+                            DateTime data = Model.curentDate;
+
+                            DateTime start = new DateTime(data.Year, data.Month, data.Day, i, 0, 0);
+                            DateTime end = new DateTime(data.Year, data.Month, data.Day, i, 0, 0).AddHours(1);
+
+                                if (!(b.StartTime >= end || b.EndTime < start))
+                                //if ((b.StartTime.TimeOfDay < end && b.EndTime.TimeOfDay >= start))
+                                {
+                                    @b.DescriptionEvent
+                                }
+
+                            @*if (b.EndTime.TimeOfDay >= start.TimeOfDay && b.EndTime.TimeOfDay <= end.TimeOfDay)
                             {
                                 @b.DescriptionEvent
-                            }
+                            }*@
+
+
+
+
                         }
                     </td>
-
-                   
                 </tr>
             }
         }

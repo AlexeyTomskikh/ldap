@@ -31,5 +31,15 @@ namespace ldap.Models
 
         public CalendarModel calendarModel { get; set; }
 
+        public ScheduleModel scheduleModel { get; set; }
+
+    }
+
+    public class ScheduleModel
+    {
+
+        public List<Event> eventList { get; set; }
+        public DateTime curentDate { get; set; }
+
     }
 }

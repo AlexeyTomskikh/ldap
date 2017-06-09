@@ -25,6 +25,9 @@ namespace ldap.Controllers
         public ActionResult _getEventsOfDay(DateTime currentDate)
         {
             List<Event> list = new EventManagement().GetAllEvents(currentDate);
+
+            
+
             return PartialView(list);
         }
 
@@ -33,7 +36,9 @@ namespace ldap.Controllers
         public ActionResult _daySchedule(DateTime currentDate)
         {
             List<Event> list = new EventManagement().GetAllEvents(currentDate);
-            return PartialView(list);
+            ScheduleModel model = new ScheduleModel { eventList = list, curentDate = currentDate };
+
+            return PartialView(model);
         }
 
         //метод формирует модель для обновления данных календаря по кнопке вперёд назад
