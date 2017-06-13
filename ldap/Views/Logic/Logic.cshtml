@@ -38,11 +38,14 @@
 </script>
 
 <div class="container-fluid">
+
     <div class="row">
 
         <div class="col-lg-6">
             <div id="calendar">
+                
                 @Html.Partial("_getCalendar", Model.calendarModel)
+
             </div>
         </div>
 
@@ -51,13 +54,13 @@
                 @Html.Partial("_getEventsOfDay", Model.eventList)
             </div>
 
-            <div>
+            @*<div>
                 @if (ViewContext.HttpContext.User.IsInRole("Admin") || ViewContext.HttpContext.User.IsInRole("UserReadAndWrite"))
                 {
                     @Html.Partial("_addEventForm", Model.calendarModel)
                 }
-            </div>
-
+            </div>*@
+            
         </div>
     </div>
 
@@ -73,3 +76,18 @@
     @Html.ActionLink("Выйти", "LogOff", "Account")
 
 </div>
+
+
+
+
+
+
+
+
+@*<script>
+    function showWnd() {
+        $('#dialogDiv').load('/Logic/SomeAction/').dialog({ autoOpen: true, position: 'center', title: 'My window', resizable: true });
+    };
+
+</script>*@
+

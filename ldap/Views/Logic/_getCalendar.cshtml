@@ -1,8 +1,11 @@
 ﻿@model ldap.Models.CalendarModel
 
 
-   <center><h2>Календарь</h2></center>
-    @*<p>Сегодня: @DateTime.Now.ToShortDateString() Время:@DateTime.Now.ToShortTimeString()</p>*@
+<center><h2>Календарь</h2></center>
+
+
+
+@*<p>Сегодня: @DateTime.Now.ToShortDateString() Время:@DateTime.Now.ToShortTimeString()</p>*@
 
 
 
@@ -11,6 +14,11 @@
         <td><a href="#" onclick="reloadCalendar(@Model.prevDate.Year, @Model.prevDate.Month, @Model.prevDate.Day); false;">Назад</a></td>
         <td colspan="5">@Model.nameMonth.ToString()</td>
         <td><a href="#" onclick="reloadCalendar(@Model.nextDate.Year, @Model.nextDate.Month, @Model.nextDate.Day); false;">Вперёд</a></td>
+        <td>
+            <input type="button" value="Добавить" onclick="showWnd();" />
+            <div id="dialogDiv">
+            </div>
+        </td>
     </tr>
     <tr align="center">
         <td><b>Понедельник</b></td>
@@ -23,7 +31,7 @@
     </tr>
 
 
-   
+
     @{
 
         int mem = 1;
@@ -40,7 +48,7 @@
                         {
 
                             //внутренняя не пустая табличка сегодня
-                            <td style=" cursor: pointer" width: 150px;" bgcolor="#7FFF00" align="center" class="js-myday" id="calendarday" custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''">
+                            <td style=" cursor: pointer" width 150px;" bgcolor="#7FFF00" align="center" class="js-myday" id="calendarday" custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''">
 
 
                                 <table border="0" width="145">
@@ -136,14 +144,16 @@
 </table>
 
 <script>
-    
+
     $(document).ready(function () {
         $('.js-myday').click(function (event) {
-            var b = this.attributes['custom'].value; // получаем значение атрибута custom по которому кликнули 
+            var b = this.attributes['custom'].value; // получаем значение атрибута custom по которому кликнули
             loadEventsOfDay(b);
         })
     });
 
 
 </script>
+
+
 

@@ -1,5 +1,6 @@
 ﻿
 
+
     <script type="text/javascript">
         function OnSuccess(data) {
             var results = $('#results'); // получаем нужный элемент
@@ -10,12 +11,14 @@
 
         function showError(container, errorMessage) {
             container.className = 'error';
-            var msgElem = document.createElement('span');
+            //var msgElem = document.createElement('span');
+            var msgElem = document.createElement('div');
             msgElem.className = "error-message";
             msgElem.innerHTML = errorMessage;
-            container.appendChild(msgElem);
+            container.appendChild(msgElem); 
         }
 
+        
         function resetError(container) {
             container.className = '';
             if (container.lastChild.className == "error-message") {
@@ -25,7 +28,7 @@
 
         function AddEvent(form) {
 
-            var elems = form.elements;
+            var elems = form.elements; 
             var date1 = new Date(elems.StartEvent.value).getTime();
             var date2 = new Date(elems.EndEvent.value).getTime();
            
@@ -101,7 +104,7 @@
     <div>
         <form action="/Logic/AddNewEvent" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#results" id="form0" method="post">
 
-            <center><h2>Добавить мероприятие</h2></center>
+            @*<center><h2>Добавить мероприятие</h2></center>*@
             <table class="table-striped table-bordered table-bordered table-hover table-condensed" align="center">
 
                 <tr>
@@ -134,3 +137,14 @@
 
 
 
+@* Скрипт навешивает датапикеры на формы ввода *@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("input[name='StartEvent']").datetimepicker();
+        $("input[name='EndEvent']").datetimepicker();
+        $("input[name='StartEvent1']").datetimepicker();
+        $("input[name='EndEvent1']").datetimepicker();
+        $("input[name='FilterStartEvent']").datepicker();
+        $("input[name='FilterEndEvent']").datepicker();
+    });
+</script>

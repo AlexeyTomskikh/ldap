@@ -279,5 +279,13 @@ namespace ldap.Controllers
             ev.DeleteEvent(event_id);
             return Json(new { success = true, year = _year, month = _month, day = _day });
         }
+
+
+
+        public ActionResult SomeAction()
+        {
+            ViewData["Greeting"] = "Hello World!";
+            return PartialView("_addEventForm");
+        }
     }
 }
