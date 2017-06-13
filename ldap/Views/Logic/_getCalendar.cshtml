@@ -1,13 +1,12 @@
 ﻿@model ldap.Models.CalendarModel
 
 
-
    <center><h2>Календарь</h2></center>
     @*<p>Сегодня: @DateTime.Now.ToShortDateString() Время:@DateTime.Now.ToShortTimeString()</p>*@
 
 
 
-<table border="1" cellpadding="0">
+<table border="1" cellpadding="0" id="calendar-day">
     <tr align="center">
         <td><a href="#" onclick="reloadCalendar(@Model.prevDate.Year, @Model.prevDate.Month, @Model.prevDate.Day); false;">Назад</a></td>
         <td colspan="5">@Model.nameMonth.ToString()</td>
@@ -23,6 +22,8 @@
         <td><b>Воскресенье</b></td>
     </tr>
 
+
+   
     @{
 
         int mem = 1;
@@ -38,13 +39,13 @@
                         if (Model.currentDay == mem && Model.currentMonth == DateTime.Now.Month) //  если это сегодня задаём зелёеый цвет ячейки и печатаем внутренний список
                         {
 
-
-                            <td style=" width: 150px;" bgcolor="#7FFF00" align="center" class="js-myday" id="calendar-day-@mem">
+                            //внутренняя не пустая табличка сегодня
+                            <td style=" cursor: pointer" width: 150px;" bgcolor="#7FFF00" align="center" class="js-myday" id="calendarday" custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''">
 
 
                                 <table border="0" width="145">
                                     <tr>
-                                        <td align="center" rowspan="6" width="20"><a href="#" onclick="loadEventsOfDay('@curDat'); false;"><b>@mem </b></a></td>
+                                        <td id="calendarday" align="center" rowspan="6" width="20"><b>@mem </b></td>
                                     </tr>
 
                                     @if (Model.eventNameList.ElementAt(mem - 1) != null)
@@ -53,22 +54,40 @@
                                         for (int k = 0; k <= @Model.eventNameList.ElementAt(mem - 1).Count - 1; k++)
                                         {
                                             <tr>
-                                                <td>@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).DescriptionEvent</td>
+                                                <td custom="@curDat" id="calendarday">@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).DescriptionEvent</td>
                                             </tr>
                                         }
+                                    }
+                                    else  // пустая ячейка сегодня без событий с 5-ю пустыми строками
+                                    {
+                                        <tr>
+                                            <td custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''"> &nbsp;  </td>
+                                        </tr>
+                                        <tr>
+                                            <td custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''">&nbsp;</td>
+                                        </tr>
                                     }
                                 </table>
                             </td>
 
 
                         }
-                        else
+                        else // если это не сегодня
                         {
-                            <td style="width: 150px;" align="center" class="js-myday" id="calendar-day-@mem">
+                            <td style="cursor: pointer" width 150px;" align="center" class="js-myday" id="calendarday" custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''">
 
                                 <table border="0" width="145">
                                     <tr>
-                                        <td align="center" rowspan="6" width="20"><a href="#" onclick="loadEventsOfDay('@curDat'); false;"><b>@mem </b></a></td>
+                                        <td id="calendarday" align="center" rowspan="6" width="20"><b>@mem </b></td>
                                     </tr>
 
                                     @if (Model.eventNameList.ElementAt(mem - 1) != null)  // если список не пустой
@@ -77,27 +96,27 @@
                                         for (; k <= @Model.eventNameList.ElementAt(mem - 1).Count - 1; k++)
                                         {
                                             <tr>
-                                                <td>@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).DescriptionEvent</td>
+                                                <td id="calendarday">@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).DescriptionEvent</td>
                                             </tr>
                                         }
-                                      
+
                                     }
                                     else  // пустая ячейка без событий с 5-ю пустыми строками
                                     {
                                         <tr>
-                                            <td> &nbsp;  </td>
+                                            <td custom="@curDat"> &nbsp;  </td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;</td>
+                                            <td custom="@curDat">&nbsp;</td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;</td>
+                                            <td custom="@curDat">&nbsp;</td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;</td>
+                                            <td custom="@curDat">&nbsp;</td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;</td>
+                                            <td custom="@curDat">&nbsp;</td>
                                         </tr>
                                     }
 
@@ -115,3 +134,16 @@
         }
     }
 </table>
+
+<script>
+    
+    $(document).ready(function () {
+        $('.js-myday').click(function (event) {
+            var b = this.attributes['custom'].value; // получаем значение атрибута custom по которому кликнули 
+            loadEventsOfDay(b);
+        })
+    });
+
+
+</script>
+

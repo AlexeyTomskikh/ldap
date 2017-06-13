@@ -55,7 +55,42 @@
 
 
 
+@*  НИЖЕ РАБОЧИЙ КОД РОАСПИСАНИЯ *@
 
+@*<div id="schedule">
+        <center><h2>Расписание</h2></center>
+        <table border="1" width="98%">
+            <tr>
+                <td width="80">&nbsp;</td>
+                <td>Четверг 8 июня</td>
+            </tr>
+
+            @{
+                for (int i = 0; i < 24; i++)
+                {
+                    <tr>
+                        <td>@i :00</td>
+                        <td>
+                            @foreach (ldap.Models.Event b in Model.eventList)
+                            {
+                                DateTime data = Model.curentDate;
+
+                                DateTime start = new DateTime(data.Year, data.Month, data.Day, i, 0, 0);
+                                DateTime end = new DateTime(data.Year, data.Month, data.Day, i, 0, 0).AddHours(1);
+
+                                    if (!(b.StartTime >= end || b.EndTime < start))
+
+                                    {
+                                        @b.DescriptionEvent
+                                    }
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+
+    </div>*@
 
 <div id="schedule">
     <center><h2>Расписание</h2></center>
@@ -68,21 +103,6 @@
         @{
             for (int i = 0; i < 24; i++)
             {
-                @*<tr>
-                        <td>@i :00</td>
-                        <td>
-                            @foreach (ldap.Models.Event b in Model)
-                            {
-                                if (i >= b.StartTime.Hour && i <= b.EndTime.Hour)
-                                {
-                                    @b.DescriptionEvent
-                                }
-                            }
-                        </td>
-
-
-                    </tr>*@
-
                 <tr>
                     <td>@i :00</td>
                     <td>
@@ -93,28 +113,15 @@
                             DateTime start = new DateTime(data.Year, data.Month, data.Day, i, 0, 0);
                             DateTime end = new DateTime(data.Year, data.Month, data.Day, i, 0, 0).AddHours(1);
 
-                                if (!(b.StartTime >= end || b.EndTime < start))
-                                //if ((b.StartTime.TimeOfDay < end && b.EndTime.TimeOfDay >= start))
-                                {
-                                    @b.DescriptionEvent
-                                }
-
-                            @*if (b.EndTime.TimeOfDay >= start.TimeOfDay && b.EndTime.TimeOfDay <= end.TimeOfDay)
+                            if (!(b.StartTime >= end || b.EndTime < start))
                             {
                                 @b.DescriptionEvent
-                            }*@
-
-
-
-
+                            }
                         }
                     </td>
                 </tr>
+               
             }
         }
-
-
     </table>
-
-
 </div>
