@@ -1,5 +1,5 @@
 ﻿
-<div>
+@*<div>
 
     <script type="text/javascript">
         function OnSuccess(data) {
@@ -117,7 +117,8 @@
     </script>
 
 
-    <div>
+    <div >
+        
         <center>
             <form action="/Logic/AddNewEvent" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#results" id="form0" method="post">
 
@@ -152,18 +153,14 @@
         </center>
 
     </div>
+   
 
-
-    @* Скрипт навешивает датапикеры на формы ввода *@
+    @* Скрипт навешивает датапикеры на формы ввода 
     <script type="text/javascript">
         $(document).ready(function () {
             $("input[name='StartEvent']").datetimepicker();
             $("input[name='EndEvent']").datetimepicker();
-            $("input[name='StartEvent1']").datetimepicker();
-            $("input[name='EndEvent1']").datetimepicker();
-            $("input[name='FilterStartEvent']").datepicker();
-            $("input[name='FilterEndEvent']").datepicker();
         });
     </script>
 
-</div>
+</div>*@

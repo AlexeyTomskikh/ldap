@@ -1,0 +1,127 @@
+﻿
+/*Общий стиль для частичного представления с календарём*/
+#calendar {
+
+    font-size:20px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    max-width:64%;
+    margin-left: 50px;
+    float:left;
+  
+}
+
+.schedule{
+    font-size:20px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    width:700px;
+    margin-right:50px;
+    float:right;
+    
+}
+
+.addform {
+    float:left;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    
+   
+}
+
+
+/*вертикальный div с числом в календаре */
+.data{ 
+    
+    font-weight: bold;
+    /*background-color: rgba(3, 169, 244, 0.44);*/ 
+    height:152px;
+    width:30px;
+    text-align:center;
+    
+    outline:thick;
+    float:left;
+
+    
+    
+}
+/*Горизонтальные div-ы  c названием событий в календаре*/
+.inner {
+    /*background-color:rgba(204, 255, 144, 0.43);*/
+    width:177px;
+    
+    border-radius: 5px;
+    margin-bottom:1px;
+    float:right;
+    
+}
+
+
+
+.header {
+    height:70px;
+    background-color: #ffffff;
+    padding:40px 25px 10px 40px;
+     margin-bottom: 15px; 
+   
+}
+
+
+.footer{
+    color:#ffffff;
+    height:50px;
+    background-color: #284a38;
+    padding:10px 25px 10px 25px;
+    margin-bottom: 15px; 
+    clear:both;
+   
+}
+
+
+/*========всплывающее окно==========*/
+
+.b-container{
+    width:200px;
+    height:50px;
+    background-color: #ccc;
+    margin:0px auto;
+    padding:10px;
+    font-size:30px;
+    color: #ffffff;
+    font-size:20px;
+}
+.b-popup{
+    width:100%;
+    min-height:100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow:hidden;
+    position:fixed;
+    top:0px;
+}
+.b-popup .b-popup-content{
+    margin:415px auto 0px auto;
+    width:474px;
+    height: 460px;
+    padding:10px;
+    background-color: #ffffff;
+    border-radius:5px;
+    box-shadow: 0px 0px 10px #000;
+}
+
+.form-group {
+
+    width:250px;
+    margin-right:150px;
+    
+}
+
+.name-label {
+
+    margin-right:140px;
+}
+
+.message {
+
+    padding: 10px;
+    border: 1px solid #d6e9c6;
+    background-color: #dff0d8;
+    color: #468847;
+    border-radius: 5px;
+}

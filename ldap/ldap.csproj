@@ -148,7 +148,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\css\mainCalendarTable.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\img\Add-icon.png" />
+    <Content Include="Content\img\Delete-icon.png" />
+    <Content Include="Content\img\envelope-1.png" />
+    <Content Include="Content\img\envelope-2.png" />
+    <Content Include="Content\img\envelope.png" />
+    <Content Include="Content\img\lime-zaim.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
@@ -171,6 +177,7 @@
     <Content Include="Scripts\jquery-ui-1.12.1\jquery-ui-1.12.1\jquery-ui.theme.css" />
     <Content Include="Scripts\jquery-ui-1.12.1\jquery-ui-1.12.1\jquery-ui.theme.min.css" />
     <Content Include="Scripts\jquery-ui-1.12.1\jquery-ui-1.12.1\LICENSE.txt" />
+    <Content Include="Scripts\js\RemoveEvent.js" />
     <Content Include="Scripts\js\VerificationAddForm.js" />
     <Content Include="Scripts\myScript.js" />
     <Content Include="Scripts\calendar2\angular.js" />

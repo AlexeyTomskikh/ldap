@@ -9,7 +9,7 @@
 @{
     ViewBag.Title = "Logic";
 }
-
+<script src="~/Scripts/myScript.js"></script>
 <script>
     //Перезагружает календарь
     function reloadCalendar(year, month, day) {
@@ -37,46 +37,47 @@
 
 </script>
 
-<div class="container-fluid">
 
-    <div class="row">
+@*<div class="container-fluid">
 
-        <div class="col-lg-6">
-            <div id="calendar">
+        <div class="row">
 
-                @Html.Partial("_getCalendar", Model.calendarModel)
+            <div class="col-lg-6">
+                <div id="calendar">
+
+                    @Html.Partial("_getCalendar", Model.calendarModel)
+
+                </div>
+            </div>
+
+            <div class="container-fluid">
+
+                <div id="eventsofday">
+                    @Html.Partial("_getEventsOfDay", Model.eventList)
+                </div>
+
+                <div>
+                    @if (ViewContext.HttpContext.User.IsInRole("Admin") || ViewContext.HttpContext.User.IsInRole("UserReadAndWrite"))
+                    {
+                        @Html.Partial("_addEventForm", Model.calendarModel)
+                    }
+                </div>
 
             </div>
         </div>
 
-        <div class="container-fluid">
+        <div class="row">
 
-            <div id="eventsofday">
-                @Html.Partial("_getEventsOfDay", Model.eventList)
-            </div>
+            <div class="col-sm-6">@Html.Partial("_daySchedule", new ScheduleModel { eventList = Model.eventList, curentDate = Model.calendarModel.curentDate })</div>
+            @*<div class="col-sm-6">@Html.Partial("_daySchedule", Model.scheduleModel)</div>
 
-            <div>
-                @if (ViewContext.HttpContext.User.IsInRole("Admin") || ViewContext.HttpContext.User.IsInRole("UserReadAndWrite"))
-                {
-                    @Html.Partial("_addEventForm", Model.calendarModel)
-                }
-            </div>
+
 
         </div>
-    </div>
 
-    <div class="row">
+        @Html.ActionLink("Выйти", "LogOff", "Account")
 
-        <div class="col-sm-6">@Html.Partial("_daySchedule", new ScheduleModel { eventList = Model.eventList, curentDate = Model.calendarModel.curentDate })</div>
-        @*<div class="col-sm-6">@Html.Partial("_daySchedule", Model.scheduleModel)</div>*@
-
-
-
-    </div>
-
-    @Html.ActionLink("Выйти", "LogOff", "Account")
-
-</div>
+    </div>*@
 
 
 
@@ -121,4 +122,45 @@
         </table>
 
     </div>*@
+
+<div class="header"><img src="~/Content/img/lime-zaim.png" /></div>
+
+<div id="calendar">
+
+    @Html.Partial("_getCalendar", Model.calendarModel)
+</div>
+
+<div class="schedule" id="schedule">@Html.Partial("_daySchedule", new ScheduleModel { eventList = Model.eventList, curentDate = Model.calendarModel.curentDate })</div>
+
+
+
+
+
+
+
+@*<div class="addform">
+        @if (ViewContext.HttpContext.User.IsInRole("Admin") || ViewContext.HttpContext.User.IsInRole("UserReadAndWrite"))
+        {
+            @Html.Partial("_addEventForm", Model.calendarModel)
+        }
+    </div>*@
+
+
+@*<div id="eventsofday">
+    @Html.Partial("_getEventsOfDay", Model.eventList)
+</div>*@
+
+
+
+
+
+
+
+
+<div class="footer">@Html.ActionLink("Выйти", "LogOff", "Account" )</div>
+
+
+    
+    
+
 

@@ -1,148 +1,114 @@
 ﻿@model ldap.Models.CalendarModel
 
-<div>
-    <center><h2>Календарь</h2></center>
+<center><h2>Расписание</h2></center>
 
-    <table border="1" id="calendar-day" class="table table-striped table-hover table-bordered">
-        
-        
-            <tr align="center">
+<table border="1" id="calendar-day" class="table table-striped table-hover table-bordered">
+    <tr align="center">
+        <th><b>Понедельник</b></th>
+        <th><b>Вторник</b></th>
+        <th><b>Среда</b></th>
+        <th><b>Четверг</b></th>
+        <th><b>Пятница</b></th>
+        <th><b>Суббота</b></th>
+        <th><b>Воскресенье</b></th>
+    </tr>
+    <thead class="thead-inverse">
+        <tr>
+            <td><a href="#" onclick="reloadCalendar(@Model.prevDate.Year, @Model.prevDate.Month, @Model.prevDate.Day); false;">Назад</a></td>
+            <td colspan="5">
+                <center>
+                    @Model.nameMonth.ToString()
+                    <a href="javascript:PopUpShow()">Добавить</a><div id="dialogDiv"></div>
+                </center>
+            </td>
+            <td><a href="#" onclick="reloadCalendar(@Model.nextDate.Year, @Model.nextDate.Month, @Model.nextDate.Day); false;">Вперёд</a></td>
+        </tr>
+    </thead>
 
-                <th width="150px"><b>Понедельник</b></th>
-                <th width="150px"><b>Вторник</b></th>
-                <th width="150px"><b>Среда</b></th>
-                <th width="150px"><b>Четверг</b></th>
-                <th width="150px"><b>Пятница</b></th>
-                <th width="150px"><b>Суббота</b></th>
-                <th width="150px"><b>Воскресенье</b></th>
+    @{
 
-            </tr>
-      
-        <thead class="thead-inverse">
+        int mem = 1;
+        DateTime curDat;
+        for (int i = 0; i <= Model.numberOfLines; i++) // цикл задаёт количество строк в календаре
+        {
             <tr>
-                <td><a href="#" onclick="reloadCalendar(@Model.prevDate.Year, @Model.prevDate.Month, @Model.prevDate.Day); false;">Назад</a></td>
-                <td colspan="5"><center>@Model.nameMonth.ToString()</center></td>
-                <td><a href="#" onclick="reloadCalendar(@Model.nextDate.Year, @Model.nextDate.Month, @Model.nextDate.Day); false;">Вперёд</a></td>
-                @*<td>
-                    <input class="btn btn-default" type="button" value="Добавить" onclick="showWnd();" />
-                    <div id="dialogDiv">
-                    </div>
-                </td>*@
-            </tr>
-
-              </thead>
-
-            @{
-
-                int mem = 1;
-                DateTime curDat;
-                for (int i = 0; i <= Model.numberOfLines; i++) // цикл задаёт количество строк в календаре
+                @for (int j = 1; j <= 7; j++)  // цикл задаёт количество столбцов. всегда = 7
                 {
-                    <tr>
-                        @for (int j = 1; j <= 7; j++)  // цикл задаёт количество столбцов. всегда = 7
+                    if ((i == 0 && Model.dayOfWeek <= j) || (i > 0 && mem <= Model.daysInMonth))
+                    {
+                        curDat = new DateTime(Model.currentYear, Model.currentMonth, mem);
+                        if (Model.currentDay == mem && Model.currentMonth == DateTime.Now.Month) //  если это сегодня задаём зелёеый цвет ячейки и печатаем внутренний список
                         {
-                            if ((i == 0 && Model.dayOfWeek <= j) || (i > 0 && mem <= Model.daysInMonth))
-                            {
-                                curDat = new DateTime(Model.currentYear, Model.currentMonth, mem);
-                                if (Model.currentDay == mem && Model.currentMonth == DateTime.Now.Month) //  если это сегодня задаём зелёеый цвет ячейки и печатаем внутренний список
+
+                            //внутренняя не пустая табличка сегодня
+                            <td style=" cursor: pointer;" bgcolor="#CCFF90" align="left" class="js-myday" id="calendarday" custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''">
+
+                                <div class="data">@curDat.Day</div>
+
+                                @if (Model.eventNameList.ElementAt(mem - 1) != null)
                                 {
-
-                                    //внутренняя не пустая табличка сегодня
-                                    <td style=" cursor: pointer; padding: 0px " bgcolor="#CCFF90" align="left" class="js-myday" id="calendarday" custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''">
-
-
-                                        <table border="0" class="inner-table" width="145">
-                                            <tr>
-                                                <td id="calendarday"  rowspan="6" width="20"><h3>@mem </h3></td>
-                                            </tr>
-
-                                            @if (Model.eventNameList.ElementAt(mem - 1) != null)
-                                            {
-
-                                                for (int k = 0; k <= @Model.eventNameList.ElementAt(mem - 1).Count - 1; k++)
-                                                {
-                                                    <tr>
-                                                        <td custom="@curDat" id="calendarday">@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).DescriptionEvent</td>
-                                                    </tr>
-                                                }
-                                            }
-                                            else  // пустая ячейка сегодня без событий с 5-ю пустыми строками
-                                            {
-                                                <tr>
-                                                    <td custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''"> &nbsp;  </td>
-                                                </tr>
-                                                <tr>
-                                                    <td custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''">&nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''">&nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''">&nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''">&nbsp;</td>
-                                                </tr>
-                                            }
-                                        </table>
-                                    </td>
-
-
+                                    for (int k = 0; k <= @Model.eventNameList.ElementAt(mem - 1).Count - 1; k++)
+                                    {
+                                        <div class="inner" custom="@curDat" id="calendarday">
+                                            @Model.eventNameList.ElementAt(mem - 1).ElementAt(k).DescriptionEvent <img src="~/Content/img/Delete-icon.png" onclick="RemoveEvent(@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).id)"/>
+                                         </div>
+                                    }
                                 }
-                                else // если это не сегодня
+                                else  // пустая ячейка сегодня без событий с 5-ю пустыми строками
                                 {
-                                    <td style="cursor: pointer" class="js-myday" id="calendarday" custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''">
+                                    <div class="inner" custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''"></div>
 
-                                        <table border="0">
-                                            <tr>
-                                                <td id="calendarday" rowspan="6" width="20"><h3>@mem </h3></td>
-                                            </tr>
+                                    <div class="inner" custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''"></div>
 
-                                            @if (Model.eventNameList.ElementAt(mem - 1) != null)  // если список не пустой
-                                            {
-                                                int k = 0;
-                                                for (; k <= @Model.eventNameList.ElementAt(mem - 1).Count - 1; k++)
-                                                {
-                                                    <tr>
-                                                        <td id="calendarday">@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).DescriptionEvent</td>
-                                                    </tr>
-                                                }
+                                    <div class="inner" custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''"></div>
 
-                                            }
-                                            else  // пустая ячейка без событий с 5-ю пустыми строками
-                                            {
-                                                <tr>
-                                                    <td custom="@curDat"> &nbsp;  </td>
-                                                </tr>
-                                                <tr>
-                                                    <td custom="@curDat">&nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td custom="@curDat">&nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td custom="@curDat">&nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td custom="@curDat">&nbsp;</td>
-                                                </tr>
-                                            }
+                                    <div class="inner" custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''"></div>
 
-                                        </table>
-                                    </td>
+                                    <div class="inner" custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''"></div>
                                 }
-                                mem++;
-                            }
-                            else
-                            {
-                                <td align="center"></td> // отображение пустых ячеей предыдущего и следующего месяца
-                            }
+                            </td>
+
                         }
-                    </tr>
+                        else // если это не сегодня
+                        {
+                            <td style="cursor: pointer" class="js-myday" id="calendarday" custom="@curDat" onmouseover="this.style.background = 'silver'" onmouseout="this.style.background = ''">
+
+                                <div class="data">@curDat.Day</div>
+
+                                @if (Model.eventNameList.ElementAt(mem - 1) != null)  // если список не пустой
+                                {
+                                    int k = 0;
+                                    for (; k <= @Model.eventNameList.ElementAt(mem - 1).Count - 1; k++)
+                                    {
+                                        <div class="inner" id="calendarday">
+                                            @Model.eventNameList.ElementAt(mem - 1).ElementAt(k).DescriptionEvent
+                                            <img src="~/Content/img/Delete-icon.png" onclick="RemoveEvent(@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).id)" />
+                                        </div>
+                                    }
+                                }
+                                else  // пустая ячейка без событий с 5-ю пустыми строками
+                                {
+                                    <div class="inner"></div>
+                                    <div class="inner"></div>
+                                    <div class="inner"></div>
+                                    <div class="inner"></div>
+                                    <div class="inner"></div>
+                                }
+
+                            </td>
+                        }
+                        mem++;
+                    }
+                    else
+                    {
+                        <td align="center"></td> // отображение пустых ячеей предыдущего и следующего месяца
+                    }
                 }
-            }
+            </tr>
+        }
+    }
 </table>
-</div>
+
 <script>
 
     $(document).ready(function () {
@@ -157,3 +123,190 @@
 
 
 
+@* Само окно *@
+<div class="b-popup" id="popup1">
+    @* Содержимое окна *@
+    <div class="b-popup-content">
+        <a href="javascript:PopUpHide()">Закрыть</a>
+
+
+        <div>
+
+            <script type="text/javascript">
+                function OnSuccess(data) {
+                    var results = $('#results'); // получаем нужный элемент
+                    results.empty(); //очищаем элемент
+                    results.append('<li>' + data + '</li>'); // добавляем данные в список
+
+                }
+
+                function showError(container, errorMessage) {
+                    container.className = 'error';
+                    //var msgElem = document.createElement('span');
+                    var msgElem = document.createElement('div');
+                    msgElem.className = "error-message";
+                    msgElem.innerHTML = errorMessage;
+                    container.appendChild(msgElem);
+                }
+
+                function showSuccessMessage() {
+
+                    document.getElementById('resultsWWw').innerHTML = '';
+                    document.getElementById('resultsWWw').innerHTML = 'Мероприятие успешно добавлено';
+                    //showError(document.getElementById('resultsWWw'), ' Мероприятие успешно добавлено');
+                }
+
+
+                function resetError(container) {
+                    container.className = '';
+                    if (container.lastChild.className == "error-message") {
+                        container.removeChild(container.lastChild);
+                    }
+                }
+
+
+                function AddEvent(form) {
+
+                    var elems = form.elements;
+                    //var date1 = new Date(elems.StartEvent.value).getTime();
+                    //var date2 = new Date(elems.EndEvent.value).getTime();
+                    var date1 = $('#StartEvent').val();
+                    var date2 = $('#EndEvent').val();
+
+                    if (!elems.NameEvent.value || !elems.StartEvent.value || (!elems.EndEvent.value) || (date1 > date2)) {
+
+                        resetError(elems.NameEvent.parentNode);
+                        if (!elems.NameEvent.value) {
+                            //showError(elems.NameEvent.parentNode, 'Укажите название мероприятия');
+                            showError(document.getElementById('resultsWWw'), 'Укажите название мероприятия');
+
+                        }
+
+                        resetError(elems.StartEvent.parentNode);
+                        if (!elems.StartEvent.value) {
+                            //showError(elems.StartEvent.parentNode, 'Укажите время начала');
+                            showError(document.getElementById('resultsWWw'), 'Укажите время начала');
+                        }
+
+                        resetError(elems.EndEvent.parentNode);
+                        if (!elems.EndEvent.value) {
+                            //showError(elems.EndEvent.parentNode, 'Укажите время окончания');
+                            showError(document.getElementById('resultsWWw'), 'Укажите время окончания');
+                        }
+
+
+                        if (date1 > date2) {
+                            showError(elems.EndEvent.parentNode, 'Начало не может быть раньше конца');
+                        }
+
+
+                    } else if ((elems.StartEvent.value == elems.EndEvent.value)) {
+                        resetError(elems.StartEvent.parentNode);
+                        resetError(elems.EndEvent.parentNode);
+                        // showError(elems.StartEvent.parentNode, 'Начало не может совпадать с временем окончания');
+                        // showError(elems.EndEvent.parentNode, ' Начало не может совпадать с временем окончания');
+                        document.getElementById('resultsWWw').innerHTML = '';
+                        showError(document.getElementById('resultsWWw'), ' Начало не может совпадать с временем окончания');
+                        //resetError(document.getElementById('resultsWWw'));
+                        //var er = document.getElementById('resultsWWw');
+                        //showError(er, ' Начало не может совпадать с временем окончания');
+                    } else {
+                        resetError(elems.NameEvent.parentNode);
+                        resetError(elems.StartEvent.parentNode);
+                        resetError(elems.EndEvent.parentNode);
+
+                        //Читаем данные с формы
+                        var formData = {
+                            NameEvent: $('#NameEvent').val(),
+                            StartEvent: $('#StartEvent').val(),
+                            EndEvent: $('#EndEvent').val()
+                        }
+
+                        $.ajax({
+                            url: "@Url.Action("AddNewEvent" , "Logic")",
+                            type: 'POST',
+                            data: JSON.stringify(formData),
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: 'json',
+                            processData: false,
+                            success: function (result) {
+                                if (!result.success) {
+                                    alert("К сожалению указанное время уже занято. Попробуйте выбрать другое")
+                                } else {
+                                    showError(document.getElementById('resultsWWw'), ' "Мероприятие успешно добавлено"');
+                                    alert("Мероприятие успешно добавлено")
+
+                                    loadEventsOfDay(result.data)  //перегружает список событий в этот день
+                                    reloadCalendar(result.year, result.month, result.day) // перегружает календарь
+                                    document.getElementById('resultsWWw').innerHTML = 'ggggggg';
+                                    $(".form").val("")
+                                }
+                            },
+                            error: function () {
+                                alert('Ошибка! Добавление невозможно. Проверьте соединение с интернетом!');
+                            }
+
+                        });
+                    }
+                }
+            </script>
+
+
+            <div>
+
+                <center>
+                    <form action="/Logic/AddNewEvent" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#results" id="form0" method="post">
+
+                            <h2>Новое мероприятие</h2>
+                            <table border="1" class="table-bordered">
+
+                                <tr>
+                                    <td>@Html.Label("Название:")</td>
+                                    <td><input class="form" type="text" name="NameEvent" id="NameEvent"/></td>
+                                </tr>
+
+                                <tr>
+                                    <td>@Html.Label("Начало")</td>
+                                    <td><input class="form" name="StartEvent" id="StartEvent" type="text"></td>
+                                </tr>
+
+                                <tr>
+                                    <td>@Html.Label("Конец")</td>
+                                    <td><input class="form" name="EndEvent" id="EndEvent" type="text"></td>
+                                </tr>
+
+                                <tr>
+                                    <td><input a class="btn btn-default" role="button" type="button" name="Sendform" onclick="AddEvent(this.form)" value="Добавить" /></td>
+                                </tr>
+                            </table>
+
+
+
+                        </form>
+
+                    
+                    <div id="resultsWWw" class="message"></div>
+
+                </center>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@*<script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>*@
+<script>
+    $(document).ready(function () {
+        //Скрыть PopUp при загрузке страницы
+        PopUpHide();
+    });
+    //Функция отображения PopUp
+    function PopUpShow() {
+        $("#popup1").show();
+    }
+    //Функция скрытия PopUp
+    function PopUpHide() {
+        $("#popup1").hide();
+    }
+</script>

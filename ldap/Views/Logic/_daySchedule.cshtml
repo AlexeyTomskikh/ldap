@@ -1,20 +1,16 @@
 ﻿@model ldap.Models.ScheduleModel
 
 
-
-
-
-<div id="schedule">
-    <center><h2>Расписание: @Model.curentDate.ToString("dddd dd MMMM")</h2></center>
+    <center><h2>@Model.curentDate.ToString("dddd dd MMMM")</h2></center>
    
-    <table width="1017" align="center" class="table table-striped table-hover table-bordered ">
+    <table width="1017" align="center" class="table table-hover table-bordered ">
 
 
         @{
             for (int i = 0; i < 24; i++)
             {
                 <tr>
-                    <td height="30" width="80"><center><b>@i :00</b></center></td>
+                    <td height="30" width="100"><center>@i :00</center></td>
                     <td>
                         @foreach (ldap.Models.Event b in Model.eventList)
                         {
@@ -25,7 +21,7 @@
 
                             if (!(b.StartTime >= end || b.EndTime < start))
                             {
-                                <b>@String.Format("{0}:{1}-{2}", b.DescriptionEvent, b.StartTime.ToShortTimeString(), b.EndTime.ToShortTimeString())</b> ;
+                                @String.Format("{0}:{1}-{2}", b.DescriptionEvent, b.StartTime.ToShortTimeString(), b.EndTime.ToShortTimeString()) ;
 
                             }
                         }
@@ -36,4 +32,3 @@
         }
     </table>
 
-</div>
