@@ -1,46 +1,4 @@
 ﻿@model IEnumerable<ldap.Models.Event>
-<script src="~/Scripts/js/VerificationAddForm.js"></script>
-
-
-@*<script type="text/javascript">
-        function OnSuccess(data) {
-            var results = $('#results'); // получаем нужный элемент
-            results.empty(); //очищаем элемент
-            results.append('<li>' + data + '</li>'); // добавляем данные в список
-
-        }
-
-        function RemoveEvent(id) {
-
-            var event_id1 = id;
-            var current_date = document.getElementById("StartEvent1").innerHTML;
-
-
-            $.ajax({
-                type: 'POST',
-                url: '/Logic/RemoveEvent?event_id=' + event_id1,
-                contentType: 'application/json; charset=utf-8',
-                processData: false,
-                success: function (data) {
-                    if (data.success) {
-                        loadEventsOfDay(current_date)
-                        reloadCalendar(data.year, data.month, data.day) // перегружает календарь
-
-                    } else {
-                        alert("ошибка удаления!!!")
-                    }
-
-                    jQuery('.form').trigger('reset');
-                },
-                error: function () {
-                    alert('Ошибка! Проверьте соединение!');
-                }
-
-            });
-        }
-</script>*@
-
-
 
 <center><h2>Мероприятия в этот день </h2></center>
 
@@ -56,12 +14,11 @@
             </tr>
         </thead>
 
-      
         @foreach (ldap.Models.Event b in Model)
         {
-           
+
             <tr>
-                
+
                 <td align="center">@b.DescriptionEvent</td>
                 <td id="StartEvent1" type="text" align="center">@b.StartTime</td>
                 <td align="center">@b.EndTime</td>

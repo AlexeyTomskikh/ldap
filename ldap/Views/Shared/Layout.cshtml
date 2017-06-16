@@ -6,6 +6,7 @@
 <head>
     <meta charset="utf-8" />
     <title>@ViewBag.Title</title>
+
     @* jQuery *@
     <script src="~/Scripts/MyCalendar/jQuery/jquery-3.2.1.js"></script>
     <link href="~/Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" />
@@ -23,9 +24,6 @@
 
     <link href="@Url.Content("~/Content/themes/base/all.css")" rel="stylesheet" type="text/css" />
 
-    @*Верификация формы добавления события*@
-    <script src="~/Scripts/js/VerificationAddForm.js"></script>
-
     @*bootstrap*@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
@@ -34,17 +32,17 @@
     @*Мои стили*@
     <link href="~/Content/css/main.css" rel="stylesheet" />
 
-    @* Скрипт навешивает датапикеры на формы ввода *@
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("input[name='StartEvent']").datetimepicker();
-            $("input[name='EndEvent']").datetimepicker();
-
-        });
-    </script>
-
     @* Скрипт для удаления событий *@
     <script src="~/Scripts/js/RemoveEvent.js"></script>
+
+    @* Скрипт для добавления событий *@
+    <script src="~/Scripts/js/AddEvent.js"></script>
+
+    @* Датапикеры на формы ввода *@
+    <script src="~/Scripts/js/datepicker-setup.js"></script>
+
+    @* Скрипт управляет обновлением данных на странице *@
+    <script src="~/Scripts/js/reload-elements.js"></script>
 
 </head>
 <body>

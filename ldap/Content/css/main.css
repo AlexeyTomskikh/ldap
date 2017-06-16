@@ -1,127 +1,144 @@
 ﻿
 /*Общий стиль для частичного представления с календарём*/
 #calendar {
-
-    font-size:20px;
+    font-size: 20px;
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    max-width:64%;
+    max-width: 64%;
     margin-left: 50px;
-    float:left;
-  
+    float: left;
 }
 
-.schedule{
-    font-size:20px;
+.schedule {
+    font-size: 20px;
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    width:700px;
-    margin-right:50px;
-    float:right;
-    
+    width: 700px;
+    margin-right: 50px;
+    float: right;
 }
 
 .addform {
-    float:left;
+    float: left;
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    
-   
 }
 
 
 /*вертикальный div с числом в календаре */
-.data{ 
-    
+.data {
     font-weight: bold;
-    /*background-color: rgba(3, 169, 244, 0.44);*/ 
-    height:152px;
-    width:30px;
-    text-align:center;
-    
-    outline:thick;
-    float:left;
-
-    
-    
+    /*background-color: rgba(3, 169, 244, 0.44);*/
+    height: 152px;
+    width: 30px;
+    text-align: center;
+    outline: thick;
+    float: left;
 }
 /*Горизонтальные div-ы  c названием событий в календаре*/
 .inner {
     /*background-color:rgba(204, 255, 144, 0.43);*/
-    width:177px;
-    
+    width: 177px;
     border-radius: 5px;
-    margin-bottom:1px;
-    float:right;
-    
+    margin-bottom: 1px;
+    float: right;
+    white-space: nowrap; /* Отменяем перенос текста */
+    overflow: hidden; /* Обрезаем содержимое */
+    text-overflow: ellipsis; /* Многоточие */
 }
 
 
 
 .header {
-    height:70px;
-    background-color: #ffffff;
-    padding:40px 25px 10px 40px;
-     margin-bottom: 15px; 
-   
+    height: 60px;
+    padding: 40px 25px 10px 40px;
+    margin-bottom: 40px;
 }
 
 
-.footer{
-    color:#ffffff;
-    height:50px;
+.footer {
+    color: #ffffff;
+    height: 50px;
     background-color: #284a38;
-    padding:10px 25px 10px 25px;
-    margin-bottom: 15px; 
-    clear:both;
-   
+    padding: 10px 25px 10px 25px;
+    margin-bottom: 15px;
+    clear: both;
 }
 
 
 /*========всплывающее окно==========*/
 
-.b-container{
-    width:200px;
-    height:50px;
+.b-container {
+    width: 200px;
+    height: 50px;
     background-color: #ccc;
-    margin:0px auto;
-    padding:10px;
-    font-size:30px;
+    margin: 0px auto;
+    padding: 10px;
+    font-size: 30px;
     color: #ffffff;
-    font-size:20px;
+    font-size: 20px;
 }
-.b-popup{
-    width:100%;
-    min-height:100%;
+
+.b-popup {
+    width: 100%;
+    min-height: 100%;
     background-color: rgba(0,0,0,0.5);
-    overflow:hidden;
-    position:fixed;
-    top:0px;
+    overflow: hidden;
+    position: fixed;
+    top: 0px;
 }
-.b-popup .b-popup-content{
-    margin:415px auto 0px auto;
-    width:474px;
-    height: 460px;
-    padding:10px;
-    background-color: #ffffff;
-    border-radius:5px;
-    box-shadow: 0px 0px 10px #000;
-}
+
+    .b-popup .b-popup-content {
+        margin: 415px auto 0px auto;
+        width: 470px;
+        height: 397px;
+        padding: 15px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #000;
+        border: 15px solid #d2ee86;
+        border-radius: 15px;
+    }
 
 .form-group {
-
-    width:250px;
-    margin-right:150px;
-    
+    width: 260px;
+    margin-right: 150px;
 }
 
 .name-label {
-
-    margin-right:140px;
+   
+ 
 }
 
 .message {
-
-    padding: 10px;
-    border: 1px solid #d6e9c6;
+    margin-top: 54px;
+   
+    height: 100px;
+    padding: 9px;
+    border: 1px solid #a3b670;
+    border-radius: 15px;
     background-color: #dff0d8;
-    color: #468847;
-    border-radius: 5px;
+    color: #136316;
+}
+
+.href-close-popup{
+
+    float:right;
+
+}
+
+.form-line {
+    background-color: aqua;
+    border:1px solid;
+    width:108px;
+   float:left;
+ 
+}
+
+input{
+background-color: aqua;
+
+}
+
+.title-form {
+
+    font-weight: bold;
+    font-size:25px;
 }

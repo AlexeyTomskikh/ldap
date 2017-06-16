@@ -19,7 +19,7 @@ namespace ldap.Infrastructure
             LdapDbContext context = new LdapDbContext();
             DateTime data = day.Date.AddDays(1);
             List<Event> custs = context.Events
-                .Where(c => c.StartTime >= day.Date && c.StartTime < data).ToList();
+                .Where(c => c.StartTime >= day.Date && c.StartTime < data).OrderBy(c => c.StartTime).ToList();
 
             // Ищем события между днями и добавляем их в список
             LdapDbContext context1 = new LdapDbContext();

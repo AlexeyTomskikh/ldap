@@ -177,9 +177,10 @@
     <Content Include="Scripts\jquery-ui-1.12.1\jquery-ui-1.12.1\jquery-ui.theme.css" />
     <Content Include="Scripts\jquery-ui-1.12.1\jquery-ui-1.12.1\jquery-ui.theme.min.css" />
     <Content Include="Scripts\jquery-ui-1.12.1\jquery-ui-1.12.1\LICENSE.txt" />
+    <Content Include="Scripts\js\datepicker-setup.js" />
+    <Content Include="Scripts\js\reload-elements.js" />
     <Content Include="Scripts\js\RemoveEvent.js" />
-    <Content Include="Scripts\js\VerificationAddForm.js" />
-    <Content Include="Scripts\myScript.js" />
+    <Content Include="Scripts\js\AddEvent.js" />
     <Content Include="Scripts\calendar2\angular.js" />
     <Content Include="Scripts\calendar2\calendar.js" />
     <Content Include="Scripts\calendar2\fullcalendar.css" />
@@ -238,9 +239,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_reservationOld.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Logic\_addEventForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

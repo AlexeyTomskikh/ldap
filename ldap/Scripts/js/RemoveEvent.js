@@ -5,11 +5,12 @@
 
 }
 
-function RemoveEvent(id) {
+function RemoveEvent(id, currentDate) {
 
     var event_id1 = id;
+    var curdate = currentDate;
     //var current_date = document.getElementById("StartEvent1").innerHTML;
-
+   
 
     $.ajax({
         type: 'POST',
@@ -20,7 +21,13 @@ function RemoveEvent(id) {
             if (data.success) {
                 //loadEventsOfDay(current_date)
                 reloadCalendar(data.year, data.month, data.day) // перегружает календарь
-
+                var year = data.year.toString();
+                var month = data.month.toString();
+                var day = data.day.toString();
+              
+               
+                var currenDate = year+ "." + month + "." + day;
+                reloadSchedule(curdate);
             } else {
                 alert("ошибка удаления!!!")
             }
