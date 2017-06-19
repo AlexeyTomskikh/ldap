@@ -8,6 +8,20 @@
     float: left;
 }
 
+.js-myday {
+   width:222px;
+   height:150px;
+   
+   
+}
+
+/*.table>tbody>tr>td{
+  padding: 0px;
+ 
+}*/
+
+
+
 .schedule {
     font-size: 20px;
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
@@ -25,7 +39,7 @@
 /*вертикальный div с числом в календаре */
 .data {
     font-weight: bold;
-    /*background-color: rgba(3, 169, 244, 0.44);*/
+    background-color: rgba(223, 240, 216, 0);
     height: 152px;
     width: 30px;
     text-align: center;
@@ -35,14 +49,28 @@
 /*Горизонтальные div-ы  c названием событий в календаре*/
 .inner {
     /*background-color:rgba(204, 255, 144, 0.43);*/
-    width: 177px;
+    
     border-radius: 5px;
     margin-bottom: 1px;
-    float: right;
+    margin-left: 2px;
+    float: left;
     white-space: nowrap; /* Отменяем перенос текста */
     overflow: hidden; /* Обрезаем содержимое */
     text-overflow: ellipsis; /* Многоточие */
+    background-color: rgba(223, 240, 216, 0);
+    width:150px;
+    
+   
 }
+
+.remove-event-calendar {
+    background-color: rgba(223, 240, 216, 0);
+    width: 20px;
+    outline: thick;
+    float: right;
+    
+}
+
 
 
 

@@ -1,34 +1,45 @@
 ﻿@model ldap.Models.ScheduleModel
 
 
-    <center><h2>@Model.curentDate.ToString("dddd dd MMMM")</h2></center>
-   
-    <table width="1017" align="center" class="table table-hover table-bordered ">
+<center><h2>@Model.curentDate.ToString("dddd dd MMMM")</h2></center>
+
+<table width="1017" align="center" class="table table-hover table-bordered ">
 
 
-        @{
+    @{
+
+        int mem_id = 0;
             for (int i = 0; i < 24; i++)
             {
                 <tr>
                     <td height="30" width="100"><center>@i :00</center></td>
+
                     <td>
-                        @foreach (ldap.Models.Event b in Model.eventList)
+                        @for (int j = 0; j < Model.eventList.Count; j++)
                         {
                             DateTime data = Model.curentDate;
-
                             DateTime start = new DateTime(data.Year, data.Month, data.Day, i, 0, 0);
                             DateTime end = new DateTime(data.Year, data.Month, data.Day, i, 0, 0).AddHours(1);
 
-                            if (!(b.StartTime >= end || b.EndTime < start))
+                            if (!(Model.eventList.ElementAt(j).StartTime >= end || Model.eventList.ElementAt(j).EndTime < start))
                             {
-                                @String.Format("{0}:{1}-{2}", b.DescriptionEvent, b.StartTime.ToShortTimeString(), b.EndTime.ToShortTimeString()) ;
-
+                                if (mem_id == Model.eventList.ElementAt(j).id) // если id совпадает , то не печатаем крестик
+                                {
+                                    @String.Format("{0}:{1}-{2}",
+                                    Model.eventList.ElementAt(j).DescriptionEvent, Model.eventList.ElementAt(j).StartTime.ToShortTimeString(), Model.eventList.ElementAt(j).EndTime.ToShortTimeString());
+                                }
+                                else                                           // если id не совпадает то печатаем крестик и запоминаем новый id
+                                {
+                                    @String.Format("{0}:{1}-{2}",
+                                    Model.eventList.ElementAt(j).DescriptionEvent, Model.eventList.ElementAt(j).StartTime.ToShortTimeString(), Model.eventList.ElementAt(j).EndTime.ToShortTimeString());
+                                    <img src="~/Content/img/Delete-icon.png" onclick="RemoveEvent(@Model.eventList.ElementAt(j).id, '@Model.eventList.ElementAt(j).StartTime')">
+                                    
+                                    mem_id = (Model.eventList.ElementAt(j).id);
+                                }
                             }
                         }
                     </td>
                 </tr>
-
             }
-        }
-    </table>
-
+}
+</table>

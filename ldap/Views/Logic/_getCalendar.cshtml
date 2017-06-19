@@ -51,9 +51,9 @@
                                     for (int k = 0; k <= @Model.eventNameList.ElementAt(mem - 1).Count - 1; k++)
                                     {
                                         <div class="inner" custom="@curDat" id="calendarday">
-                                            @Model.eventNameList.ElementAt(mem - 1).ElementAt(k).DescriptionEvent <img src="~/Content/img/Delete-icon.png" onclick="RemoveEvent(@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).id, '@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).StartTime')">
-
+                                            @Model.eventNameList.ElementAt(mem - 1).ElementAt(k).DescriptionEvent
                                         </div>
+                                        <div class="remove-event-calendar"><img src="~/Content/img/Delete-icon.png" onclick="RemoveEvent(@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).id, '@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).StartTime')"></div>
                                     }
                                 }
                                 else  // пустая ячейка сегодня без событий с 5-ю пустыми строками
@@ -85,9 +85,9 @@
                                         <div class="inner" id="calendarday">
 
                                             @Model.eventNameList.ElementAt(mem - 1).ElementAt(k).DescriptionEvent
-                                            <img src="~/Content/img/Delete-icon.png" onclick="RemoveEvent(@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).id, '@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).StartTime') " />
 
                                         </div>
+                                        <div class="remove-event-calendar"><img src="~/Content/img/Delete-icon.png" onclick="RemoveEvent(@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).id, '@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).StartTime')"></div>
                                     }
                                 }
                                 else  // пустая ячейка без событий с 5-ю пустыми строками
@@ -129,28 +129,28 @@
 
 <div class="b-popup" id="popup1">
     <div class="b-popup-content">
-            <h2>Новое мероприятие</h2>
+        <h2>Новое мероприятие</h2>
 
-            <form action="/Logic/AddNewEvent" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#results" id="form0" method="post">
-                <fieldset>
-                    <p>@Html.Label("Название ")</p>
-                    <p><input class="form" type="text" name="NameEvent" id="NameEvent" placeholder="Например: 'Встреча'" /></p>
+        <form action="/Logic/AddNewEvent" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#results" id="form0" method="post">
+            <fieldset>
+                <p>@Html.Label("Название ")</p>
+                <p><input class="form" type="text" name="NameEvent" id="NameEvent" placeholder="Например: 'Встреча'" /></p>
 
-                    <p>@Html.Label("Начало")</p>
-                    <p><input class="form" name="StartEvent" id="StartEvent" type="text" placeholder="дд.мм.гггг чч:мм"></p>
+                <p>@Html.Label("Начало")</p>
+                <p><input class="form" name="StartEvent" id="StartEvent" type="text" placeholder="дд.мм.гггг чч:мм"></p>
 
-                    <p>@Html.Label("Конец")</p>
-                    <p><input class="form" name="EndEvent" id="EndEvent" type="text" placeholder="дд.мм.гггг чч:мм"></p>
+                <p>@Html.Label("Конец")</p>
+                <p><input class="form" name="EndEvent" id="EndEvent" type="text" placeholder="дд.мм.гггг чч:мм"></p>
 
-                    <p><input type="button" name="Sendform" onclick="AddEvent(this.form)" value="Добавить" /></p>
-                    <p>
-                        <div class="message">
-                            <div id="resultsWWw"></div>
-                        </div>
-                        <a href="javascript:PopUpHide()">Закрыть</a>
-                    </p>
-                </fieldset>
-            </form>
+                <p><input type="button" name="Sendform" onclick="AddEvent(this.form)" value="Добавить" /></p>
+                <p>
+                    <div class="message">
+                        <div id="resultsWWw"></div>
+                    </div>
+                    <a href="javascript:PopUpHide()">Закрыть</a>
+                </p>
+            </fieldset>
+        </form>
     </div>
 </div>
 
