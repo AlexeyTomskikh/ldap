@@ -125,78 +125,36 @@
 
 
 @* Само окно *@
+
+
 <div class="b-popup" id="popup1">
     <div class="b-popup-content">
-        @*<div>
-                <form action="/Logic/AddNewEvent" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#results" id="form0" method="post">
-                    <h2>Новое мероприятие</h2>
-                    <table border="0">
+            <h2>Новое мероприятие</h2>
 
-                        <tr>
-                            <td>@Html.Label("Название ")</td>
-                            <td><input class="form" type="text" name="NameEvent" id="NameEvent" /></td>
-                        </tr>
-
-                        <tr>
-                            <td>@Html.Label("Начало")</td>
-                            <td><input class="form" name="StartEvent" id="StartEvent" type="text"></td>
-                        </tr>
-
-                        <tr>
-                            <td>@Html.Label("Конец")</td>
-
-                        </tr>
-
-                        <tr>
-                            <td><input a class="btn btn-default" role="button" type="button" name="Sendform" onclick="AddEvent(this.form)" value="Добавить" /></td>
-                        </tr>
-                    </table>
-                </form>
-                <div class="message">
-                    <div id="resultsWWw"></div>
-                </div>
-                <a class="href-close-popup" href="javascript:PopUpHide()">Закрыть</a>
-            </div>*@
-
-        <div>
             <form action="/Logic/AddNewEvent" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#results" id="form0" method="post">
-                <center><div class="title-form">Новое мероприятие</div></center>
+                <fieldset>
+                    <p>@Html.Label("Название ")</p>
+                    <p><input class="form" type="text" name="NameEvent" id="NameEvent" placeholder="Например: 'Встреча'" /></p>
 
+                    <p>@Html.Label("Начало")</p>
+                    <p><input class="form" name="StartEvent" id="StartEvent" type="text" placeholder="дд.мм.гггг чч:мм"></p>
 
-                <div class="form-line">
-                    @Html.Label("Название ")
-                </div>
+                    <p>@Html.Label("Конец")</p>
+                    <p><input class="form" name="EndEvent" id="EndEvent" type="text" placeholder="дд.мм.гггг чч:мм"></p>
 
-                <input class="form" type="text" name="NameEvent" id="NameEvent" />
-
-                <div class="form-line">
-                    @Html.Label("Начало")
-                </div>
-
-                <input class="form" name="StartEvent" id="StartEvent" type="text">
-
-                <div class="form-line">
-                    @Html.Label("Конец")
-                </div>
-
-                <input class="form" name="EndEvent" id="EndEvent" type="text">
-
-
-
-                <input a class="btn btn-default" role="button" type="button" name="Sendform" onclick="AddEvent(this.form)" value="Добавить" />
-
-
-
+                    <p><input type="button" name="Sendform" onclick="AddEvent(this.form)" value="Добавить" /></p>
+                    <p>
+                        <div class="message">
+                            <div id="resultsWWw"></div>
+                        </div>
+                        <a href="javascript:PopUpHide()">Закрыть</a>
+                    </p>
+                </fieldset>
             </form>
-        </div>
     </div>
-    <div class="message">
-        <div id="resultsWWw"></div>
-    </div>
-    <a class="href-close-popup" href="javascript:PopUpHide()">Закрыть</a>
 </div>
 
-</div>
+
 
 
 <script>
