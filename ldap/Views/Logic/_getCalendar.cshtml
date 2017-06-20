@@ -2,7 +2,7 @@
 
 <center><h2>Расписание</h2></center>
 
-<table border="1" id="calendar-day" class="table table-striped table-hover table-bordered">
+<table border="1" id="calendar-day" class="calendar-table">
     <tr align="center">
         <th><b>Понедельник</b></th>
         <th><b>Вторник</b></th>
@@ -16,10 +16,10 @@
         <tr>
             <td><a href="#" onclick="reloadCalendar(@Model.prevDate.Year, @Model.prevDate.Month, @Model.prevDate.Day); false;">Назад</a></td>
             <td colspan="5">
-                <center>
-                    @Model.nameMonth.ToString()
+                <div style="text-align: center;" >
+                    @Model.nameMonth
                     <a href="javascript:PopUpShow()">Добавить</a><div id="dialogDiv"></div>
-                </center>
+                </div>
             </td>
             <td><a href="#" onclick="reloadCalendar(@Model.nextDate.Year, @Model.nextDate.Month, @Model.nextDate.Day); false;">Вперёд</a></td>
         </tr>
@@ -52,8 +52,9 @@
                                     {
                                         <div class="inner" custom="@curDat" id="calendarday">
                                             @Model.eventNameList.ElementAt(mem - 1).ElementAt(k).DescriptionEvent
+                                            <img align="right" class="remove-event-calendar" src="~/Content/img/Delete-icon.png" onclick="RemoveEvent(@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).id, '@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).StartTime')">
                                         </div>
-                                        <div class="remove-event-calendar"><img src="~/Content/img/Delete-icon.png" onclick="RemoveEvent(@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).id, '@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).StartTime')"></div>
+                                        
                                     }
                                 }
                                 else  // пустая ячейка сегодня без событий с 5-ю пустыми строками
@@ -85,9 +86,9 @@
                                         <div class="inner" id="calendarday">
 
                                             @Model.eventNameList.ElementAt(mem - 1).ElementAt(k).DescriptionEvent
-
+                                            <img align="right"class="remove-event-calendar" src="~/Content/img/Delete-icon.png" onclick="RemoveEvent(@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).id, '@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).StartTime')">
                                         </div>
-                                        <div class="remove-event-calendar"><img src="~/Content/img/Delete-icon.png" onclick="RemoveEvent(@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).id, '@Model.eventNameList.ElementAt(mem - 1).ElementAt(k).StartTime')"></div>
+                                        
                                     }
                                 }
                                 else  // пустая ячейка без событий с 5-ю пустыми строками

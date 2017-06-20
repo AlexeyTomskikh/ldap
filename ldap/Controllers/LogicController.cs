@@ -128,7 +128,7 @@ namespace ldap.Controllers
 
         // Метод выводит основную страницу 
         [HttpGet]
-        [Authorize(Roles = "UserRead, Admin, UserReadAndWrite")]
+        //[Authorize(Roles = "UserRead, Admin, UserReadAndWrite")]
         public ActionResult Logic()
         {
             LdapDbContext context = new LdapDbContext();
@@ -156,7 +156,7 @@ namespace ldap.Controllers
 
         // Метод контролирует процесс создания нового мероприятия 
         [HttpPost]
-        [Authorize(Roles = "Admin, UserReadAndWrite")]
+       
         public ActionResult Reservation(EventModels model, string returnUrl)
         {
             EventManagement eventManagment = new EventManagement();

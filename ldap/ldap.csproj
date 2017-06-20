@@ -144,21 +144,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\add-event-form.css" />
+    <Content Include="Content\css\calendar-view.css" />
     <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\schedule-view.css" />
     <Content Include="Content\img\Add-icon.png" />
     <Content Include="Content\img\Delete-icon.png" />
     <Content Include="Content\img\envelope-1.png" />
     <Content Include="Content\img\envelope-2.png" />
     <Content Include="Content\img\envelope.png" />
     <Content Include="Content\img\lime-zaim.png" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-ui-1.12.1\jquery-ui-1.12.1\AUTHORS.txt" />
     <Content Include="Scripts\jquery-ui-1.12.1\jquery-ui-1.12.1\external\jquery\jquery.js" />
     <Content Include="Scripts\jquery-ui-1.12.1\jquery-ui-1.12.1\images\ui-icons_444444_256x240.png" />
@@ -254,30 +251,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-ui-1.12.1\jquery-ui-1.12.1\package.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\bootstrap.min.css.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\bootstrap.css.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

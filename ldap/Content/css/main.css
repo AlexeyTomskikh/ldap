@@ -1,140 +1,36 @@
-﻿
-/*Общий стиль для частичного представления с календарём*/
-#calendar {
-    font-size: 20px;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    max-width: 64%;
-    margin-left: 50px;
-    float: left;
-}
-
-.js-myday {
-   width:222px;
-   height:150px;
-   
-   
-}
-
-/*.table>tbody>tr>td{
-  padding: 0px;
- 
-}*/
-
-
-
-.schedule {
-    font-size: 20px;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    width: 700px;
-    margin-right: 50px;
-    float: right;
-}
-
-.addform {
-    float: left;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-}
-
-
-/*вертикальный div с числом в календаре */
-.data {
-    font-weight: bold;
-    background-color: rgba(223, 240, 216, 0);
-    height: 152px;
-    width: 30px;
-    text-align: center;
-    outline: thick;
-    float: left;
-}
-/*Горизонтальные div-ы  c названием событий в календаре*/
-.inner {
-    /*background-color:rgba(204, 255, 144, 0.43);*/
-    
-    border-radius: 5px;
-    margin-bottom: 1px;
-    margin-left: 2px;
-    float: left;
-    white-space: nowrap; /* Отменяем перенос текста */
-    overflow: hidden; /* Обрезаем содержимое */
-    text-overflow: ellipsis; /* Многоточие */
-    background-color: rgba(223, 240, 216, 0);
-    width:150px;
-    
-   
-}
-
-.remove-event-calendar {
-    background-color: rgba(223, 240, 216, 0);
-    width: 20px;
-    outline: thick;
-    float: right;
-    
-}
-
-
-
-
+﻿/*Хеадер*/
 .header {
     height: 60px;
-    padding: 40px 25px 10px 40px;
-    margin-bottom: 40px;
+    padding: 0px 25px 10px 40px;
+    margin-bottom: 5px;
+    background-color: #f8ffe5;
 }
 
+/*Картинка логотипа*/
+img.logo {
+    width: 170px; height: 60px;
+    margin-top: 4px;
+}
 
+/*Футер*/
 .footer {
     color: #ffffff;
-    height: 50px;
-    background-color: #284a38;
+    height: 30px;
+    background-color: #f8ffe5;
     padding: 10px 25px 10px 25px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     clear: both;
 }
-
-
-/*========всплывающее окно==========*/
-/*========Затемняющий фон==========*/
-.b-popup {
-    width: 100%;
-    min-height: 100%;
-    background-color: rgba(7,0,0,0.5);
-    overflow: hidden;
-    position: fixed;
-    top:0px;
-    margin-left: -50px;
+body {
+    
+     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+     font-size: 14px;
 }
 
-/*========Содержимое==========*/
-    .b-popup .b-popup-content {
-        margin: 250px auto 0px auto;
-        width: 470px;
-        height: 538px;
-        padding: 15px;
-        background-color: #ffffff;
-        /*border-radius: 10px;*/
-        box-shadow: 0px 0px 10px #000;
-        /*border: 5px solid #d2ee86;*/
-        border-radius: 20px;
-
-    }
-    .b-popup-content h2 {
-        background-color: #f95252;
-	border-radius: 20px 20px 0 0;
-	color: #fff;
-	font-size: 28px;
-	padding: 20px 26px;
-    margin-top:0px;
-
-    }
-
-
-.message {
-      
-    height: 100px;
-    padding: 9px;
-    border: 1px solid #a3b670;
-    border-radius: 15px;
-    background-color: #dff0d8;
-    color: #136316;
+h2 {
+    text-align: center;
 }
 
-
+.delete-icon {
+    width: 10px;
+}

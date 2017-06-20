@@ -1,45 +1,109 @@
-﻿@model ldap.Models.ScheduleModel
+﻿@using ldap.Models
+@model ldap.Models.ScheduleModel
 
 
-<center><h2>@Model.curentDate.ToString("dddd dd MMMM")</h2></center>
+<h2>@Model.curentDate.ToString("dddd dd MMMM")</h2>
 
-<table width="1017" align="center" class="table table-hover table-bordered ">
+
+
+        @* Оригинальная рабочая таблица *@
+        @*<table border="1" class="schedule-table">
+
+
+                @{
+
+                    int mem_id = 0;
+                    for (int i = 0; i < 24; i++)
+                    {
+                        <tr>
+                            <td class="time">@i :00</td>
+                            <td>
+                                @for (int j = 0; j < Model.eventList.Count; j++)
+                                {
+                                    DateTime data = Model.curentDate;
+                                    DateTime start = new DateTime(data.Year, data.Month, data.Day, i, 0, 0);
+                                    DateTime end = new DateTime(data.Year, data.Month, data.Day, i, 0, 0).AddHours(1);
+
+                                    if (!(Model.eventList.ElementAt(j).StartTime >= end || Model.eventList.ElementAt(j).EndTime < start))
+                                    {
+                                        if (mem_id == Model.eventList.ElementAt(j).id) // если id совпадает , то не печатаем крестик
+                                        {
+                                            @String.Format("{0}:{1}-{2}",
+                                            Model.eventList.ElementAt(j).DescriptionEvent, Model.eventList.ElementAt(j).StartTime.ToShortTimeString(), Model.eventList.ElementAt(j).EndTime.ToShortTimeString());
+                                        }
+                                        else                                           // если id не совпадает то печатаем крестик и запоминаем новый id
+                                        {
+                                            @String.Format("{0}:{1}-{2}",
+                                            Model.eventList.ElementAt(j).DescriptionEvent, Model.eventList.ElementAt(j).StartTime.ToShortTimeString(), Model.eventList.ElementAt(j).EndTime.ToShortTimeString());
+                                            <img class="delete-icon" src="~/Content/img/Delete-icon.png" onclick="RemoveEvent(@Model.eventList.ElementAt(j).id, '@Model.eventList.ElementAt(j).StartTime')">
+                                            mem_id = (Model.eventList.ElementAt(j).id);
+                                        }
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>*@
+
+
+@*Экспериментальная таблица*@
+
+
+
+<table border="1" class="schedule-table">
 
 
     @{
 
+        int rowspan = 0; // 
         int mem_id = 0;
-            for (int i = 0; i < 24; i++)
+        //Event[] eventsIntHisHour = new Event[];
+        
+        for (int i = 0; i < 24; i++)
+        {
+            for (int j = 0; j < Model.eventList.Count; j++)
             {
                 <tr>
-                    <td height="30" width="100"><center>@i :00</center></td>
+                    if (!(Model.eventList.ElementAt(j).StartTime >= end || Model.eventList.ElementAt(j).StartTime < start))
+                    {
 
-                    <td>
-                        @for (int j = 0; j < Model.eventList.Count; j++)
+                    <td rowspan="@rowspan"></td>
+
+                    }
+                </tr>
+
+            }
+
+            <tr>
+                <td class="time">@i :00</td>
+                <td>
+                    @for (int j = 0; j < Model.eventList.Count; j++)
+                    {
+                        DateTime data = Model.curentDate;
+                        DateTime start = new DateTime(data.Year, data.Month, data.Day, i, 0, 0);
+                        DateTime end = new DateTime(data.Year, data.Month, data.Day, i, 0, 0).AddHours(1);
+
+                        if (!(Model.eventList.ElementAt(j).StartTime >= end || Model.eventList.ElementAt(j).EndTime < start))
                         {
-                            DateTime data = Model.curentDate;
-                            DateTime start = new DateTime(data.Year, data.Month, data.Day, i, 0, 0);
-                            DateTime end = new DateTime(data.Year, data.Month, data.Day, i, 0, 0).AddHours(1);
-
-                            if (!(Model.eventList.ElementAt(j).StartTime >= end || Model.eventList.ElementAt(j).EndTime < start))
+                            if (mem_id == Model.eventList.ElementAt(j).id) // если id совпадает , то не печатаем крестик
                             {
-                                if (mem_id == Model.eventList.ElementAt(j).id) // если id совпадает , то не печатаем крестик
-                                {
-                                    @String.Format("{0}:{1}-{2}",
+                                @String.Format("{0}:{1}-{2}",
                                     Model.eventList.ElementAt(j).DescriptionEvent, Model.eventList.ElementAt(j).StartTime.ToShortTimeString(), Model.eventList.ElementAt(j).EndTime.ToShortTimeString());
-                                }
-                                else                                           // если id не совпадает то печатаем крестик и запоминаем новый id
-                                {
-                                    @String.Format("{0}:{1}-{2}",
+                            }
+                            else                                           // если id не совпадает то печатаем крестик и запоминаем новый id
+                            {
+                                @String.Format("{0}:{1}-{2}",
                                     Model.eventList.ElementAt(j).DescriptionEvent, Model.eventList.ElementAt(j).StartTime.ToShortTimeString(), Model.eventList.ElementAt(j).EndTime.ToShortTimeString());
-                                    <img src="~/Content/img/Delete-icon.png" onclick="RemoveEvent(@Model.eventList.ElementAt(j).id, '@Model.eventList.ElementAt(j).StartTime')">
-                                    
-                                    mem_id = (Model.eventList.ElementAt(j).id);
-                                }
+                                <img class="delete-icon" src="~/Content/img/Delete-icon.png" onclick="RemoveEvent(@Model.eventList.ElementAt(j).id, '@Model.eventList.ElementAt(j).StartTime')">
+                                mem_id = (Model.eventList.ElementAt(j).id);
                             }
                         }
-                    </td>
-                </tr>
-            }
-}
+                    }
+                </td>
+            </tr>
+
+        }
+    }
 </table>
+
