@@ -126,8 +126,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ListHelper.cs" />
+    <Compile Include="Infrastructure\CalendarEventItem.cs" />
     <Compile Include="Infrastructure\EventManagement.cs" />
     <Compile Include="Infrastructure\LdapDbContext.cs" />
+    <Compile Include="Infrastructure\MockWebServiceCallClass.cs" />
+    <Compile Include="Infrastructure\ScheduleScheme.cs" />
     <Compile Include="Infrastructure\UserInfo.cs" />
     <Compile Include="Models\CalendarModel.cs" />
     <Compile Include="Models\DataBaseModels\UserOfRoles.cs" />
@@ -144,18 +148,132 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\add-event-form.css" />
     <Content Include="Content\css\calendar-view.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\schedule-view.css" />
+    <Content Include="Content\full-calendar\CHANGELOG.txt" />
+    <Content Include="Content\full-calendar\CONTRIBUTING.txt" />
+    <Content Include="Content\full-calendar\fullcalendar.css" />
+    <Content Include="Content\full-calendar\fullcalendar.js" />
+    <Content Include="Content\full-calendar\fullcalendar.min.css" />
+    <Content Include="Content\full-calendar\fullcalendar.min.js" />
+    <Content Include="Content\full-calendar\fullcalendar.print.css" />
+    <Content Include="Content\full-calendar\fullcalendar.print.min.css" />
+    <Content Include="Content\full-calendar\gcal.js" />
+    <Content Include="Content\full-calendar\gcal.min.js" />
+    <Content Include="Content\full-calendar\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\full-calendar\images\ui-bg_highlight-soft_100_f6f6f6_1x100.png" />
+    <Content Include="Content\full-calendar\images\ui-bg_highlight-soft_25_0073ea_1x100.png" />
+    <Content Include="Content\full-calendar\images\ui-bg_highlight-soft_50_dddddd_1x100.png" />
+    <Content Include="Content\full-calendar\images\ui-icons_0073ea_256x240.png" />
+    <Content Include="Content\full-calendar\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\full-calendar\images\ui-icons_666666_256x240.png" />
+    <Content Include="Content\full-calendar\images\ui-icons_ff0084_256x240.png" />
+    <Content Include="Content\full-calendar\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\full-calendar\jquery-ui.css" />
+    <Content Include="Content\full-calendar\lib\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="Content\full-calendar\lib\cupertino\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="Content\full-calendar\lib\cupertino\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="Content\full-calendar\lib\cupertino\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="Content\full-calendar\lib\cupertino\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="Content\full-calendar\lib\cupertino\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="Content\full-calendar\lib\cupertino\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="Content\full-calendar\lib\cupertino\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="Content\full-calendar\lib\cupertino\images\ui-icons_2694e8_256x240.png" />
+    <Content Include="Content\full-calendar\lib\cupertino\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\full-calendar\lib\cupertino\images\ui-icons_3d80b3_256x240.png" />
+    <Content Include="Content\full-calendar\lib\cupertino\images\ui-icons_72a7cf_256x240.png" />
+    <Content Include="Content\full-calendar\lib\cupertino\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\full-calendar\lib\cupertino\jquery-ui.min.css" />
+    <Content Include="Content\full-calendar\lib\jquery-ui.min.js" />
+    <Content Include="Content\full-calendar\lib\jquery.min.js" />
+    <Content Include="Content\full-calendar\lib\moment.min.js" />
+    <Content Include="Content\full-calendar\LICENSE.txt" />
+    <Content Include="Content\full-calendar\locale-all.js" />
+    <Content Include="Content\full-calendar\locale\af.js" />
+    <Content Include="Content\full-calendar\locale\ar-dz.js" />
+    <Content Include="Content\full-calendar\locale\ar-kw.js" />
+    <Content Include="Content\full-calendar\locale\ar-ly.js" />
+    <Content Include="Content\full-calendar\locale\ar-ma.js" />
+    <Content Include="Content\full-calendar\locale\ar-sa.js" />
+    <Content Include="Content\full-calendar\locale\ar-tn.js" />
+    <Content Include="Content\full-calendar\locale\ar.js" />
+    <Content Include="Content\full-calendar\locale\bg.js" />
+    <Content Include="Content\full-calendar\locale\ca.js" />
+    <Content Include="Content\full-calendar\locale\cs.js" />
+    <Content Include="Content\full-calendar\locale\da.js" />
+    <Content Include="Content\full-calendar\locale\de-at.js" />
+    <Content Include="Content\full-calendar\locale\de-ch.js" />
+    <Content Include="Content\full-calendar\locale\de.js" />
+    <Content Include="Content\full-calendar\locale\el.js" />
+    <Content Include="Content\full-calendar\locale\en-au.js" />
+    <Content Include="Content\full-calendar\locale\en-ca.js" />
+    <Content Include="Content\full-calendar\locale\en-gb.js" />
+    <Content Include="Content\full-calendar\locale\en-ie.js" />
+    <Content Include="Content\full-calendar\locale\en-nz.js" />
+    <Content Include="Content\full-calendar\locale\es-do.js" />
+    <Content Include="Content\full-calendar\locale\es.js" />
+    <Content Include="Content\full-calendar\locale\et.js" />
+    <Content Include="Content\full-calendar\locale\eu.js" />
+    <Content Include="Content\full-calendar\locale\fa.js" />
+    <Content Include="Content\full-calendar\locale\fi.js" />
+    <Content Include="Content\full-calendar\locale\fr-ca.js" />
+    <Content Include="Content\full-calendar\locale\fr-ch.js" />
+    <Content Include="Content\full-calendar\locale\fr.js" />
+    <Content Include="Content\full-calendar\locale\gl.js" />
+    <Content Include="Content\full-calendar\locale\he.js" />
+    <Content Include="Content\full-calendar\locale\hi.js" />
+    <Content Include="Content\full-calendar\locale\hr.js" />
+    <Content Include="Content\full-calendar\locale\hu.js" />
+    <Content Include="Content\full-calendar\locale\id.js" />
+    <Content Include="Content\full-calendar\locale\is.js" />
+    <Content Include="Content\full-calendar\locale\it.js" />
+    <Content Include="Content\full-calendar\locale\ja.js" />
+    <Content Include="Content\full-calendar\locale\kk.js" />
+    <Content Include="Content\full-calendar\locale\ko.js" />
+    <Content Include="Content\full-calendar\locale\lb.js" />
+    <Content Include="Content\full-calendar\locale\lt.js" />
+    <Content Include="Content\full-calendar\locale\lv.js" />
+    <Content Include="Content\full-calendar\locale\mk.js" />
+    <Content Include="Content\full-calendar\locale\ms-my.js" />
+    <Content Include="Content\full-calendar\locale\ms.js" />
+    <Content Include="Content\full-calendar\locale\nb.js" />
+    <Content Include="Content\full-calendar\locale\nl-be.js" />
+    <Content Include="Content\full-calendar\locale\nl.js" />
+    <Content Include="Content\full-calendar\locale\nn.js" />
+    <Content Include="Content\full-calendar\locale\pl.js" />
+    <Content Include="Content\full-calendar\locale\pt-br.js" />
+    <Content Include="Content\full-calendar\locale\pt.js" />
+    <Content Include="Content\full-calendar\locale\ro.js" />
+    <Content Include="Content\full-calendar\locale\ru.js" />
+    <Content Include="Content\full-calendar\locale\sk.js" />
+    <Content Include="Content\full-calendar\locale\sl.js" />
+    <Content Include="Content\full-calendar\locale\sr-cyrl.js" />
+    <Content Include="Content\full-calendar\locale\sr.js" />
+    <Content Include="Content\full-calendar\locale\sv.js" />
+    <Content Include="Content\full-calendar\locale\th.js" />
+    <Content Include="Content\full-calendar\locale\tr.js" />
+    <Content Include="Content\full-calendar\locale\uk.js" />
+    <Content Include="Content\full-calendar\locale\vi.js" />
+    <Content Include="Content\full-calendar\locale\zh-cn.js" />
+    <Content Include="Content\full-calendar\locale\zh-tw.js" />
+    <Content Include="Content\full-calendar\main.js" />
+    <Content Include="Content\full-calendar\style.css" />
     <Content Include="Content\img\Add-icon.png" />
     <Content Include="Content\img\Delete-icon.png" />
     <Content Include="Content\img\envelope-1.png" />
     <Content Include="Content\img\envelope-2.png" />
     <Content Include="Content\img\envelope.png" />
     <Content Include="Content\img\lime-zaim.png" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-ui-1.12.1\jquery-ui-1.12.1\AUTHORS.txt" />
     <Content Include="Scripts\jquery-ui-1.12.1\jquery-ui-1.12.1\external\jquery\jquery.js" />
     <Content Include="Scripts\jquery-ui-1.12.1\jquery-ui-1.12.1\images\ui-icons_444444_256x240.png" />
@@ -174,21 +292,11 @@
     <Content Include="Scripts\jquery-ui-1.12.1\jquery-ui-1.12.1\jquery-ui.theme.css" />
     <Content Include="Scripts\jquery-ui-1.12.1\jquery-ui-1.12.1\jquery-ui.theme.min.css" />
     <Content Include="Scripts\jquery-ui-1.12.1\jquery-ui-1.12.1\LICENSE.txt" />
+    <Content Include="Scripts\js\add-event-full.js" />
     <Content Include="Scripts\js\datepicker-setup.js" />
     <Content Include="Scripts\js\reload-elements.js" />
     <Content Include="Scripts\js\RemoveEvent.js" />
     <Content Include="Scripts\js\AddEvent.js" />
-    <Content Include="Scripts\calendar2\angular.js" />
-    <Content Include="Scripts\calendar2\calendar.js" />
-    <Content Include="Scripts\calendar2\fullcalendar.css" />
-    <Content Include="Scripts\calendar2\fullcalendar.js" />
-    <Content Include="Scripts\calendar2\gcal.js" />
-    <Content Include="Scripts\calendar2\jquery-1.11.3.js" />
-    <Content Include="Scripts\calendar2\moment.js" />
-    <Content Include="Scripts\calendar2\MyApp.js" />
-    <Content Include="Scripts\calendar\jquery.eventCalendar.js" />
-    <Content Include="Scripts\calendar\jquery.eventCalendar.min.js" />
-    <Content Include="Scripts\calendar\moment.js" />
     <Content Include="Scripts\JavaScript1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
@@ -251,6 +359,33 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-ui-1.12.1\jquery-ui-1.12.1\package.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Calendar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

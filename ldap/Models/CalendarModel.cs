@@ -5,6 +5,8 @@ using System.Web;
 
 namespace ldap.Models
 {
+    using ldap.Infrastructure;
+
     public class CalendarModel
     {
         public int daysInMonth { get; set; }
@@ -37,9 +39,12 @@ namespace ldap.Models
 
     public class ScheduleModel
     {
-
         public List<Event> eventList { get; set; }
+
         public DateTime curentDate { get; set; }
 
+        //public ScheduleScheme[] ArrayScheme { get; set; }
+
+        //public List<Event>[] AllEventByTheHour { get; set; }
     }
 }

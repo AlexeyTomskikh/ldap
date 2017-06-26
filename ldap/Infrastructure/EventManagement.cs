@@ -137,7 +137,56 @@ namespace ldap.Infrastructure
         }
 
 
+        public int[] CalcRowspan(List<Event> eventList)
+        {
+            int[] Rowspan = new int[eventList.Count];
+
+            for (int i = 0; i <= eventList.Count - 1; i++)
+            {
+                Rowspan[i] = Math.Abs(eventList.ElementAt(i).StartTime.Hour - eventList.ElementAt(i).EndTime.Hour);
+            }
+            return Rowspan;
+        }
 
 
+
+        // ************расфасовка событий в массив по часам ********************
+
+        public List<Event>[] GetAllEventByTheHour(List<Event> list)
+        {
+            List<Event>[] array = new List<Event>[24]; // Массив c списком событий по часам
+            List<Event> eventsInThisHour = new List<Event>(); // сам список событий
+            List<Event> listCopy = new List<Event>(); // массив для копирования
+
+            // Заполняем массив событиями
+            for (int i = 0; i < 24; i++)
+            {
+                eventsInThisHour.Clear();
+                foreach (var b in list)
+                {
+                    if (b.StartTime.Hour == i)
+                    {
+                        eventsInThisHour.Add(b);
+                    }
+                }
+
+                if (eventsInThisHour.Count == 0)
+                {
+                    array[i] = null;   //если событий в этом часу не найдено кладём в этот час null
+                }
+                else
+                {
+                    listCopy = eventsInThisHour.GetRange(0, eventsInThisHour.Count);
+                    array[i] = listCopy; // если найдено кладём их в этот час
+
+                }
+            }
+
+
+            List<Event>[] result = new List<Event>[24];
+            result = array;
+
+            return result;
+        }
     }
 }

@@ -39,7 +39,7 @@
 
 <div class="header"><img class="logo" src="~/Content/img/lime-zaim.png" /> </div>
 
-<div id="calendar">
+<div id="mycalendar">
     @Html.Partial("_getCalendar", Model.calendarModel)
 </div>
 
@@ -50,58 +50,6 @@
 
 
 
-<script>
-$(function() {
-    $.map($("tr:first td"),
-        function(b, a) {
-            return $("tr td:nth-child(" + ++a + ")");
-        }).forEach(function(b) {
-        var a;
-        b.each(function (b, c) {
-            (a && a.textContent == c.textContent ? ($(c).remove(), a.rowSpan++) : a = c);
-        });
-    });
-});
-
-</script>
-
-
-<table border="1">
-    <tr>
-        <td rowspan="3">Чай</td>
-        <td>text 4</td>
-    </tr>
-
-    <tr>
-        <td>Встреча</td>
-    </tr>
-
-    <tr>
-        <td>Переговоры</td>
-    </tr>
-    
-
-    <tr>
-        <td>b</td>
-        <td>bb</td>
-        
-    </tr>
-    <tr>
-        <td>b</td>
-        <td>bb</td>
-        <td>text 5</td>
-    </tr>
-    <tr>
-        <td>c</td>
-        <td>bb</td>
-        <td>text 6</td>
-    </tr>
-    <tr>
-        <td>c</td>
-        <td>cc</td>
-        <td>text 7</td>
-    </tr>
-</table>
 
 
 

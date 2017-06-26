@@ -36,12 +36,25 @@ namespace ldap.Controllers
         public ActionResult _daySchedule(DateTime currentDate)
         {
             List<Event> list = new EventManagement().GetAllEvents(currentDate);
-            ScheduleModel model = new ScheduleModel { eventList = list, curentDate = currentDate };
+
+            EventManagement ev = new EventManagement();
+
+            //// ************Найдём все события внутри промежутка ********************
+
+           // List<Event>[] array = ev.GetAllEventByTheHour(list); // получим все события по часам
+            
+            //*******************************
+            ScheduleModel model = new ScheduleModel
+                                      {
+                                          eventList = list,
+                                          curentDate = currentDate,
+                                          //AllEventByTheHour = array
+                                      };
 
             return PartialView(model);
         }
 
-        //метод формирует модель для обновления данных календаря по кнопке вперёд назад
+        // метод формирует модель для обновления данных календаря по кнопке вперёд назад
         public CalendarModel getModel(int year, int month, int day)
         {
 
@@ -233,12 +246,11 @@ namespace ldap.Controllers
             EventManagement eventManagment = new EventManagement();
             List<Event> listAllEventsDay = eventManagment.GetAllEvents(model.StartEvent.Date); // получаем все события на этот день
 
-            //если в этот день нет событий надо проверить нет ли в этот день событий не закончившихся со вчерашнего дня. если есть они учавствуют в проверке
+            // если в этот день нет событий надо проверить нет ли в этот день событий не закончившихся со вчерашнего дня. если есть они учавствуют в проверке
             List<Event> extensionEvents = context.Events
            .Where(c => c.StartTime <= data && c.EndTime >= data).ToList();
 
             listAllEventsDay.AddRange(extensionEvents);
-            
             
             bool result;
             if (eventManagment.IsFreeTime(listAllEventsDay, model.StartEvent, model.EndEvent))
@@ -261,13 +273,12 @@ namespace ldap.Controllers
         }
 
 
-        //метод для удаления события
+        // метод для удаления события
         public JsonResult RemoveEvent(int event_id)
         {
-
             LdapDbContext context = new LdapDbContext();
 
-            //Получаем день удаляемого события , для обновления календаря. Потом надо переписать чтобы год месяц день получать на стороне клиента , а не делать лишнее обращение к базе
+            // Получаем день удаляемого события , для обновления календаря. Потом надо переписать чтобы год месяц день получать на стороне клиента , а не делать лишнее обращение к базе
             Event item = context.Events
                 .Where(o => o.id == event_id)
                 .FirstOrDefault();
@@ -280,12 +291,56 @@ namespace ldap.Controllers
             return Json(new { success = true, year = _year, month = _month, day = _day });
         }
 
+        public JsonResult GetCalendarEvents(double start, double end)
+        {
 
+            LdapDbContext context = new LdapDbContext();
+            List<Event> events =
+                (from item in context.Events
+                 orderby ((DateTime)item.StartTime).ToString()
+                 select item).ToList();  // Получить все события из таблицы Events сортированные по дате
+
+
+            var fromDate = ConvertFromUnixTimestamp(start);
+            var toDate = ConvertFromUnixTimestamp(end);
+
+            var eventService = new MockWebServiceCallClass();
+            var eventDetails = eventService.GetCalendarEvents();
+
+            var eventList = from item in events
+                            select new
+                                   {
+                                       id = item.id,
+                                       title = item.DescriptionEvent,
+                                       start = item.StartTime.ToString("s"),
+                                       end = item.EndTime.ToString("s"),
+                                       allDay = false,
+                                       editable = false,
+                                       
+                                   };
+
+
+
+            return Json(eventList.ToArray(), JsonRequestBehavior.AllowGet);
+        }
 
         public ActionResult SomeAction()
         {
             ViewData["Greeting"] = "Hello World!";
             return PartialView("_addEventForm");
         }
+
+        
+        
+        public static DateTime ConvertFromUnixTimestamp(double unixTimeStamp)
+        {
+            // Unix timestamp is seconds past epoch
+            System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
+            return dtDateTime;
+        }
+
+
+       
     }
 }

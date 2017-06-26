@@ -23,5 +23,12 @@ namespace ldap.Controllers
 
         }
 
+
+        public ActionResult Calendar()
+        {
+
+            return View();
+        }
+
     }
 }

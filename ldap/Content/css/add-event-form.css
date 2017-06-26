@@ -18,9 +18,9 @@
 /*========Содержимое==========*/
     .b-popup .b-popup-content {
         margin: 250px auto 0px auto;
-        width: 470px;
-        height: 538px;
-        padding: 15px;
+        width: 266px;
+        height: 382px;
+        padding: 7px;
         background-color: #ffffff;
         /*border-radius: 10px;*/
         box-shadow: 0px 0px 10px #000;
@@ -32,8 +32,8 @@
         background-color: #f95252;
 	border-radius: 20px 20px 0 0;
 	color: #fff;
-	font-size: 28px;
-	padding: 20px 26px;
+	font-size: 22px;
+	padding: 0px;
     margin-top:0px;
 
     }
@@ -41,10 +41,16 @@
 
 .message {
       
-    height: 100px;
+    height: 51px;
     padding: 9px;
     border: 1px solid #a3b670;
     border-radius: 15px;
     background-color: #dff0d8;
     color: #136316;
+}
+
+fieldset {
+    height: 500px;
+    border: 0px;
+
 }

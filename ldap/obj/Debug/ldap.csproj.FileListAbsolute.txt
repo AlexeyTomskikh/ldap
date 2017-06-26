@@ -65,7 +65,6 @@ D:\project\ldap\bin\System.Web.WebPages.Razor.xml
 D:\project\ldap\obj\Debug\ldap.dll
 D:\project\ldap\obj\Debug\ldap.pdb
 D:\project\ldap\bin\EasyGitHub.dll
-D:\project\ldap\obj\Debug\ldap.csprojResolveAssemblyReference.cache
 D:\3. Projects\ldap\ldap\bin\ldap.dll.config
 D:\3. Projects\ldap\ldap\bin\ldap.dll
 D:\3. Projects\ldap\ldap\bin\ldap.pdb
@@ -115,4 +114,44 @@ C:\Users\Tomskikh.AA\Desktop\ldap-20170620T014341Z-001\ldap\ldap\bin\System.Web.
 C:\Users\Tomskikh.AA\Desktop\ldap-20170620T014341Z-001\ldap\ldap\obj\Debug\ldap.csprojResolveAssemblyReference.cache
 C:\Users\Tomskikh.AA\Desktop\ldap-20170620T014341Z-001\ldap\ldap\obj\Debug\ldap.dll
 C:\Users\Tomskikh.AA\Desktop\ldap-20170620T014341Z-001\ldap\ldap\obj\Debug\ldap.pdb
-D:\project\ldap\bin\System.Web.Mvc.xml
+D:\project\ldap\obj\Debug\ldap.csprojResolveAssemblyReference.cache
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\ldap.dll.config
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\ldap.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\ldap.pdb
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\EasyGitHub.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\Newtonsoft.Json.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.Helpers.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.Razor.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.WebPages.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.WebPages.Razor.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.Helpers.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.Razor.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.WebPages.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.WebPages.Razor.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\obj\Debug\ldap.csprojResolveAssemblyReference.cache
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\obj\Debug\ldap.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\obj\Debug\ldap.pdb
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\ldap.dll.config
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\ldap.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\ldap.pdb
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\EasyGitHub.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\Newtonsoft.Json.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.Helpers.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.Razor.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.WebPages.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.WebPages.Razor.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.Helpers.xml
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.Razor.xml
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.WebPages.xml
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\System.Web.WebPages.Razor.xml
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\obj\Debug\ldap.csprojResolveAssemblyReference.cache
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\obj\Debug\ldap.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\obj\Debug\ldap.pdb

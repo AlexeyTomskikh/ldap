@@ -1,9 +1,9 @@
 ﻿/*Общий стиль для частичного представления с календарём*/
-#calendar {
+#mycalendar {
     font-size: 12px;
     width: 60%;
     float: left;
-    background-color:#f8ffe5;
+    background-color: rgba(149, 152, 139, 0)
 }
 
 /*Таблица календаря*/
@@ -17,13 +17,13 @@
 }
 .calendar-table {
     border-collapse: collapse; /* Убираем двойные линии между ячейками */
-    border: 1px solid black; /* Параметры рамки */
+    border: 1px solid rgba(0,0,0,0.1); /* Параметры рамки */
 }
 
 /*вертикальный div с числом в календаре */
 .data {
     font-weight: bold;
-    background-color:aqua;
+    background-color:rgba(243, 243, 243, 0.01);
     height: 81px;
     width: 20px;
     text-align: center;
@@ -59,6 +59,11 @@
     margin-right: 2px;
     
     
+}
+
+.today {
+    
+    background-color: rgba(181, 51, 51, 0.08);
 }
 
 
