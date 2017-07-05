@@ -306,9 +306,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ClassDiagram1.cd" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
