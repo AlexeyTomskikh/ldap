@@ -1,52 +1,36 @@
-﻿@model ldap.Models.Login
-@{
-    ViewBag.Title = "Login";
-}
-@*@{
-    Layout = "~/Views/Shared/Layout.cshtml";
-}*@
-@{
+﻿@{
     Layout = null;
 }
-
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>rtgr</title>
-    <link rel="stylesheet" type="text/css" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/ui-lightness/jquery-ui.css"></style>
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.2/jquery-ui.min.js"></script>
-
+    <title>Вход</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/main.css" rel="stylesheet" />
 </head>
 <body>
 
+    <div id="login-form">
 
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label for="UserName">Имя</label>
+                <input type="text" class="form-control" name="UserName" placeholder="Логин">
+            </div>
+            <div class="form-group">
+                <label for="Password">Пароль</label>
+                <input type="password" class="form-control" name="Password" placeholder="Password">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> Запомнить
+                </label>
+            </div>
+            <button type="submit" class="btn btn-success">Войти</button>
+        }
+    </div>
 
-            @using (Html.BeginForm("Login", "Account", FormMethod.Post))
-            {
-
-                <div>
-                    @Html.LabelFor(m => m.UserName)
-                    @Html.TextBoxFor(m => m.UserName)
-                    @Html.ValidationMessageFor(m => m.UserName)
-                </div>
-
-                <div>
-                    @Html.LabelFor(m => m.Password)
-                    @Html.PasswordFor(m => m.Password)
-                    @Html.ValidationMessageFor(m => m.Password)
-                </div>
-
-                <div>
-                    @Html.CheckBoxFor(m => m.RememberMe)
-                    @Html.LabelFor(m => m.RememberMe)
-                </div>
-
-                <div>
-                    <button class="btn btn-large btn-primary" type="submit">Войти</button>
-                </div>
-            }
-      
 </body>
 </html>

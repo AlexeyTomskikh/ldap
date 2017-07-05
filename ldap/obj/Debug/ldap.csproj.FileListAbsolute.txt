@@ -114,7 +114,6 @@ C:\Users\Tomskikh.AA\Desktop\ldap-20170620T014341Z-001\ldap\ldap\bin\System.Web.
 C:\Users\Tomskikh.AA\Desktop\ldap-20170620T014341Z-001\ldap\ldap\obj\Debug\ldap.csprojResolveAssemblyReference.cache
 C:\Users\Tomskikh.AA\Desktop\ldap-20170620T014341Z-001\ldap\ldap\obj\Debug\ldap.dll
 C:\Users\Tomskikh.AA\Desktop\ldap-20170620T014341Z-001\ldap\ldap\obj\Debug\ldap.pdb
-D:\project\ldap\obj\Debug\ldap.csprojResolveAssemblyReference.cache
 C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\ldap.dll.config
 C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\ldap.dll
 C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\bin\ldap.pdb
@@ -155,3 +154,50 @@ C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед
 C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\obj\Debug\ldap.csprojResolveAssemblyReference.cache
 C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\obj\Debug\ldap.dll
 C:\Users\Tomskikh.AA\Desktop\ldap 23.06.2017 14-02 (посл.сохр.перед применением плагинов)\obj\Debug\ldap.pdb
+D:\project\ldap\obj\Debug\ldap.csprojResolveAssemblyReference.cache
+D:\ldap\bin\ldap.dll.config
+D:\ldap\bin\ldap.dll
+D:\ldap\bin\ldap.pdb
+D:\ldap\bin\EasyGitHub.dll
+D:\ldap\bin\Microsoft.Web.Infrastructure.dll
+D:\ldap\bin\Newtonsoft.Json.dll
+D:\ldap\bin\System.Web.Helpers.dll
+D:\ldap\bin\System.Web.Razor.dll
+D:\ldap\bin\System.Web.WebPages.Deployment.dll
+D:\ldap\bin\System.Web.WebPages.dll
+D:\ldap\bin\System.Web.WebPages.Razor.dll
+D:\ldap\bin\Microsoft.Web.Infrastructure.xml
+D:\ldap\bin\System.Web.Helpers.xml
+D:\ldap\bin\System.Web.Razor.xml
+D:\ldap\bin\System.Web.WebPages.xml
+D:\ldap\bin\System.Web.WebPages.Deployment.xml
+D:\ldap\bin\System.Web.WebPages.Razor.xml
+D:\ldap\obj\Debug\ldap.dll
+D:\ldap\obj\Debug\ldap.pdb
+D:\ldap\obj\Debug\ldap.Migrations.ldap.resources
+D:\ldap\obj\Debug\ldap.csproj.GenerateResource.Cache
+D:\ldap\bin\Newtonsoft.Json.xml
+D:\ldap\obj\Debug\ldap.csprojResolveAssemblyReference.cache
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\ldap.dll.config
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\ldap.dll
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\ldap.pdb
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\EasyGitHub.dll
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\Newtonsoft.Json.dll
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\System.Web.Helpers.dll
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\System.Web.Razor.dll
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\System.Web.WebPages.dll
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\System.Web.WebPages.Razor.dll
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\Newtonsoft.Json.xml
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\System.Web.Helpers.xml
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\System.Web.Razor.xml
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\System.Web.WebPages.xml
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Tomskikh.AA\Desktop\ldap\bin\System.Web.WebPages.Razor.xml
+C:\Users\Tomskikh.AA\Desktop\ldap\obj\Debug\ldap.csprojResolveAssemblyReference.cache
+C:\Users\Tomskikh.AA\Desktop\ldap\obj\Debug\ldap.Migrations.ldap.resources
+C:\Users\Tomskikh.AA\Desktop\ldap\obj\Debug\ldap.csproj.GenerateResource.Cache
+C:\Users\Tomskikh.AA\Desktop\ldap\obj\Debug\ldap.dll
+C:\Users\Tomskikh.AA\Desktop\ldap\obj\Debug\ldap.pdb

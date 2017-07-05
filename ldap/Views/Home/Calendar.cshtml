@@ -1,58 +1,35 @@
-﻿@{
-    Layout = null;
+﻿
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/full-calendar/jquery-ui.css" rel="stylesheet" />
-    <link href="~/Content/full-calendar/fullcalendar.css" rel="stylesheet" />
-    <link href="~/Content/full-calendar/fullcalendar.print.css" rel="stylesheet" media="print" />
-    <link href="~/Content/full-calendar/style.css" rel="stylesheet" />
-    <script src="~/Content/full-calendar/lib/jquery.min.js"></script>
-    <script src="~/Content/full-calendar/lib/jquery-ui.min.js"></script>
-    
-
-    <script src="~/Scripts/js/add-event-full.js"></script>
-    <script src="~/Scripts/js/reload-elements.js"></script>
-
-    <title>Calendar</title>
-</head>
-<body>
-
-    
+@if (ViewContext.HttpContext.User.IsInRole("Admin") || ViewContext.HttpContext.User.IsInRole("UserReadAndWrite"))
+{
+    <div id="calendar" class="calendar"></div>
+}
+else
+{
+    <div id="calendarAlsoRead" class="calendar"></div>
+}
 
 
-<div id="calendar"></div>
+<div id="dialog">
+    <div class="form-group">
+        <label for="NameEvent">Название события</label>
+        <input type="text" class="form" id="NameEvent" placeholder="Название события" required="required" autocomplete="off">
+    </div>
+    <div class="form-group">
+        <label for="StartEvent">Начало события</label>
+        <input type="text" class="form" id="StartEvent" placeholder="Начало события" required="required" autocomplete="off">
+    </div>
+    <div class="form-group">
+        <label for="EndEvent">Конец события</label>
+        <input type="text" class="form" id="EndEvent" placeholder="Конец события" required="required" autocomplete="off">
+    </div>
 
-
-<div id='dialog'>
-    <form>
-        <div class="form-group">
-            <label for="title">Название события</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Название события">
-        </div>
-        <div class="form-group">
-            <label for="start">Начало события</label>
-            <input type="text" class="form-control datepicker" id="start" placeholder="Начало события">
-        </div>
-        <div class="form-group">
-            <label for="end">Конец события</label>
-            <input type="text" class="form-control datepicker" id="end" placeholder="Конец события">
-        </div>
-
-        <button type="submit" class="btn btn-success" onclick="AddEventFull(this.form)">Добавить событие</button>
-    </form>
-
+    <button type="submit" class="btn btn-success" onclick="CreateEvent(this.form)">Добавить</button>
+    <div class="message">
+        <div id="error-message"></div>
+    </div>
 </div>
-
-
-<script src="~/Content/full-calendar/lib/moment.min.js"></script>
-<script src="~/Content/full-calendar/fullcalendar.js"></script>
-<script src="~/Content/full-calendar/locale/ru.js"></script>
-<script src="~/Content/full-calendar/main.js"></script>
-</body>
-</html>

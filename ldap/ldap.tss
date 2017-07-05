@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ArrayOfArrayOfString>
+    <ArrayOfString>
+      <string>D:\ldap\App_Start\FilterConfig.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\ldap\App_Start\RouteConfig.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\ldap\App_Start\WebApiConfig.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\ldap\Infrastructure\EventManager.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\ldap\Infrastructure\UserManager.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\ldap\Infrastructure\LdapRoleProvider.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\ldap\Models\ViewsFormModels\EventModels.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\ldap\Controllers\LogicController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\ldap\Infrastructure\LdapDbContext.cs</string>
+    </ArrayOfString>
+  </ArrayOfArrayOfString>
+</ArrayOfArrayOfArrayOfString>

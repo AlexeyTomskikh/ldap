@@ -9,46 +9,47 @@
 /*Картинка логотипа*/
 img.logo {
     width: 170px; height: 60px;
-    margin-top: 4px;
+    margin-top: 15px;
+    margin-left: 256px;
 }
 
-/*Футер*/
+
 .footer {
-    color: #ffffff;
-    height: 30px;
-    background-color: #ffffff;
-    padding: 10px 25px 10px 25px;
-    margin-bottom: 5px;
-    clear: both;
-}
-body {
-    
-     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-     font-size: 14px;
+
+    margin-left: 1250px;
+    margin-top: 5px;
 }
 
-h2 {
-    text-align: center;
-}
+#login-form {
 
-.delete-icon {
-    width: 10px;
-}
-.fff {
-    height: 15px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: -100px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    overflow: auto;   
 }
 
 
-.red, .green, .blue {
-  position: absolute;
+.calendar {
+    max-width: 1000px;
+    margin-left: 300px;
+    margin-top: 20px;
+    border-collapse: collapse; /* Убираем двойные линии между ячейками */
+    border: 1px solid rgba(0,0,0,0.1);
 }
-.red {
-  background: red;
-  z-index: 1;
+
+.calendar .fc-today {
+    background: #ccc;
 }
-.green {
-  background: green;
+
+.calendar .fc-day {
+    transition: all .5s;
 }
-.blue {
-  background: blue;
+
+.calendar .fc-day:hover {
+     background: #ccc;
 }
