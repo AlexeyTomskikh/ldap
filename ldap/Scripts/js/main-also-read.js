@@ -20,7 +20,7 @@ $('#calendarAlsoRead').fullCalendar({
     events: function (start, end, timezone, callback) {
 
         $.ajax({
-            url: '/Logic/GetCalendarEvents/',
+            url: '/Scheduler/Logic/GetEvents/',
             dataType: 'json',
             data: {
                 start: start.unix(),

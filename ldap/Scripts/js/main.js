@@ -8,19 +8,14 @@ $('#calendar').fullCalendar({
     displayEventTime: true,
     displayEventEnd: true,
     BusinessHours: false,
+    nextDayThreshold: '00:00:00',
+    selectable: true,
+    editable: true,
     customButtons: {
-        myCustomButton: {
-            text: 'Добавить мероприятие',
-            click: function () {
-                $("#popup1").show();
-            }
-
-        },
         createEvent: {
             text: 'Добавить мероприятие',
             click: function () {
                 $('#dialog').dialog({
-
                     title: "Новое событие",
                     show: {
                         effect: 'drop',
@@ -31,6 +26,19 @@ $('#calendar').fullCalendar({
                         duration: 500
                     }
                 });
+
+                $.ajax({
+                    url: '/Logic/GetAllUsers/',
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#selectmembers').html(data);
+                        for (var i = 0; i < data.length; i++) {
+                            $('#selectmembers').append('<option value="' + data[i].id + '">' + data[i].firstName + '</option>');
+                        }
+                        $('#selectmembers').selectpicker('refresh');
+                    }
+                });
+
             }
         }
     },
@@ -41,14 +49,17 @@ $('#calendar').fullCalendar({
         right: 'month '
     },
     defaultView: 'month',
-    allDaySlot: false,       //убираем события длиною в день
+    height: 800,
+
+    allDaySlot: false, //убираем события длиною в день
     slotEventOverlap: false, // запрещаем пересечение событий
 
     //загрузчик событий в календарь
     events: function (start, end, timezone, callback) {
 
         $.ajax({
-            url: '/Logic/GetCalendarEvents/',
+            url: '/Logic/GetEvents/',
+            //url: '/Scheduler/Logic/GetEvents/',
             dataType: 'json',
             data: {
                 start: start.unix(),
@@ -60,61 +71,101 @@ $('#calendar').fullCalendar({
             }
         });
     },
+    
     timeFormat: 'HH:mm',
 
-    // Клик по событию удаляет событие
+    // Клик по событию открывает всплывающее окно
     eventClick: function (calEvent, jsEvent, view) {
-        var isAdmin = confirm("Удалить мероприятие?");
-        if (isAdmin) {
-            var eventId = calEvent.id;
-            $.ajax({
-                type: 'POST',
-                url: '/Logic/RemoveEvent?eventId=' + eventId,
-                contentType: 'application/json; charset=utf-8',
-                processData: false,
-                success: function (data) {
-                    if (data.success) {
-                        alert("Мероприятие успешно удалено");
-                        $('#calendar').fullCalendar('removeEvents', eventId);
-                    } else {
-                        alert("При удалении возникла ошибка");
-                    }
+        $('#eventinfo #members').empty();  // очищаем список участников
+        $('#btnDelete').attr("cust", calEvent.id);
+        $('#eventinfo #when').text(calEvent.start.format("D MMM HH:mm") + " - " + calEvent.end.format("HH:mm"));
+        $('#eventinfo #description').text(calEvent.descriptionEvent);
+        var eventId = calEvent.id;
 
-                },
-                error: function () {
-                    alert('Ошибка! Проверьте соединение!');
+        $.ajax({
+            type: 'POST',
+            url: '/Logic/GetMembers?eventId=' + eventId,
+            contentType: 'application/json; charset=utf-8',
+            processData: false,
+            success: function (data) {
+
+                for (var i = 0; i <= data.length; i++) {
+                    if (i == data.length - 1) {
+                        $('#eventinfo #members').append(data[i].firstName + '.');
+
+                    }
+                    if (i != data.length - 1) {
+                        $('#eventinfo #members').append(data[i].firstName + ', ');
+                    }
                 }
-            });
-        }
+            },
+            error: function () {
+                alert('Ошибка! Проверьте соединение!');
+            }
+        });
+
+
+        var roomId = calEvent.room;
+        $('#eventinfo #location').text(roomId == 1 ? "Комната 1" : "Комната 2");
+
+        $('#eventinfo').dialog({
+            title: calEvent.title,
+            show: {
+                effect: 'drop',
+                duration: 500
+            },
+            hide: {
+                effect: 'clip',
+                duration: 500
+            }
+        });
     }
 });
 
-function CreateEvent() {
 
-    var title = $('#NameEvent').val();
-    var date1 = $('#StartEvent').val();
-    var date2 = $('#EndEvent').val();
+$(document).on("click", ".btn-addevent", function (e) {
 
-    if (date1 == "" || date2 == "" || title == "") {
+    
+
+
+    var btn = $(e.target);
+    var title = $('#title').val();
+    var start = $('#StartTime').val();
+    var end = $('#EndTime').val();
+    var allDay = $("#AllDay").prop("checked");
+    var description = $('#Description').val();
+    var room = $('#Room').val();
+    var color = $("#colorselector").val();
+
+    // Читаем селект участников
+    var objSel = document.getElementById("selectmembers");
+    var memberList = getSelectedIndexes(objSel);
+
+    if (start == "" || end == "" || title == "") {
         $('#error-message').empty();
         $('#error-message').text('Заполните все поля');
-    } else if (date1 == date2) {
+    } else if (start == end) {
         $('#error-message').empty();
         $('#error-message').text('Начало и конец не могут быть равны');
-    } else if (date1 > date2) {
+    } else if (start > end) {
         $('#error-message').empty();
         $('#error-message').text('Начало не может быть позже конца');
     } else {
-        var formData = {
-            NameEvent: $('#NameEvent').val(),
-            StartEvent: $('#StartEvent').val(),
-            EndEvent: $('#EndEvent').val()
-        }
 
+        var eventModel = {
+            Title: title,
+            StartTime: start,
+            EndTime: end,
+            AllDay: allDay,
+            Description: description,
+            Color: color,
+            RoomId: room,
+            MemberList: memberList
+        };
         $.ajax({
-            url: '/Logic/AddNewEvent',
+            url: btn.data('url'),
             type: 'POST',
-            data: JSON.stringify(formData),
+            data: JSON.stringify(eventModel),
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             processData: false,
@@ -124,9 +175,6 @@ function CreateEvent() {
                     $('#error-message').text(result.message);
                 } else {
                     $('#calendar').fullCalendar('refetchEvents');
-                    $('.form').val("");
-                    $('.form').empty();
-                    $('#error-message').empty();
                     alert("Мероприятие успешно добавлено");
                     $("#dialog").dialog("close");
                 }
@@ -136,27 +184,125 @@ function CreateEvent() {
             }
         });
     }
-}
-
-
-
-$('#StartEvent').datetimepicker({
-    TimeOnlyTitle: "Выберите время",
-    TimeText: "Время",
-    HourText: "Часы",
-    MinuteText: "Минуты",
-    SecondText: "Секунды",
-    CurrentText: "Сейчас",
-    CloseText: "Закрыть"
 });
-$('#EndEvent').datetimepicker({
-    TimeOnlyTitle: "Выберите время",
-    TimeText: "Время",
-    HourText: "Часы",
-    MinuteText: "Минуты",
-    SecondText: "Секунды",
-    CurrentText: "Сейчас",
-    CloseText: "Закрыть"
+
+$(document).on("click", "#btnDelete", function (e) {
+    var btn = $(e.target);
+    var eventId = $('#btnDelete').attr("cust");
+    var isAdmin = confirm("Удалить мероприятие?");
+    if (isAdmin) {
+
+        $.ajax({
+            type: 'POST',
+            url: btn.data("url") + "?eventId=" + eventId,
+            contentType: 'application/json; charset=utf-8',
+            processData: false,
+            success: function (data) {
+                if (data.success) {
+                    $('#calendar').fullCalendar('removeEvents', eventId);
+                    $("#eventinfo").dialog("close");
+
+
+                } else {
+                    alert("При удалении возникла ошибка");
+                }
+            },
+            error: function () {
+                alert('Ошибка! Проверьте соединение!');
+            }
+        });
+    }
 });
+
+function getSelectedIndexes(oListbox) {
+    var arrIndexes = new Array;
+    for (var i = 0; i < oListbox.options.length; i++) {
+        if (oListbox.options[i].selected)
+            arrIndexes.push(oListbox.options[i].value);
+        // arrIndexes[i] = oListbox.options[i].value;
+    }
+    return arrIndexes;
+};
 
 $('#dialog').hide();
+
+$('#eventinfo').hide();
+
+$('#colorselector').colorselector();
+
+$('#StartTime').datetimepicker({
+    TimeOnlyTitle: "Выберите время",
+    TimeText: "Время",
+    HourText: "Часы",
+    MinuteText: "Минуты",
+    SecondText: "Секунды",
+    CurrentText: "Сейчас",
+    CloseText: "Закрыть"
+});
+$('#EndTime').datetimepicker({
+    TimeOnlyTitle: "Выберите время",
+    TimeText: "Время",
+    HourText: "Часы",
+    MinuteText: "Минуты",
+    SecondText: "Секунды",
+    CurrentText: "Сейчас",
+    CloseText: "Закрыть"
+});
+
+
+
+$('#addeventform').validate({
+    submitHandler: function () {
+        alert('OK!');
+    },
+
+    rules: {
+        Name: {
+            required: true,
+            minlength: 2
+        }
+    },
+    messages: {
+        Name: {
+            required: "Please enter a username",
+            minlength: "Your username must consist of at least 2 characters"
+        }
+    }
+});
+
+$(function () {
+    //при нажатии на кнопку с id="save"
+    $('#save').click(function () {
+        //переменная formValid
+        alert("ахтунг");
+        var formValid = true;
+        //перебрать все элементы управления input
+        $('input').each(function () {
+            //найти предков, которые имеют класс .form-group, для установления success/error
+            var formGroup = $(this).parents('.form-group');
+            //найти glyphicon, который предназначен для показа иконки успеха или ошибки
+            var glyphicon = formGroup.find('.form-control-feedback');
+            //для валидации данных используем HTML5 функцию checkValidity
+            if (this.checkValidity()) {
+                //добавить к formGroup класс .has-success, удалить has-error
+                formGroup.addClass('has-success').removeClass('has-error');
+                //добавить к glyphicon класс glyphicon-ok, удалить glyphicon-remove
+                glyphicon.addClass('glyphicon-ok').removeClass('glyphicon-remove');
+            } else {
+                //добавить к formGroup класс .has-error, удалить .has-success
+                formGroup.addClass('has-error').removeClass('has-success');
+                //добавить к glyphicon класс glyphicon-remove, удалить glyphicon-ok
+                glyphicon.addClass('glyphicon-remove').removeClass('glyphicon-ok');
+                //отметить форму как невалидную
+                formValid = false;
+            }
+        });
+        //если форма валидна, то
+        if (formValid) {
+            //сркыть модальное окно
+            $('#myModal').modal('hide');
+            //отобразить сообщение об успехе
+            $('#success-alert').removeClass('hidden');
+        }
+    });
+});

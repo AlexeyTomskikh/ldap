@@ -6,12 +6,13 @@
     using System.Web.Mvc;
     using ldap.Infrastructure;
     using ldap.Models;
+    using ldap.Models.DataBaseModels;
     using ldap.Models.ViewsFormModels;
 
     public class LogicController : Controller
     {
         [Authorize]
-        public JsonResult GetCalendarEvents(double start, double end)
+        public JsonResult GetEvents(double start, double end)
         {
             var fromDate = ConvertFromUnixTimestamp(start);
             var toDate = ConvertFromUnixTimestamp(end);
@@ -22,20 +23,24 @@
                             select new
                             {
                                 id = item.Id,
-                                title = item.DescriptionEvent,
+                                title = item.Title,
                                 start = item.StartTime.ToString("O"),
                                 end = item.EndTime.ToString("O"),
+                                descriptionEvent = item.Description,
+                                color = item.Color,
                                 editable = false,
+                                user = item.UserId,
+                                room = item.RoomId
                             };
             return Json(eventList.ToArray(), JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
         [Authorize(Roles = "Admin, UserReadAndWrite")]
-        public JsonResult AddNewEvent(EventModels model)
+        public JsonResult AddEvent(EventModel eventModel)
         {
             EventManager eventManagment = new EventManager();
-            bool result = eventManagment.IntersectionEvents(model.StartEvent, model.EndEvent); // определяем есть ли пересечение(свободно ли время)
+            bool result = eventManagment.IntersectionEvents(eventModel.StartTime, eventModel.EndTime); // определяем есть ли пересечение(свободно ли время)
 
             UserManager userInfo = new UserManager();
             int userId = userInfo.GetCurrentUserId();
@@ -47,17 +52,17 @@
                 errorMessage = "Ошибка авторизациии. Добавление невозможно. Обратитесь к администратору";
                 result = false;
             }
-            else if (string.IsNullOrEmpty(model.NameEvent))
+            else if (string.IsNullOrEmpty(eventModel.Title))
             {
                 errorMessage = "Название события должно быть заполнено";
                 result = false;
             }
-            else if (model.StartEvent == default(DateTime))
+            else if (eventModel.StartTime == default(DateTime))
             {
                 errorMessage = "Некорректное начало события";
                 result = false;
             }
-            else if (model.EndEvent == default(DateTime))
+            else if (eventModel.EndTime == default(DateTime))
             {
                 errorMessage = "Некорректное окончание события";
                 result = false;
@@ -66,7 +71,7 @@
             {
                 try
                 {
-                    eventManagment.WriteToDatabase(model.NameEvent, model.StartEvent, model.EndEvent, userId);
+                    eventManagment.WriteToDatabase(eventModel.Title, eventModel.StartTime, eventModel.EndTime, eventModel.Description, eventModel.Color, userId, eventModel.RoomId, eventModel.MemberList);
                     result = true;
                 }
                 catch (Exception e)
@@ -102,6 +107,38 @@
 
             return Json(new { success = result });
         }
+
+        // Метод отдаёт список всех юзеров из бд для формирования списка участников
+        public JsonResult GetAllUsers()
+        {
+            EventManager ev = new EventManager();
+            List<User> list = ev.GetAllUsers();
+
+            var userList = from item in list
+                            select new
+                            {
+                                id = item.Id,
+                                firstName = item.FirstName
+                            };
+
+            return Json(userList.ToArray(), JsonRequestBehavior.AllowGet);
+        }
+
+        // Метод отдаёт список участников по id мероприятия
+        public JsonResult GetMembers(int eventId)
+        {
+            EventManager ev = new EventManager();
+            List<string> firstNameList = ev.GetEventMembers(eventId);
+
+            var membersList = from item in firstNameList
+                           select new
+                           {
+                               firstName = item
+                           };
+
+            return Json(membersList.ToArray(), JsonRequestBehavior.AllowGet);
+        }
+
 
         private static DateTime ConvertFromUnixTimestamp(double timestamp)
         {

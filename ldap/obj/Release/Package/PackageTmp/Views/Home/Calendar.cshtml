@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+@if (ViewContext.HttpContext.User.IsInRole("Admin") || ViewContext.HttpContext.User.IsInRole("UserReadAndWrite"))
+{
+    <div id="calendar" class="calendar"></div>
+}
+else
+{
+    <div id="calendarAlsoRead" class="calendar"></div>
+}
+<div class="footer">
+    <div id="btnexit">@Html.ActionLink("Выйти", "LogOff", "Account")</div>
+</div>
+
+<div id="dialog">
+    <div class="form-group">
+        <label for="NameEvent">Название события</label>
+        <input type="text" class="form" id="NameEvent" placeholder="Название события" required="required" autocomplete="off">
+    </div>
+    <div class="form-group">
+        <label for="StartEvent">Начало события</label>
+        <input type="text" class="form" id="StartEvent" placeholder="Начало события" required="required" autocomplete="off">
+    </div>
+    <div class="form-group">
+        <label for="EndEvent">Конец события</label>
+        <input type="text" class="form" id="EndEvent" placeholder="Конец события" required="required" autocomplete="off">
+    </div>
+
+    <button type="submit" class="btn btn-success" onclick="CreateEvent(this.form)">Добавить</button>
+    <div class="message">
+        <div id="error-message"></div>
+    </div>
+</div>
+
+<div id="eventinfo">
+    <div class="form-group">
+        <div>Когда:</div><span id="when"></span>
+        
+    </div>
+    
+   
+
+    <button class="btn btn-success" id="btnDelete" cust="" return="false">Удалить</button>
+    @*<button type="submit" class="btn btn-success" onclick="CreateEvent(this.form)">Изменить</button>*@
+    
+</div>

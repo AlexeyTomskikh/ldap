@@ -5,29 +5,15 @@ namespace ldap.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    using global::ldap.Infrastructure;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<LdapDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ldap.Infrastructure.LdapDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(LdapDbContext context)
+        protected override void Seed(ldap.Infrastructure.LdapDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
         }
     }
 }

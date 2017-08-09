@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/full-calendar/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/full-calendar/fullcalendar.css" rel="stylesheet" />
+    <link href="~/Content/full-calendar/fullcalendar.print.css" rel="stylesheet" media="print" />
+
+
+    <script src="~/Content/full-calendar/lib/jquery.min.js"></script>
+    <script src="~/Content/full-calendar/lib/jquery-ui.min.js"></script>
+    <link href="~/Content/css/main.css" rel="stylesheet" />
+    <link href="~/Content/css/add-event-form.css" rel="stylesheet" />
+
+    <title>Расписание</title>
+
+</head>
+<body>
+    <div class="header">
+        <img class="logo" src="~/Content/img/lime-zaim.png" />
+    </div>
+
+    @RenderBody()
+
+    
+
+    @* TODO логичнее было бы скрипты календаря положить в папку Scripts, а не Content*@
+    <script src="~/Scripts/full-calendar/moment.min.js"></script>
+    <script src="~/Scripts/full-calendar/fullcalendar.min.js"></script>
+    <script src="~/Scripts/full-calendar/ru.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.js"></script>
+    <link href="~/Scripts/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui-timepicker-ru.js"></script>
+    <script src="~/Scripts/js/main.js"></script>
+    <script src="~/Scripts/js/main-also-read.js"></script>
+    
+</body>
+</html>

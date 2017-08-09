@@ -10,14 +10,16 @@
 img.logo {
     width: 170px; height: 60px;
     margin-top: 15px;
-    margin-left: 256px;
+    margin-left: 11%;
 }
 
 
 .footer {
 
-    margin-left: 1250px;
+    text-align: right;
     margin-top: 5px;
+    background-color: #74ae2d;
+    height: 33px;
 }
 
 #login-form {
@@ -32,11 +34,20 @@ img.logo {
     justify-content: center; 
     overflow: auto;   
 }
-
+#btnexit a{
+    color: #ffffff;
+}
+#btnexit {
+    padding: 5px;
+    margin-right: 13%;
+    color: #ffffff;
+    position:relative;
+}
 
 .calendar {
-    max-width: 1000px;
-    margin-left: 300px;
+    max-width: 1250px;
+    margin-left: 13%;
+    
     margin-top: 20px;
     border-collapse: collapse; /* Убираем двойные линии между ячейками */
     border: 1px solid rgba(0,0,0,0.1);
@@ -52,4 +63,13 @@ img.logo {
 
 .calendar .fc-day:hover {
      background: #ccc;
+}
+
+.fc-event {
+border: 1px solid #3a87ad;
+background-color: #3a87ad;
+color: #fff;
+font-size: .85em;
+cursor: default;
+min-height: 15px; 
 }

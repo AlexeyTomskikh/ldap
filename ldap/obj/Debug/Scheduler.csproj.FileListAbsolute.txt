@@ -1,0 +1,70 @@
+D:\project\ldap\bin\ldap.dll.config
+D:\project\ldap\bin\ldap.dll
+D:\project\ldap\bin\ldap.pdb
+D:\project\ldap\bin\EasyGitHub.dll
+D:\project\ldap\bin\Microsoft.Web.Infrastructure.dll
+D:\project\ldap\bin\Newtonsoft.Json.dll
+D:\project\ldap\bin\System.Web.Helpers.dll
+D:\project\ldap\bin\System.Web.Razor.dll
+D:\project\ldap\bin\System.Web.WebPages.Deployment.dll
+D:\project\ldap\bin\System.Web.WebPages.dll
+D:\project\ldap\bin\System.Web.WebPages.Razor.dll
+D:\project\ldap\bin\Newtonsoft.Json.xml
+D:\project\ldap\bin\Microsoft.Web.Infrastructure.xml
+D:\project\ldap\bin\System.Web.Helpers.xml
+D:\project\ldap\bin\System.Web.Razor.xml
+D:\project\ldap\bin\System.Web.WebPages.xml
+D:\project\ldap\bin\System.Web.WebPages.Deployment.xml
+D:\project\ldap\bin\System.Web.WebPages.Razor.xml
+D:\project\ldap\obj\Debug\ldap.Migrations.ldap.resources
+D:\project\ldap\obj\Debug\Scheduler.csproj.GenerateResource.Cache
+D:\project\ldap\obj\Debug\ldap.dll
+D:\project\ldap\obj\Debug\ldap.pdb
+D:\project\ldap\obj\Debug\Scheduler.csprojResolveAssemblyReference.cache
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\ldap.dll.config
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\ldap.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\ldap.pdb
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\EasyGitHub.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\Newtonsoft.Json.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.Helpers.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.Razor.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.WebPages.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.WebPages.Razor.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\Newtonsoft.Json.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.Helpers.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.Razor.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.WebPages.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.WebPages.Razor.xml
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\obj\Debug\Scheduler.csprojResolveAssemblyReference.cache
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\obj\Debug\ldap.Migrations.ldap.resources
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\obj\Debug\Scheduler.csproj.GenerateResource.Cache
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\obj\Debug\ldap.dll
+C:\Users\Tomskikh.AA\Desktop\Резервные копии ldap\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\obj\Debug\ldap.pdb
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\ldap.dll.config
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\ldap.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\ldap.pdb
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\EasyGitHub.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\Newtonsoft.Json.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.Helpers.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.Razor.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.WebPages.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.WebPages.Razor.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\Newtonsoft.Json.xml
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.Helpers.xml
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.Razor.xml
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.WebPages.xml
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\bin\System.Web.WebPages.Razor.xml
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\obj\Debug\ldap.dll
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\obj\Debug\ldap.pdb
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\obj\Debug\ldap.Migrations.SampleMigrations.resources
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\obj\Debug\Scheduler.csproj.GenerateResource.Cache
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\obj\Debug\Scheduler.csprojResolveAssemblyReference.cache
+C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\obj\Debug\ldap.Migrations.Migration.resources

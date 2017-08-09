@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>http://localhost:60166/</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/EasyGitHub.dll">
+      <publishTime>06/19/2017 10:49:02</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>06/19/2017 10:48:00</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>06/19/2017 10:48:14</publishTime>
+    </File>
+    <File Include="bin/ldap.dll">
+      <publishTime>07/13/2017 10:01:55</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/08/2013 15:15:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Mvc.FixedDisplayModes.dll">
+      <publishTime>06/19/2017 10:48:14</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>07/03/2017 15:55:55</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>07/09/2013 11:05:10</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>06/19/2017 10:48:16</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>07/09/2013 11:05:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>07/09/2013 11:05:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>07/09/2013 11:05:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>07/09/2013 11:05:12</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css">
+      <publishTime>06/22/2017 14:44:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css.map">
+      <publishTime>06/22/2017 14:44:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css">
+      <publishTime>06/22/2017 14:44:37</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css.map">
+      <publishTime>06/22/2017 14:44:37</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>06/22/2017 14:44:48</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css.map">
+      <publishTime>06/22/2017 14:44:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>06/22/2017 14:44:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css.map">
+      <publishTime>06/22/2017 14:44:38</publishTime>
+    </File>
+    <File Include="Content/css/add-event-form.css">
+      <publishTime>06/29/2017 16:31:27</publishTime>
+    </File>
+    <File Include="Content/css/main.css">
+      <publishTime>07/13/2017 09:33:30</publishTime>
+    </File>
+    <File Include="Content/full-calendar/CHANGELOG.txt">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/CONTRIBUTING.txt">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/fullcalendar.css">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/fullcalendar.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/fullcalendar.min.css">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/fullcalendar.print.css">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/fullcalendar.print.min.css">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/gcal.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/gcal.min.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>06/22/2017 14:22:48</publishTime>
+    </File>
+    <File Include="Content/full-calendar/images/ui-bg_highlight-soft_100_f6f6f6_1x100.png">
+      <publishTime>06/22/2017 14:22:48</publishTime>
+    </File>
+    <File Include="Content/full-calendar/images/ui-bg_highlight-soft_25_0073ea_1x100.png">
+      <publishTime>06/22/2017 14:22:48</publishTime>
+    </File>
+    <File Include="Content/full-calendar/images/ui-bg_highlight-soft_50_dddddd_1x100.png">
+      <publishTime>06/22/2017 14:22:48</publishTime>
+    </File>
+    <File Include="Content/full-calendar/images/ui-icons_0073ea_256x240.png">
+      <publishTime>06/22/2017 14:22:48</publishTime>
+    </File>
+    <File Include="Content/full-calendar/images/ui-icons_454545_256x240.png">
+      <publishTime>06/22/2017 14:22:48</publishTime>
+    </File>
+    <File Include="Content/full-calendar/images/ui-icons_666666_256x240.png">
+      <publishTime>06/22/2017 14:22:48</publishTime>
+    </File>
+    <File Include="Content/full-calendar/images/ui-icons_ff0084_256x240.png">
+      <publishTime>06/22/2017 14:22:48</publishTime>
+    </File>
+    <File Include="Content/full-calendar/images/ui-icons_ffffff_256x240.png">
+      <publishTime>06/22/2017 14:22:48</publishTime>
+    </File>
+    <File Include="Content/full-calendar/jquery-ui.css">
+      <publishTime>06/22/2017 14:22:35</publishTime>
+    </File>
+    <File Include="Content/full-calendar/lib/cupertino/images/ui-bg_diagonals-thick_90_eeeeee_40x40.png">
+      <publishTime>06/22/2017 14:05:58</publishTime>
+    </File>
+    <File Include="Content/full-calendar/lib/cupertino/images/ui-bg_glass_100_e4f1fb_1x400.png">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/lib/cupertino/images/ui-bg_glass_50_3baae3_1x400.png">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/lib/cupertino/images/ui-bg_glass_80_d7ebf9_1x400.png">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/lib/cupertino/images/ui-bg_highlight-hard_100_f2f5f7_1x100.png">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/lib/cupertino/images/ui-bg_highlight-hard_70_000000_1x100.png">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/lib/cupertino/images/ui-bg_highlight-soft_100_deedf7_1x100.png">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/lib/cupertino/images/ui-bg_highlight-soft_25_ffef8f_1x100.png">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/lib/cupertino/images/ui-icons_2694e8_256x240.png">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/lib/cupertino/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/lib/cupertino/images/ui-icons_3d80b3_256x240.png">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/lib/cupertino/images/ui-icons_72a7cf_256x240.png">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/lib/cupertino/images/ui-icons_ffffff_256x240.png">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/lib/cupertino/jquery-ui.min.css">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/lib/jquery-ui.min.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/lib/jquery.min.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/LICENSE.txt">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale-all.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/af.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/ar-dz.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/ar-kw.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/ar-ly.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/ar-ma.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/ar-sa.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/ar-tn.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/ar.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/bg.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/ca.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/cs.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/da.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/de-at.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/de-ch.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/de.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/el.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/en-au.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/en-ca.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/en-gb.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/en-ie.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/en-nz.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/es-do.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/es.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/et.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/eu.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/fa.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/fi.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/fr-ca.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/fr-ch.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/fr.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/gl.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/he.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/hi.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/hr.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/hu.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/id.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/is.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/it.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/ja.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/kk.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/ko.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/lb.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/lt.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/lv.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/mk.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/ms-my.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/ms.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/nb.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/nl-be.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/nl.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/nn.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/pl.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/pt-br.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/pt.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/ro.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/sk.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/sl.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/sr-cyrl.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/sr.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/sv.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/th.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/tr.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/uk.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/vi.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/zh-cn.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/full-calendar/locale/zh-tw.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Content/img/lime-zaim.png">
+      <publishTime>06/19/2017 10:48:30</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>06/22/2017 14:44:37</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>06/22/2017 14:44:37</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>06/22/2017 14:44:37</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>06/22/2017 14:44:37</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>06/22/2017 14:44:37</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>06/19/2017 10:48:06</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>07/03/2017 15:55:56</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>06/22/2017 14:44:37</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>06/22/2017 14:44:37</publishTime>
+    </File>
+    <File Include="Scripts/full-calendar/fullcalendar.min.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Scripts/full-calendar/moment.min.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Scripts/full-calendar/ru.js">
+      <publishTime>06/22/2017 14:05:59</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1.js">
+      <publishTime>06/19/2017 10:48:28</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1.min.js">
+      <publishTime>06/19/2017 10:48:28</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/AUTHORS.txt">
+      <publishTime>06/19/2017 10:48:54</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/external/jquery/jquery.js">
+      <publishTime>06/19/2017 10:49:14</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/images/ui-icons_444444_256x240.png">
+      <publishTime>06/19/2017 10:49:12</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/images/ui-icons_555555_256x240.png">
+      <publishTime>06/19/2017 10:49:12</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/images/ui-icons_777620_256x240.png">
+      <publishTime>06/19/2017 10:49:12</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/images/ui-icons_777777_256x240.png">
+      <publishTime>06/19/2017 10:49:12</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/images/ui-icons_cc0000_256x240.png">
+      <publishTime>06/19/2017 10:49:14</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/images/ui-icons_ffffff_256x240.png">
+      <publishTime>06/19/2017 10:49:14</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/index.html">
+      <publishTime>06/19/2017 10:48:54</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.css">
+      <publishTime>06/19/2017 10:48:54</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.js">
+      <publishTime>06/19/2017 10:48:54</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.min.css">
+      <publishTime>06/19/2017 10:48:54</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.min.js">
+      <publishTime>06/19/2017 10:48:54</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.structure.css">
+      <publishTime>06/19/2017 10:48:54</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.structure.min.css">
+      <publishTime>06/19/2017 10:48:52</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.theme.css">
+      <publishTime>06/19/2017 10:48:52</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.theme.min.css">
+      <publishTime>06/19/2017 10:48:54</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/LICENSE.txt">
+      <publishTime>06/19/2017 10:48:54</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1/jquery-ui-1.12.1/package.json">
+      <publishTime>06/19/2017 10:48:56</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-sliderAccess.js">
+      <publishTime>06/19/2017 10:48:28</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-timepicker-addon.css">
+      <publishTime>06/29/2017 11:20:36</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-timepicker-addon.js">
+      <publishTime>06/19/2017 10:48:28</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-timepicker-addon.min.css">
+      <publishTime>06/19/2017 10:48:28</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-timepicker-addon.min.js">
+      <publishTime>06/19/2017 10:48:28</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-timepicker-ru.js">
+      <publishTime>06/27/2017 11:29:39</publishTime>
+    </File>
+    <File Include="Scripts/js/main-also-read.js">
+      <publishTime>07/05/2017 14:15:12</publishTime>
+    </File>
+    <File Include="Scripts/js/main.js">
+      <publishTime>07/13/2017 09:42:40</publishTime>
+    </File>
+    <File Include="Views/Account/Login.cshtml">
+      <publishTime>07/04/2017 12:19:36</publishTime>
+    </File>
+    <File Include="Views/Home/Calendar.cshtml">
+      <publishTime>07/13/2017 09:14:30</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>07/05/2017 11:31:14</publishTime>
+    </File>
+    <File Include="Views/Shared/Layout.cshtml">
+      <publishTime>07/13/2017 09:11:43</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>06/19/2017 10:48:28</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>07/13/2017 10:01:56</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
