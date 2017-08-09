@@ -38,76 +38,95 @@ else
         </div>
     </div>*@
 
-<!-- Форма для регистрации -->
+<!-- Форма добавления нового события -->
 <form role="form" id="addeventform">
+
     <div id="dialog">
-        <!-- Блок для ввода названия -->
-        <div class="form-group has-feedback">
-            <label for="title" class="control-label">Заголовок:</label>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="text" class="form-control" required="required" id="title" placeholder="Название" autocomplete="off" name="Name" pattern="[A-Za-z]{6,}">
+        <!-- Поле для ввода заголовка -->
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label for="title">Заголовок:</label>
+                <input type="text" class="form-control" id="title" placeholder="Название" autocomplete="off" name="Name">
             </div>
-            <span class="glyphicon form-control-feedback"></span>
         </div>
-        <!-- Блок для ввода начало события -->
+
+        <!-- Поле для ввода начала события -->
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label for="StartTime">Дата и время начала:</label>
+                <input type="text" class="form-control" id="StartTime" placeholder="Начало события" autocomplete="off">
+            </div>
+        </div>
+
+        <!-- Поле для ввода конца события -->
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label for="EndTime">Дата и время завершения:</label>
+                <input type="text" class="form-control input-sm" id="EndTime" placeholder="Конец события" autocomplete="off">
+            </div>
+        </div>
+
+        <!-- Подробное описания события -->
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <a href="#" data-toggle="collapse" data-target="#Description" style="color: #0000ff">Подробное описание</a>
+                <textarea class="form-control input-sm collapse" rows="3" id="Description"></textarea>
+            </div>
+        </div>
+
+        <!-- Выбор переговорки -->
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label for="Room">Место проведения:</label>
+                <select class="form-control input-sm" id="Room">
+                    <option value="1">Переговорка 1</option>
+                    <option value="2">Переговорка 2</option>
+                </select>
+            </div>
+
+            <!-- Выбор цвета -->
+            <div class="form-group col-xs-6">
+                <label for="colorselector">Цвет:</label>
+                <select id="colorselector">
+                    <option value="#A0522D" data-color="#A0522D">sienna</option>
+                    <option value="#CD5C5C" data-color="#CD5C5C">indianred</option>
+                    <option value="#FF4500" data-color="#FF4500">orangered</option>
+                    <option value="#008B8B" data-color="#008B8B">darkcyan</option>
+                    <option value="#B8860B" data-color="#B8860B">darkgoldenrod</option>
+                    <option value="#32CD32" data-color="#32CD32">limegreen</option>
+                    <option value="#FFD700" data-color="#FFD700">gold</option>
+                    <option value="#48D1CC" data-color="#48D1CC">mediumturquoise</option>
+                    <option value="#87CEEB" data-color="#87CEEB">skyblue</option>
+                    <option value="#FF69B4" data-color="#FF69B4">hotpink</option>
+                    <option value="#CD5C5C" data-color="#CD5C5C">indianred</option>
+                    <option value="#87CEFA" data-color="#87CEFA">lightskyblue</option>
+                    <option value="#6495ED" data-color="#6495ED">cornflowerblue</option>
+                    <option value="#DC143C" data-color="#DC143C">crimson</option>
+                    <option value="#FF8C00" data-color="#FF8C00">darkorange</option>
+                    <option value="#C71585" data-color="#C71585">mediumvioletred</option>
+                    <option value="#000000" data-color="#000000">black</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Выбор Участников события -->
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label for="selectmembers">Участники:</label>
+                @*<select class="selectpicker dropup" id="selectmembers" data-style="btn-default" multiple data-max-options="13" data-live-search="true" data-selected-text-format="count" data-width="50%" data-size="10">*@
+                <select class="selectpicker dropup" id="selectmembers" data-style="btn-default" multiple data-max-options="13" data-live-search="true" data-size="10">
+                    <option></option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Кнопка добавить -->
         <div class="form-group">
-            <label for="StartTime">Начало события:</label>
-
-            <input type="text" class="form-control input-sm" id="StartTime" placeholder="Начало события" autocomplete="off">
-        </div>
-        <div class="form-group">
-            <label for="EndTime">Начало события:</label>
-            <input type="text" class="form-control input-sm" id="EndTime" placeholder="Конец события" autocomplete="off">
-        </div>
-        <div class="form-group">
-            @*<label for="Description">Подробное описание:</label>*@
-            <a href="#" data-toggle="collapse" data-target="#Description" style="color:#0000ff">Подробное описание</a>
-            <textarea class="form-control input-sm collapse" rows="3" id="Description"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="Room">Место проведения:</label>
-            <select class="form-control input-sm" id="Room">
-                <option value="1">Переговорка 1</option>
-                <option value="2">Переговорка 2</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="colorselector1">Цвет:</label>
-
-            <select id="colorselector">
-                <option value="#A0522D" data-color="#A0522D">sienna</option>
-                <option value="#CD5C5C" data-color="#CD5C5C">indianred</option>
-                <option value="#FF4500" data-color="#FF4500">orangered</option>
-                <option value="#008B8B" data-color="#008B8B">darkcyan</option>
-                <option value="#B8860B" data-color="#B8860B">darkgoldenrod</option>
-                <option value="#32CD32" data-color="#32CD32">limegreen</option>
-                <option value="#FFD700" data-color="#FFD700">gold</option>
-                <option value="#48D1CC" data-color="#48D1CC">mediumturquoise</option>
-                <option value="#87CEEB" data-color="#87CEEB">skyblue</option>
-                <option value="#FF69B4" data-color="#FF69B4">hotpink</option>
-                <option value="#CD5C5C" data-color="#CD5C5C">indianred</option>
-                <option value="#87CEFA" data-color="#87CEFA">lightskyblue</option>
-                <option value="#6495ED" data-color="#6495ED">cornflowerblue</option>
-                <option value="#DC143C" data-color="#DC143C">crimson</option>
-                <option value="#FF8C00" data-color="#FF8C00">darkorange</option>
-                <option value="#C71585" data-color="#C71585">mediumvioletred</option>
-                <option value="#000000" data-color="#000000">black</option>
-            </select>
-
-        </div>
-        <div class="form-group">
-            <label for="Members">Участники:</label>
-            <select class="selectpicker dropup" id="selectmembers" data-style="btn-default" multiple data-max-options="13" data-live-search="true" data-selected-text-format="count" data-width="75%" data-size="10">
-                <option></option>
-            </select>
-
+            <button type="submit" id="save" class="btn btn-success btn-addevent" data-url=@Url.Action("AddEvent", "Logic")>Добавить</button>
         </div>
 
-        <button type="submit" id="save" class="btn btn-success btn-addevent" data-url=@Url.Action("AddEvent","Logic" )>Добавить</button>
-        <div id="error-message"></div>
-
-
+        <!-- Поле для вывода ошибок -->
+        <span id="error-message-title"></span>
     </div>
 </form>
 
@@ -127,89 +146,4 @@ else
     <button class="btn btn-danger" id="btnDelete" cust="" return="false" data-url=@Url.Action("RemoveEvent", "Logic")>Удалить</button>
     <button class="btn btn-warning" onclick="CreateEvent(this.form)">Изменить</button>
 
-</div>
-
-
-<!-- Форма для регистрации -->
-<form role="form" class="form-horizontal">
-    <!-- Блок для ввода логина -->
-    <div class="form-group has-feedback">
-        <label for="login" class="control-label col-xs-3">Логин:</label>
-        <div class="col-xs-6">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="text" class="form-control" required="required" name="login" pattern="[A-Za-z]{6,}">
-            </div>
-            <span class="glyphicon form-control-feedback"></span>
-        </div>
-    </div>
-    <!-- Блок для ввода email -->
-    <div class="form-group has-feedback">
-        <label for="email" class="control-label col-xs-3">Email:</label>
-        <div class="col-xs-6">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <input type="email" class="form-control" required="required" name="email">
-            </div>
-            <span class="glyphicon form-control-feedback"></span>
-        </div>
-    </div>
-    <!-- Конец блока для ввода email-->
-</form>
-
-<!-- Модальное окно -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Заголовок модального окна -->
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-                <h4 class="modal-title" id="myModalLabel">Регистрация</h4>
-            </div>
-            <!-- Основная часть модального окна, содержащая форму для регистрации -->
-            <div class="modal-body">
-                <!-- Форма для регистрации -->
-                <form role="form" class="form-horizontal">
-                    <!-- Блок для ввода логина -->
-                    <div class="form-group has-feedback">
-                        <label for="login" class="control-label col-xs-3">Логин:</label>
-                        <div class="col-xs-6">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input type="text" class="form-control" required="required" name="login" pattern="[A-Za-z]{6,}">
-                            </div>
-                            <span class="glyphicon form-control-feedback"></span>
-                        </div>
-                    </div>
-                    <!-- Блок для ввода email -->
-                    <div class="form-group has-feedback">
-                        <label for="email" class="control-label col-xs-3">Email:</label>
-                        <div class="col-xs-6">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input type="email" class="form-control" required="required" name="email">
-                            </div>
-                            <span class="glyphicon form-control-feedback"></span>
-                        </div>
-                    </div>
-                    <!-- Конец блока для ввода email-->
-                </form>
-            </div>
-            <!-- Нижняя часть модального окна -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
-                <button id="save" type="button" class="btn btn-primary">Регистрация</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Кнопка для открытия модального окна -->
-<button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal">
-    Регистрация
-</button>
-
-<div class="alert alert-success hidden" id="success-alert">
-    <h2>Успех</h2>
-    <div>Ваши данные были успешно отправлены.</div>
 </div>

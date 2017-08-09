@@ -16,7 +16,6 @@ D:\project\ldap\bin\System.Web.Razor.xml
 D:\project\ldap\bin\System.Web.WebPages.xml
 D:\project\ldap\bin\System.Web.WebPages.Deployment.xml
 D:\project\ldap\bin\System.Web.WebPages.Razor.xml
-D:\project\ldap\obj\Debug\ldap.Migrations.ldap.resources
 D:\project\ldap\obj\Debug\Scheduler.csproj.GenerateResource.Cache
 D:\project\ldap\obj\Debug\ldap.dll
 D:\project\ldap\obj\Debug\ldap.pdb
@@ -68,3 +67,5 @@ C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на собы�
 C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\obj\Debug\Scheduler.csproj.GenerateResource.Cache
 C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\obj\Debug\Scheduler.csprojResolveAssemblyReference.cache
 C:\Users\Tomskikh.AA\Desktop\ldap 13.07.2017 10-13 нажатие на событие -всплыв окно\obj\Debug\ldap.Migrations.Migration.resources
+D:\project\ldap\obj\Debug\ldap.Migrations.SampleMigrations.resources
+D:\project\ldap\obj\Debug\ldap.Migrations.Migration.resources
